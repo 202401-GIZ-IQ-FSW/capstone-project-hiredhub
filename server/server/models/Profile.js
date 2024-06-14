@@ -11,9 +11,11 @@ const profileSchema = new Schema(
     personalInfo: {
         firstName: { type: String, required: true},
         lastName: { type: String, required: true },
+        email: { type: String, required: true },
+        phoneNumber: { type: Number, required: true },
         location: { type: String, required: true },
-        resume: { type: String },
-        profilePicture: { type: String },
+        resume: { type: String, default: '' },
+        profilePicture: { type: String, default: '' },
     },
     applications: [{ type: mongoose.Schema.Types.ObjectId, ref: "Application"}],
     savedJobs: [{ type: mongoose.Schema.Types.ObjectId, ref: "Job"}],
