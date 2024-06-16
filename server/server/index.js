@@ -1,5 +1,7 @@
 const express = require("express");
 const cors = require("cors");
+//Controller Imports
+const companyRoutes = require("./routes/companyRoutes");
 
 require("dotenv").config();
 
@@ -19,6 +21,8 @@ app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
   connectToMongo();
 });
+
+app.use("/api/companies", companyRoutes);
 
 app.get("/test", (req, res) => {
   res.json(
