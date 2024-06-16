@@ -4,6 +4,7 @@ const cors = require("cors");
 require("dotenv").config();
 
 const connectToMongo = require("./db/connection");
+const logging = require("./middlewares/logging");
 
 const app = express();
 const port =
@@ -19,6 +20,7 @@ app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
   connectToMongo();
 });
+app.use(logging());
 
 app.get("/test", (req, res) => {
   res.json(
