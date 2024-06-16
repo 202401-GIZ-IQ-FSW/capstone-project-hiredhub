@@ -50,7 +50,6 @@ exports.createCompany = async (req, res) => {
     });
     res.status(201).json(newCompany);
   } catch (error) {
-    console.log(error);
     res.status(400).json({ message: error.message });
   }
 };
@@ -87,6 +86,6 @@ exports.deleteCompany = async (req, res) => {
       return res.status(404).json({ message: "Company not found" });
     res.status(200).json({ message: "Company deleted" });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(404).json({ message: error.message });
   }
 };
