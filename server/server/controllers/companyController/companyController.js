@@ -55,8 +55,9 @@ exports.createCompany = async (req, res) => {
 };
 
 exports.getCompanyById = async (req, res) => {
+  const { id } = req.params;
   try {
-    const company = await Company.findById(req.params.id);
+    const company = await Company.findById(id);
     if (!company) return res.status(404).json({ message: "Company not found" });
     res.status(200).json(company);
   } catch (error) {
@@ -65,12 +66,12 @@ exports.getCompanyById = async (req, res) => {
 };
 
 exports.updateCompany = async (req, res) => {
+  const { id } = req.params;
+  const { body } = req;
   try {
-    const updatedCompany = await Company.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true }
-    );
+    const updatedCompany = await Company.findByIdAndUpdate(id, body, {
+      new: true,
+    });
     if (!updatedCompany)
       return res.status(404).json({ message: "Company not found" });
     res.status(200).json(updatedCompany);
@@ -80,8 +81,9 @@ exports.updateCompany = async (req, res) => {
 };
 
 exports.deleteCompany = async (req, res) => {
+  const { id } = req.params;
   try {
-    const deletedCompany = await Company.findByIdAndDelete(req.params.id);
+    const deletedCompany = await Company.findByIdAndDelete(id);
     if (!deletedCompany)
       return res.status(404).json({ message: "Company not found" });
     res.status(200).json({ message: "Company deleted" });
