@@ -1,6 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 
+const companyRoutes = require("./routes/companyRoutes");
+
 require("dotenv").config();
 
 const connectToMongo = require("./db/connection");
@@ -21,6 +23,8 @@ app.listen(port, () => {
   connectToMongo();
 });
 app.use(logging());
+
+app.use("/api/companies", companyRoutes);
 
 app.get("/test", (req, res) => {
   res.json(
