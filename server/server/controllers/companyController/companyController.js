@@ -67,11 +67,35 @@ exports.getCompanyById = async (req, res) => {
 
 exports.updateCompany = async (req, res) => {
   const { id } = req.params;
-  const { body } = req;
+  const {  name,
+    website,
+    description,
+    logo,
+    location,
+    CEO,
+    ContactInfo,
+    history,
+    mission,
+    values, } = req.body;
   try {
-    const updatedCompany = await Company.findByIdAndUpdate(id, body, {
-      new: true,
-    });
+    const updatedCompany = await Company.findByIdAndUpdate(  id,
+      {
+        $set: {
+          name,
+          website,
+          description,
+          location,
+          logo,
+          linkedinProfile,
+          twitterProfile,
+          CEO,
+          ContactInfo,
+          history,
+          mission,
+          values
+        }
+      },
+      { new: true });
     if (!updatedCompany)
       return res.status(404).json({ message: "Company not found" });
     res.status(200).json(updatedCompany);
