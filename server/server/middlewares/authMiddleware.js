@@ -21,7 +21,7 @@ const JwtAuthorize = (req, res, next) => {
             return res.status(401).json({ message: 'Authorization header format is Bearer <token>' });
         }
     } else {
-        return res.status(401).json({ message: 'Authorization header missing' });
+        return res.status(401).json({ message: 'Unauthorized' });
     }
 };
 
