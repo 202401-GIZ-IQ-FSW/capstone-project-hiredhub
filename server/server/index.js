@@ -8,7 +8,7 @@ require("dotenv").config();
 const connectToMongo = require("./db/connection");
 const logging = require("./middlewares/logging");
 
-// const authRoutes = require("./routes/authRoutes");
+const authRoutes = require("./routes/authRoutes");
 
 const app = express();
 const port =
