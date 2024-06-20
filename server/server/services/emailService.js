@@ -21,8 +21,8 @@ transporter.verify((error, success) => {
 
 const sendEmail = (to, subject, text, html) => {
     const mailOptions = {
-        from: process.env.EMAIL_USER,
-        to,
+        from: "h4lv35t@gmail.com",
+        to, 
         subject,
         text,
         html
