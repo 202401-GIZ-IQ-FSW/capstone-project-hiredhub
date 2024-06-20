@@ -1,32 +1,19 @@
-const nodemailer = require('nodemailer');
+const { sendEmail } = require('../services/emailService');
 
-const sendEmail = async (req, res) => {
+exports.sendEmailController = async (req, res) => {
     const { name, email, message } = req.body;
 
-    const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: "h4lv35t@gmail.com",
-            pass: "rrlm ewvg vhhm yruk"
-        }
-    });
-
-    const mailOptions = {
-        from: email,
-        to: process.env.GMAIL_USER,
-        subject: `A message from ${name}`,
-        text: message
-    };
-
-    try {
-        await transporter.sendMail(mailOptions);
-        res.status(200).send('Email sent successfully');
-    } catch (error) {
-        res.status(500).send('Error sending email: ' + error.message);
+    if (!name || !email || !message) {
+        return res.status(400).send('All fields are required');
     }
-};
 
-module.exports = {
-    sendEmail
+    const result = await sendEmail({ name, email, message });
+
+    if (result.success) {
+        res.status(200).send('Email sent successfully');
+    } else {
+        console.error('Error sending email:', result.error);
+        res.status(500).send('Error sending email: ' + result.error);
+    }
 };
 

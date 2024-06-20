@@ -10,7 +10,7 @@ const emailRoutes = require("./routes/emailRoutes")
 
 
 
-
+//DB Connect
 const connectToMongo = require("./db/connection");
 const logging = require("./middlewares/logging");
 
@@ -27,6 +27,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 
+// logging middleware
+app.use(logging());
+
 
 //ROUTES
 app.use('/api/auth', authRoutes);
@@ -36,12 +39,12 @@ app.use("/api/send-email", emailRoutes)
 
 
 
-
+//SERVER
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
   connectToMongo();
 });
-app.use(logging());
+
 
 
 
