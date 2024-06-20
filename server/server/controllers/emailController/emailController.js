@@ -1,15 +1,32 @@
-const emailService = require('../../services/emailService');
+const nodemailer = require('nodemailer');
 
-exports.sendEmail = async (req, res) => {
-    const { to, subject, text, html } = req.body;
+const sendEmail = async (req, res) => {
+    const { name, email, message } = req.body;
+
+    const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: "h4lv35t@gmail.com",
+            pass: "rrlm ewvg vhhm yruk"
+        }
+    });
+
+    const mailOptions = {
+        from: email,
+        to: process.env.GMAIL_USER,
+        subject: `A message from ${name}`,
+        text: message
+    };
 
     try {
-        await emailService.sendEmail(to, subject, text, html);
-        res.status(200).json({ message: 'Email sent successfully' });
+        await transporter.sendMail(mailOptions);
+        res.status(200).send('Email sent successfully');
     } catch (error) {
-        console.error('Error sending email:', error);
-        res.status(500).json({ error: 'Error sending email' });
+        res.status(500).send('Error sending email: ' + error.message);
     }
 };
 
+module.exports = {
+    sendEmail
+};
 

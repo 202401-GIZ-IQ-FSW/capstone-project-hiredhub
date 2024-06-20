@@ -6,7 +6,7 @@ require("dotenv").config();
 //Route Imports
 const companyRoutes = require("./routes/companyRoutes");
 const authRoutes = require("./routes/authRoutes");
-const emailController = require("./controllers/emailController/emailController");
+const emailRoutes = require("./routes/emailRoutes")
 
 
 
@@ -31,7 +31,7 @@ app.use(express.json());
 //ROUTES
 app.use('/api/auth', authRoutes);
 app.use("/api/companies", companyRoutes);
-app.use("/api/send-email", emailController)
+app.use("/api/send-email", emailRoutes)
 
 
 
