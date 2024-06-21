@@ -15,8 +15,9 @@ node_modules
 
 # production
 /build
-/logs
-logs/*
+#dicard the log in local
+!logs/
+!logs/**
 # misc
 .DS_Store
 *.pem
