@@ -2,9 +2,16 @@
 const express = require("express");
 const router = express.Router();
 const CategoryController = require("../controllers/categoryController/categoryController");
+const { errorHanlder } = require("../middlewares/errorHandler");
+const { categorySchema } = require("../schema/category");
 
 // Create a new category
-router.post("/category", CategoryController.createCategory);
+router.post(
+  "/category",
+  categorySchema,
+  errorHanlder,
+  CategoryController.createCategory
+);
 
 // Get all categories
 router.get("/category", CategoryController.getCategories);

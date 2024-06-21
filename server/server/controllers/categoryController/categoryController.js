@@ -5,6 +5,11 @@ class CategoryController {
   // Create a new category
   async createCategory(req, res) {
     try {
+      const name = req?.body?.name;
+      const cate = await Category.findOne({ name });
+      if (cate) {
+        throw new Error("category  duplicate");
+      }
       const category = new Category(req.body);
       await category.save();
       res.status(201).json(category);
@@ -39,6 +44,11 @@ class CategoryController {
   // Update a category by ID
   async updateCategory(req, res) {
     try {
+      const name = req?.body?.name;
+      const cate = await Category.findOne({ name });
+      if (cate) {
+        throw new Error("category duplicate");
+      }
       const category = await Category.findByIdAndUpdate(
         req.params.id,
         req.body,
