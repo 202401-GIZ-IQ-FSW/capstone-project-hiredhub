@@ -15,7 +15,8 @@ node_modules
 
 # production
 /build
-*/logs
+/logs
+logs/*
 # misc
 .DS_Store
 *.pem
