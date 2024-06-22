@@ -1,4 +1,4 @@
-const applications = require("./../../models/Application");
+const Applications = require("./../../models/Application");
 
 const createApplication = async (req, res) => {
   const {
@@ -12,7 +12,7 @@ const createApplication = async (req, res) => {
   } = req.body;
 
   try {
-    const existingApplication = await applications.findOne({
+    const existingApplication = await Applications.findOne({
       jobId,
       applicantId,
     });
@@ -22,7 +22,7 @@ const createApplication = async (req, res) => {
       });
     }
 
-    const application = new applications({
+    const application = new Applications({
       jobId,
       applicantId,
       status,
@@ -42,7 +42,7 @@ const createApplication = async (req, res) => {
 const getApplicationsByUserId = async (req, res) => {
   const { userId } = req.params;
   try {
-    const userApplications = await applications.find({ applicantId: userId });
+    const userApplications = await Applications.find({ applicantId: userId });
     if (userApplications == false) {
       return res
         .status(404)
@@ -57,7 +57,7 @@ const getApplicationsByUserId = async (req, res) => {
 const getApplicationsByJobId = async (req, res) => {
   const { jobId } = req.params;
   try {
-    const jobApplications = await applications.find({ jobId });
+    const jobApplications = await Applications.find({ jobId });
     if (jobApplications == false) {
       return res
         .status(404)
@@ -82,7 +82,7 @@ const updateApplication = async (req, res) => {
   } = req.body;
 
   try {
-    const application = await applications.findById(id);
+    const application = await Applications.findById(id);
     if (!application) {
       return res.status(404).json({ message: "Application not found." });
     }
@@ -117,7 +117,7 @@ const updateApplication = async (req, res) => {
 const deleteApplication = async (req, res) => {
   const { id } = req.params;
   try {
-    const application = await applications.findByIdAndDelete(id);
+    const application = await Applications.findByIdAndDelete(id);
     if (!application) {
       return res.status(404).json({ message: "Application not found." });
     }
