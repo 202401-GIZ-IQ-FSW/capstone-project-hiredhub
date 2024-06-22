@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 
 const companyRoutes = require("./routes/companyRoutes");
+const jobRoutes = require('./routes/jobRoutes')
 
 require("dotenv").config();
 

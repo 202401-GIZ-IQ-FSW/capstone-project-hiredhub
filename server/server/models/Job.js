@@ -67,9 +67,12 @@ const jobSchema = new Schema(
       type: Number,
       default: 0,
     },
-    applicants: {
-        type: [String]
-    },
+    applicants: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Profile'
+      }
+    ],
     status: {
       type: String,
       enum: ["open", "closed", "paused"],
