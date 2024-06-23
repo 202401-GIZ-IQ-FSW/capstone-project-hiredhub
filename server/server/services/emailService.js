@@ -10,11 +10,14 @@ const emailService = async ({ name, email, message }) => {
     });
 
     const mailOptions = {
-        from: email,
+        from: process.env.GMAIL_USER,
+        replyTo: email,
         to: process.env.GMAIL_USER,
         subject: `A message from ${name}`,
         text: message
     };
+
+    
 
     try {
         await transporter.sendMail(mailOptions);
