@@ -8,7 +8,7 @@ class CategoryController {
       const name = req?.body?.name;
       const cate = await Category.findOne({ name });
       if (cate) {
-        throw new Error("category  duplicate");
+        throw new Error("duplicate category");
       }
       const category = new Category(req.body);
       await category.save();
