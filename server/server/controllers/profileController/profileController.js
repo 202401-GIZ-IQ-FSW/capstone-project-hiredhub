@@ -113,8 +113,6 @@ exports.addSavedJobs = async (req, res) => {
     }catch(err){
         res.status(500).json({ error: err })
     }
-    
-
 }
 
 exports.removeSavedJobs = async (req, res) => {
@@ -135,7 +133,7 @@ exports.removeSavedJobs = async (req, res) => {
         profile.savedJobs.pull(jobId)
         await profile.save()
         res.status(200).json({ message: "Job removed from saved jobs", savedJobs: profile.savedJobs });
-    } catch (error) {
+    } catch (err) {
         res.status(500).json({ error: err });
     }
 }
