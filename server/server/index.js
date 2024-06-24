@@ -17,6 +17,11 @@ const logging = require("./middlewares/logging");
 
 
 
+
+
+const profileRoutes = require('./routes/profileRoutes')
+
+
 const app = express();
 const port =
   process.env.NODE_ENV === "test"
@@ -36,8 +41,7 @@ app.use(logging());
 app.use('/api/auth', authRoutes);
 app.use("/api/companies", companyRoutes);
 app.use("/api/send-email", emailRoutes)
-
-
+app.use('/api/profile', profileRoutes)
 
 
 //SERVER
