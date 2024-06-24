@@ -8,7 +8,9 @@ require("dotenv").config();
 const connectToMongo = require("./db/connection");
 const logging = require("./middlewares/logging");
 
-const authRoutes = require("./routes/authRoutes");
+
+const authRoutes = require('./routes/authRoutes')
+const profileRoutes = require('./routes/profileRoutes')
 
 const app = express();
 const port =
@@ -20,7 +22,8 @@ app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// app.use("/api/auth", authRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/profile', profileRoutes)
 
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
