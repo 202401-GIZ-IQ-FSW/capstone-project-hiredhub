@@ -2,33 +2,19 @@ import React from "react";
 
 const JobCard = () => {
   return (
-    <div>
-      <div className=" jobCarddiv flex gap-10 justify-center flex-wrap items-center py-10">
-        <div
-          key={id}
-          className=" w-[250px] p-[20px] bg-white rounded hover:bg-blue-500 shadow-BlueShadow hover:shadow-lg "
-        ></div>
-        <span className="flex justify-between items-center gap-4">
-          <h1 className="text-[16px] font-semibold text-black group-hover:text-white">
-            Job Title {title}
-          </h1>
-        </span>
-        <h6 className="text-[#ccc] ">City/Location {location}</h6>
-        <p className="text-[13px] text-[#959595] pt-[20px] border-t-[2px] mt-[20px] group-hover:text-white">
-          {description}
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum,
-          officia.
+    <div className="job-card max-w-sm bg-white rounded-lg shadow-md hover:shadow-xl hover:bg-blue-100 overflow-hidden m-4">
+      <div className="p-4">
+        <h2 className="text-xl font-semibold text-gray-800">title</h2>
+        <p className="text-gray-600 mt-2">Employer Company</p>
+        <p className="text-gray-500 text-sm mt-1">City/Location</p>
+        <p className="text-gray-700 mt-4">
+          DESCRIPTION Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+          Tempora iste veniam nesciunt, cum doloribus laboriosam voluptates ipsa
+          sunt, expedita iure, et saepe ex repellat itaque natus eius suscipit.
+          Accusantium, dolore.
         </p>
-
-        <div className="employerCompany flex items-center gap-2">
-          <img src={image} alt="Company Logo" className="w-[10%]" />
-          <span className="text-[14px] py-[1rem] block group-hover:text-LightBlue">
-            Company Name {company}
-          </span>
-        </div>
-        <button className="border-[2px] rounded-[1opx] block p-[10px] w-full text-[14px] font-semibold text-black hover:bg-white group-hover/item:text-BlueColor ">
-          {" "}
-          Apply Now!
+        <button className="mt-6 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600">
+          Apply Now
         </button>
       </div>
     </div>
