@@ -1,4 +1,3 @@
-import { Butterfly_Kids } from "next/font/google";
 import React from "react";
 import { IoSearch } from "react-icons/io5";
 
