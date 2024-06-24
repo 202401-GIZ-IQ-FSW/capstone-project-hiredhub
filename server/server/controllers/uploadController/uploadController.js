@@ -2,13 +2,13 @@ const multer = require('multer');
 const Profile = require('../../models/Profile');
 
 const upload = multer({
-  dest: 'uploads/', // Temporary storage location
-  limits: { fileSize: 1000000 }, // Limit file size to 1MB
+  dest: 'uploads/', 
+  limits: { fileSize: 1000000 }, 
 });
 
 exports.uploadProfilePicture = upload.single('profilePicture'), async (req, res) => {
   try {
-    const profile = await Profile.findById(req.user.id); // Replace with your authentication logic
+    const profile = await Profile.findById(req.user.id); 
 
     if (!profile) {
       return res.status(404).json({ message: 'User profile not found' });
@@ -26,7 +26,7 @@ exports.uploadProfilePicture = upload.single('profilePicture'), async (req, res)
 
 exports.uploadCV = upload.single('cv'), async (req, res) => {
   try {
-    const profile = await Profile.findById(req.user.id); // Replace with your authentication logic
+    const profile = await Profile.findById(req.user.id); 
 
     if (!profile) {
       return res.status(404).json({ message: 'User profile not found' });

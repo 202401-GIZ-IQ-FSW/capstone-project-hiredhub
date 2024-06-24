@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const companyRoutes = require("./routes/companyRoutes");
+const uploadRoutes = require("./routes/uploadRoute")
 
 
 require("dotenv").config();
@@ -35,6 +36,7 @@ app.listen(port, () => {
 app.use(logging());
 
 app.use("/api/companies", companyRoutes);
+app.use("api/upload", uploadRoutes)
 
 
 app.get("/test", (req, res) => {
