@@ -97,7 +97,7 @@ describe("Category API", () => {
         });
     });
 
-    it("When trying to crearte category Given ame of category that is empty  Then should return an error ", (done) => {
+    it("When trying to create a category Given Name of the category that is empty  Then should return an error", (done) => {
       request(app)
         .post("/api/category")
         .send({ name: "hi" })
