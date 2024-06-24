@@ -7,6 +7,7 @@ require("dotenv").config();
 const companyRoutes = require("./routes/companyRoutes");
 const authRoutes = require("./routes/authRoutes");
 const emailRoutes = require("./routes/emailRoutes");
+const profileRoutes = require('./routes/profileRoutes');
 
 
 
@@ -33,6 +34,7 @@ app.use(logging());
 
 //ROUTES
 app.use('/api/auth', authRoutes);
+app.use('/api/profile', profileRoutes);
 app.use("/api/companies", companyRoutes);
 app.use("/api/send-email", emailRoutes)
 
