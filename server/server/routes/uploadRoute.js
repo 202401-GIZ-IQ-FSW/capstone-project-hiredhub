@@ -1,10 +1,9 @@
 const express = require('express');
+const profileController = require("../controllers/uploadController/uploadController");
+
 const router = express.Router();
-const upload = require('../config/multerConfig');
-const profileController = require('../controllers/uploadController/uploadController');
 
-router.post('/uploadProfilePicture', upload.single('profilePicture'), profileController.uploadProfilePicture);
-
-router.post('/uploadResume', upload.single('resume'), profileController.uploadResume);
+router.post('/upload/profilepicture', profileController.uploadProfilePicture);
+router.post('/upload/cv', profileController.uploadCV);
 
 module.exports = router;

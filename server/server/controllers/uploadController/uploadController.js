@@ -1,29 +1,43 @@
+const multer = require('multer');
 const Profile = require('../../models/Profile');
 
-exports.uploadProfilePicture = async (req, res) => {
+const upload = multer({
+  dest: 'uploads/', // Temporary storage location
+  limits: { fileSize: 1000000 }, // Limit file size to 1MB
+});
+
+exports.uploadProfilePicture = upload.single('profilePicture'), async (req, res) => {
   try {
-    const profile = await Profile.findById(req.body.profileId);
+    const profile = await Profile.findById(req.user.id); // Replace with your authentication logic
+
     if (!profile) {
-      return res.status(404).send('Profile not found');
+      return res.status(404).json({ message: 'User profile not found' });
     }
-    profile.personalInfo.profilePicture = req.file.path;
+
+    profile.personalInfo.profilePicture = req.file.filename;
     await profile.save();
-    res.status(200).json(profile);
+
+    res.json({ message: 'Profile picture uploaded successfully' });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error(error.message);
+    res.status(500).json({ message: 'Server Error' });
   }
 };
 
-exports.uploadResume = async (req, res) => {
+exports.uploadCV = upload.single('cv'), async (req, res) => {
   try {
-    const profile = await Profile.findById(req.body.profileId);
+    const profile = await Profile.findById(req.user.id); // Replace with your authentication logic
+
     if (!profile) {
-      return res.status(404).send('Profile not found');
+      return res.status(404).json({ message: 'User profile not found' });
     }
-    profile.personalInfo.resume = req.file.path;
+
+    profile.personalInfo.resume = req.file.filename;
     await profile.save();
-    res.status(200).json(profile);
+
+    res.json({ message: 'CV uploaded successfully' });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error(error.message);
+    res.status(500).json({ message: 'Server Error' });
   }
 };
