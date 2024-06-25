@@ -58,53 +58,66 @@ exports.updateJobById = async (req, res) => {
 
 
 exports.searchJobs = async (req, res) => {
-    const { keyword, location, title, category, jobType, wage, status, educationalLevel, yearsOfExperience } = req.query;
-    const filter = {};
-  
-    if (keyword) {
-      filter.$or = [
-        { title: new RegExp(keyword, 'i') },
-        { description: new RegExp(keyword, 'i') }
-      ];
-    }
-  
-    if (location) {
-      filter.location = new RegExp(location, 'i');
-    }
-  
-    if (title) {
-      filter.title = new RegExp(title, 'i');
-    }
-  
-    if (category) {
-      filter.category = category;
-    }
-  
-    if (jobType) {
-      filter.jobType = { $in: jobType.split(',') };
-    }
-  
-    if (wage) {
-      filter.wage = { $gte: Number(wage) };
-    }
-  
-    if (status) {
-      filter.status = status;
-    }
-  
-    if (educationalLevel) {
-      filter['requirements.educationalLevel'] = educationalLevel;
-    }
-  
-    if (yearsOfExperience) {
-      filter['requirements.yearsOfExperience'] = yearsOfExperience;
-    }
-  
-    try {
-      const jobs = await Job.find(filter);
-      res.status(200).json(jobs);
-    } catch (err) {
-      res.status(500).json({ message: err.message });
-    }
-  };
-  
+  const { keyword, location, title, category, jobType, wage, status, educationalLevel, yearsOfExperience, page = 1, limit = 10 } = req.query;
+  const filter = {};
+
+  if (keyword) {
+    filter.$or = [
+      { title: new RegExp(`\\b${keyword}`, 'i') },
+      { description: new RegExp(`\\b${keyword}`, 'i') }
+    ];
+  }
+
+  if (location) {
+    filter.location = new RegExp(location, 'i');
+  }
+
+  if (title) {
+    filter.title = new RegExp(`\\b${title}`, 'i');
+  }
+
+  if (category) {
+    filter.category = category;
+  }
+
+  if (jobType) {
+    filter.jobType = { $in: jobType.split(',') };
+  }
+
+  if (wage) {
+    filter.wage = { $gte: Number(wage) };
+  }
+
+  if (status) {
+    filter.status = status;
+  }
+
+  if (educationalLevel) {
+    filter['requirements.educationalLevel'] = educationalLevel;
+  }
+
+  if (yearsOfExperience) {
+    filter['requirements.yearsOfExperience'] = yearsOfExperience;
+  }
+
+  try {
+    const skip = (page - 1) * limit;
+    const jobs = await Job.find(filter)
+      .skip(skip)
+      .limit(Number(limit))
+      .exec();
+
+    const totalJobsCount = await Job.countDocuments(filter);
+
+    const totalPages = Math.ceil(totalJobsCount / limit);
+
+    res.status(200).json({
+      jobs,
+      currentPage: page,
+      totalPages,
+      totalJobs: totalJobsCount
+    });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
