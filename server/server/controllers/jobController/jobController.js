@@ -3,7 +3,9 @@ const Job = require("../../models/Job");
 
 exports.getAllJobs = async (req, res) => {
   try {
-    const jobs = await Job.find();
+    const jobs = await Job.find()
+    .populate("compnayId", "name")
+    .populate("category", "name");
     res.status(200).json(jobs);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -27,7 +29,9 @@ exports.getJobById = async (req, res) => {
   const id = req.params.id
  
   try {
-    const job = await Job.findById(id);
+    const job = await Job.findById(id)
+    .populate("compnayId", "name")
+    .populate("category", "name");
     if (!job) {
       return res.status(404).json({ message: 'Job not found' });
     }
@@ -103,6 +107,8 @@ exports.searchJobs = async (req, res) => {
   try {
     const skip = (page - 1) * limit;
     const jobs = await Job.find(filter)
+      .populate("compnayId", "name")
+      .populate("category", "name")
       .skip(skip)
       .limit(Number(limit))
       .exec();
