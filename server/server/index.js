@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 
 const companyRoutes = require("./routes/companyRoutes");
-const jobRoutes = require('./routes/jobRoutes')
+const jobRoutes = require("./routes/jobRoutes")
 
 require("dotenv").config();
 
@@ -31,7 +31,7 @@ app.use(logging());
 
 app.use("/api/companies", companyRoutes);
 
-app.use('/api', jobRoutes);
+app.use("/api/jobs", jobRoutes)
 
 app.get("/test", (req, res) => {
   res.json(
