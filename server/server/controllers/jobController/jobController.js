@@ -11,10 +11,10 @@ exports.getAllJobs = async (req, res) => {
 };
 
 
+
 exports.createJob = async (req, res) => {
-  const job = new Job(req.body);
   try {
-    const newJob = await job.save();
+    const newJob = await Job.create(req.body);
     res.status(201).json(newJob);
   } catch (err) {
     res.status(400).json({ message: err.message });
@@ -22,9 +22,12 @@ exports.createJob = async (req, res) => {
 };
 
 
+
 exports.getJobById = async (req, res) => {
+  const id = req.params.id
+ 
   try {
-    const job = await Job.findById(req.params.id);
+    const job = await Job.findById(id);
     if (!job) {
       return res.status(404).json({ message: 'Job not found' });
     }
@@ -36,8 +39,11 @@ exports.getJobById = async (req, res) => {
 
 
 exports.updateJobById = async (req, res) => {
+ 
+  const id = req.params.id
+ 
   try {
-    const job = await Job.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const job = await Job.findByIdAndUpdate(id, req.body, { new: true });
     if (!job) {
       return res.status(404).json({ message: 'Job not found' });
     }
