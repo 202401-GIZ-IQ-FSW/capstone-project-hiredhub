@@ -23,6 +23,9 @@ exports.getAllCompanies = async (req, res) => {
 };
 
 exports.createCompany = async (req, res) => {
+  
+  const userId = req.user.id
+
   const {
     name,
     website,
@@ -47,6 +50,7 @@ exports.createCompany = async (req, res) => {
       history,
       mission,
       values,
+      userId,
     });
     res.status(201).json(newCompany);
   } catch (error) {

@@ -1,4 +1,5 @@
 const Job = require("../../models/Job");
+const Company = require("../../models/Company")
 
 
 exports.getAllJobs = async (req, res) => {
@@ -16,10 +17,24 @@ exports.getAllJobs = async (req, res) => {
 
 exports.createJob = async (req, res) => {
   
-
+  const userId = req.user.id;
+  const role = req.user.role
   
+  if (role !== 'employer') {
+    return res.status(403).json({ message: 'You are not authorized to create job a listing' });
+  }
+  const company = await Company.findOne({ userId });
+  if (!company) {
+    return res.status(404).json({ error: 'Company not found' });
+  }
+
+  const jobData = {
+    ...req.body,
+    companyId: company._id,
+  };
+
   try {
-    const newJob = await Job.create(req.body);
+    const newJob = await Job.create(jobData);
     res.status(201).json(newJob);
   } catch (err) {
     res.status(400).json({ message: err.message });
