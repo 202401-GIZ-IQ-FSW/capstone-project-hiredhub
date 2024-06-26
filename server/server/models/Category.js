@@ -9,10 +9,7 @@ const categorySchema = new mongoose.Schema({
   description: {
     type: String,
   },
-  icon: {
-    type: String,
-    required: true,
-  },
 });
 
 const Category = mongoose.model("Category", categorySchema);
+module.exports = Category;
