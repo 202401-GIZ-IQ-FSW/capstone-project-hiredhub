@@ -7,10 +7,17 @@ const uploadRoutes = require("./routes/uploadRoute")
 require("dotenv").config();
 
 
+//DB Connect
 const connectToMongo = require("./db/connection");
 const logging = require("./middlewares/logging");
 
-const authRoutes = require('./routes/authRoutes')
+//Route Imports
+const companyRoutes = require("./routes/companyRoutes");
+const categoryRoutes = require("./routes/categoryRoutes");
+const authRoutes = require("./routes/authRoutes");
+const emailRoutes = require("./routes/emailRoutes");
+const profileRoutes = require('./routes/profileRoutes')
+
 
 
 
@@ -26,16 +33,26 @@ app.use(express.json());
 
 
 
+
+// logging middleware
+app.use(logging());
+
+
+//ROUTES
 app.use('/api/auth', authRoutes);
 
+app.use("/api/companies", companyRoutes);
+app.use("/api/send-email", emailRoutes)
+app.use('/api/profile', profileRoutes)
+app.use("/api/", categoryRoutes);
 
+
+//SERVER
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
   connectToMongo();
 });
-app.use(logging());
 
-app.use("/api/companies", companyRoutes);
 app.use("api/upload", uploadRoutes)
 
 
