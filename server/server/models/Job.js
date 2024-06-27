@@ -40,7 +40,7 @@ const jobSchema = new Schema(
         enum: ['High School', 'Associate', 'Bachelor', 'Master', 'Doctorate'],
       },
       yearsOfExperience: {
-        type: Number,
+        type: String,
         enum: ['0-1 years', '1-3 years', '3-5 years', '5-7 years', '7+ years'] 
       },
       certifications: [

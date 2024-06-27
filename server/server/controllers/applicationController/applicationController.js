@@ -1,14 +1,14 @@
 const Applications = require("./../../models/Application");
+const profile = require("./../../models/Profile");
+
 
 const createApplication = async (req, res) => {
   const {
     jobId,
     applicantId,
-    status,
     appliedAt,
     coverLetter,
     additionalInformation,
-    numOfInterviews,
   } = req.body;
 
   try {
@@ -25,11 +25,9 @@ const createApplication = async (req, res) => {
     const application = new Applications({
       jobId,
       applicantId,
-      status,
       appliedAt,
       coverLetter,
       additionalInformation,
-      numOfInterviews,
     });
 
     await application.save();
@@ -43,12 +41,13 @@ const getApplicationsByUserId = async (req, res) => {
   const { userId } = req.params;
   try {
     const userApplications = await Applications.find({ applicantId: userId });
+    const resume = await profile.find({userId: userId}).select({"personalInfo.resume": 1});
     if (userApplications == false) {
       return res
         .status(404)
         .json({ message: "No applications found for this user." });
     }
-    res.status(200).json(userApplications);
+    res.status(200).json({userApplications, resume});
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
@@ -72,12 +71,7 @@ const getApplicationsByJobId = async (req, res) => {
 const updateApplication = async (req, res) => {
   const { id } = req.params;
   const {
-    jobId,
-    applicantId,
     status,
-    appliedAt,
-    coverLetter,
-    additionalInformation,
     numOfInterviews,
   } = req.body;
 
@@ -86,23 +80,8 @@ const updateApplication = async (req, res) => {
     if (!application) {
       return res.status(404).json({ message: "Application not found." });
     }
-    if (jobId) {
-      application.jobId = jobId;
-    }
-    if (applicantId) {
-      application.applicantId = applicantId;
-    }
     if (status) {
       application.status = status;
-    }
-    if (appliedAt) {
-      application.appliedAt = appliedAt;
-    }
-    if (coverLetter) {
-      application.coverLetter = coverLetter;
-    }
-    if (additionalInformation) {
-      application.additionalInformation = additionalInformation;
     }
     if (numOfInterviews) {
       application.numOfInterviews = numOfInterviews;
