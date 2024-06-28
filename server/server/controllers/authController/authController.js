@@ -60,7 +60,10 @@ exports.signin = async (req, res) => {
       return res.status(401).json({ error: "Invalid password" })
     }
 
+     // Generate a token
     const token = generateToken(user)
+
+    // Return user (without password) and access token
     res.status(201).json({
       user: {
         id: user._id,
@@ -79,3 +82,28 @@ exports.signout = async (req, res) => {
   // by simply removing the token from local storage
   res.json({ message: 'Logout successful' });
 }
+
+exports.googleCallback = async (req, res) => {
+  try {
+    const user = req.user;
+    const token = generateToken(user);
+
+    // Return user (without password) and access token
+    res.status(201).json({
+      user: {
+        id: user._id,
+        email: user.email,
+        role: user.role
+      },
+      access_token: token
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+exports.setRole = async (req, res, next) => {
+  // Store the role in session
+  req.session.role = req.query.role || 'jobSeeker'; // Default role if none provided
+  next();
+};

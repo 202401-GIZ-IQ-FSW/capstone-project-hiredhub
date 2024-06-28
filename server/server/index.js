@@ -1,13 +1,15 @@
 const express = require("express");
+const session = require("express-session");
 const cors = require("cors");
-require("dotenv").config();
+require('dotenv').config();
+const passport = require("./passport-setup")
 
 
 //Route Imports
 const companyRoutes = require("./routes/companyRoutes");
 const authRoutes = require("./routes/authRoutes");
 const emailRoutes = require("./routes/emailRoutes");
-
+const profileRoutes = require('./routes/profileRoutes')
 
 
 
@@ -15,11 +17,6 @@ const emailRoutes = require("./routes/emailRoutes");
 const connectToMongo = require("./db/connection");
 const logging = require("./middlewares/logging");
 
-
-
-
-
-const profileRoutes = require('./routes/profileRoutes')
 
 
 const app = express();
@@ -31,7 +28,13 @@ const port =
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true,
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // logging middleware
 app.use(logging());
