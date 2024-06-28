@@ -27,7 +27,6 @@ exports.createCompany = async (req, res) => {
     name,
     website,
     description,
-    logo,
     location,
     CEO,
     ContactInfo,
@@ -35,6 +34,10 @@ exports.createCompany = async (req, res) => {
     mission,
     values,
   } = req.body;
+
+  const logo = req.file.path;
+  console.log("logo:  " , req.file)
+
   try {
     const newCompany = await Company.create({
       name,
