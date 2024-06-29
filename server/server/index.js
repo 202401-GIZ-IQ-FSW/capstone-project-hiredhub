@@ -4,9 +4,6 @@ const cors = require("cors");
 require('dotenv').config();
 const passport = require("./passport-setup")
 
-//DB Connect
-const connectToMongo = require("./db/connection");
-const logging = require("./middlewares/logging");
 
 //Route Imports
 const companyRoutes = require("./routes/companyRoutes");
