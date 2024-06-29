@@ -1,6 +1,5 @@
 const express = require("express");
 const cors = require("cors");
-const companyRoutes = require("./routes/companyRoutes");
 const getFile = require("./routes/RetriveFile");
 require("dotenv").config();
 
@@ -29,6 +28,7 @@ app.use(express.json());
 
 // Logging middleware
 app.use(logging());
+
 // ROUTES
 app.use("/api/auth", authRoutes);
 app.use('/api/applications', applicationRoutes);
@@ -38,6 +38,7 @@ app.use("/api/send-email", emailRoutes);
 app.use("/api/profile", profileRoutes);
 app.use("/api/", categoryRoutes);
 app.use("/backend-app", getFile);
+
 //SERVER
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
