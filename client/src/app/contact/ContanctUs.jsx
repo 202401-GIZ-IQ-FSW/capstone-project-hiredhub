@@ -79,7 +79,7 @@ const ContanctUs = () => {
 
         <div className="mapComp w-full md:w-1/2 flex justify-end">
           <img
-            src="https://c8.alamy.com/comp/2RA7WX4/city-map-erbil-iraq-asia-vector-illustration-black-white-2RA7WX4.jpg"
+            src="ERbil Map.png"
             class="w-full md:w-[400px] md:h-[auto] sm:w-[200px] h-400  rounded-lg shadow-lg"
           />
         </div>
