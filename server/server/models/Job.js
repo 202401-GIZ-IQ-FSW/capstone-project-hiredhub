@@ -40,7 +40,7 @@ const jobSchema = new Schema(
         enum: ['High School', 'Associate', 'Bachelor', 'Master', 'Doctorate'],
       },
       yearsOfExperience: {
-        type: Number,
+        type: String,
         enum: ['0-1 years', '1-3 years', '3-5 years', '5-7 years', '7+ years'] 
       },
       certifications: [
@@ -67,9 +67,12 @@ const jobSchema = new Schema(
       type: Number,
       default: 0,
     },
-    applicants: {
-        type: [String]
-    },
+    applicants: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Profile'
+      }
+    ],
     status: {
       type: String,
       enum: ["open", "closed", "paused"],

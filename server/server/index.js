@@ -13,7 +13,9 @@ const logging = require("./middlewares/logging");
 const categoryRoutes = require("./routes/categoryRoutes");
 const authRoutes = require("./routes/authRoutes");
 const emailRoutes = require("./routes/emailRoutes");
+const jobRoutes = require("./routes/jobRoutes")
 const profileRoutes = require("./routes/profileRoutes");
+
 const app = express();
 const port =
   process.env.NODE_ENV === "test"
@@ -29,7 +31,7 @@ app.use(logging());
 
 //ROUTES
 app.use("/api/auth", authRoutes);
-
+app.use("/api/jobs", jobRoutes)
 app.use("/api/companies", companyRoutes);
 app.use("/api/send-email", emailRoutes);
 app.use("/api/profile", profileRoutes);
@@ -41,10 +43,17 @@ app.listen(port, () => {
   connectToMongo();
 });
 
+
+
+
+
+
 app.get("/test", (req, res) => {
   res.json(
     "Server connection to client works!!  Good Luck with your capstones :D"
   );
 });
+
+
 
 module.exports = app;
