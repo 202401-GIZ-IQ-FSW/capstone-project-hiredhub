@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
 const companySchema = new mongoose.Schema({
-  name: {
+    name: {
     type: String,
     required: [true, "Please add company name"],
   },
-  website: {
+   website: {
     type: String,
   },
   description: {
@@ -63,6 +63,11 @@ const companySchema = new mongoose.Schema({
   },
   values: {
     type: [String],
+  },
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
   },
 });
 

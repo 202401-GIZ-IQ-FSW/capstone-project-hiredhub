@@ -23,11 +23,13 @@ exports.getAllCompanies = async (req, res) => {
 };
 
 exports.createCompany = async (req, res) => {
+  
+  const userId = req.user.id
+
   const {
     name,
     website,
     description,
-    logo,
     location,
     CEO,
     ContactInfo,
@@ -35,6 +37,10 @@ exports.createCompany = async (req, res) => {
     mission,
     values,
   } = req.body;
+
+  const logo = req.file.path;
+  console.log("logo:  " , req.file)
+
   try {
     const newCompany = await Company.create({
       name,
@@ -47,6 +53,7 @@ exports.createCompany = async (req, res) => {
       history,
       mission,
       values,
+      userId,
     });
     res.status(201).json(newCompany);
   } catch (error) {
