@@ -1,4 +1,5 @@
 const Company = require("../../models/Company");
+const User = require("../../models/User");
 
 exports.getAllCompanies = async (req, res) => {
   const { search } = req.query;
@@ -23,25 +24,27 @@ exports.getAllCompanies = async (req, res) => {
 };
 
 exports.createCompany = async (req, res) => {
-  
-  const userId = req.user.id
-
-  const {
-    name,
-    website,
-    description,
-    location,
-    CEO,
-    ContactInfo,
-    history,
-    mission,
-    values,
-  } = req.body;
-
-  const logo = req.file.path;
-  console.log("logo:  " , req.file)
-
   try {
+    const userId = req.user.id;
+    const {
+      name,
+      website,
+      description,
+      location,
+      CEO,
+      ContactInfo,
+      history,
+      mission,
+      values,
+    } = req.body;
+  
+    const logo = req.file.path;
+    
+    const user = await User.findById(userId)
+    if(!user){
+      return res.status(404).json({ error: "User not found" });
+    }
+
     const newCompany = await Company.create({
       name,
       website,

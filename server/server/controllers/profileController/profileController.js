@@ -19,7 +19,7 @@ exports.getProfile = async (req, res) => {
 
 exports.createProfile = async (req, res) => {
   const { firstName, lastName, phoneNumber, location } = req.body;
-  const userId = req.body.userId;
+  const userId = req.user.id;
   const profilePicture = req.files["profilePicture"][0].path;
   const resume = req.files["resume"][0].path;
   try {
