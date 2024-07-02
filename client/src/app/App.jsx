@@ -1,6 +1,9 @@
 import React from "react";
 import NavBar from "@/components/NavBar/NavBar";
 import SearchBox from "@/components/SearchBox/SearchBox";
+import JobCard from "@/components/JobCard/JobCard";
+import Footer from "@/components/Footer/Footer";
+
 
 const App = () => {
   return (
@@ -8,6 +11,8 @@ const App = () => {
       <div className="z-10 max-w-5xl items-center justify-between font-mono text-sm lg:flex w-[85%] m-auto bg-white">
         <NavBar />
         <SearchBox />
+        <JobCard />
+        <Footer />
       </div>
     </main>
   );
