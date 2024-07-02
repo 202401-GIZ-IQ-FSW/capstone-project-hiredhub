@@ -32,12 +32,12 @@ function Hero() {
             width={500}
             height={500}
             alt="Picture of the author"
-          />{" "}
+          />
         </div>
       </div>
 
       <div className="flex flex-col  w-screen place-items-center place-content-center mt-10">
-        <h1 className="text-2xl mb-4 font-lato text-emerald-900">
+        <h1 className="text-2xl mb-4 font-raleway text-emerald-900">
           Let's find your next job
         </h1>
         <div className="flex  items-center space-x-2 mb-4">
