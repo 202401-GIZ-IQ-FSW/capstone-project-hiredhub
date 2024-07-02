@@ -13,12 +13,16 @@ node_modules
 /.next/
 /out/
 
+
 # production
 /build
 #dicard the log in local
 !logs/
 !logs/**
 !*.log
+#Ignore all image localy
+files/*
+
 # misc
 .DS_Store
 *.pem
