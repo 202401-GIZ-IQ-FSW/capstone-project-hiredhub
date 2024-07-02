@@ -16,6 +16,7 @@ const SearchBox = () => {
             />
           </div>
           <button className="searchButton bg-[#3081D0] h-full p-5 px-10 rounded-[10px] text-white hover:bg-[#A0DEFF] hover:text-gray-700">
+
             Find Job!
           </button>
         </div>

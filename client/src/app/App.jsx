@@ -4,6 +4,7 @@ import SearchBox from "@/components/SearchBox/SearchBox";
 import JobCard from "@/components/JobCard/JobCard";
 import Footer from "@/components/Footer/Footer";
 
+
 const App = () => {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
