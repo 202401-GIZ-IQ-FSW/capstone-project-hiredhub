@@ -23,6 +23,7 @@ module.exports = {
         raleway: ["Raleway", "sans-serif"],
         lato: ["Lato", "sans-serif"],
         radley: ["Radley", "sans-serif"],
+        mulish: ["Mulish", "sans-serif"],
       },
       colors: {
         green: "#263238",
