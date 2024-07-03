@@ -1,6 +1,6 @@
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[2].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[11].oneOf[2].use[2]!./node_modules/next/font/google/target.css?{"path":"src\\app\\layout.js","import":"Inter","arguments":[{"subsets":["latin"]}],"variableName":"inter"} ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[2].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[13].oneOf[2].use[2]!./node_modules/next/font/google/target.css?{"path":"src/app/layout.js","import":"Inter","arguments":[{"subsets":["latin"]}],"variableName":"inter"} ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /* cyrillic-ext */
 @font-face {
   font-family: '__Inter_aaf875';
@@ -63,12 +63,12 @@
   font-display: swap;
   src: url(/_next/static/media/c9a5bc6a7c948fb0-s.p.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}@font-face {font-family: '__Inter_Fallback_aaf875';src: local("Arial");ascent-override: 90.20%;descent-override: 22.48%;line-gap-override: 0.00%;size-adjust: 107.40%
+}@font-face {font-family: '__Inter_Fallback_aaf875';src: local("Arial");ascent-override: 90.49%;descent-override: 22.56%;line-gap-override: 0.00%;size-adjust: 107.06%
 }.__className_aaf875 {font-family: '__Inter_aaf875', '__Inter_Fallback_aaf875';font-style: normal
 }
 
 /*!*****************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[3]!./src/app/globals.css ***!
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[3]!./src/app/globals.css ***!
   \*****************************************************************************************************************************************************************************************************************************************************************/
 /*
 ! tailwindcss v3.4.1 | MIT License | https://tailwindcss.com
@@ -623,9 +623,6 @@ video {
   .mt-4 {
   margin-top: 1rem;
 }
-  .mt-6 {
-  margin-top: 1.5rem;
-}
   .flex {
   display: flex;
 }
@@ -647,11 +644,14 @@ video {
   .w-full {
   width: 100%;
 }
+  .max-w-2xl {
+  max-width: 42rem;
+}
   .max-w-5xl {
   max-width: 64rem;
 }
-  .max-w-sm {
-  max-width: 24rem;
+  .flex-grow {
+  flex-grow: 1;
 }
   .cursor-pointer {
   cursor: pointer;
@@ -664,6 +664,9 @@ video {
 }
   .items-center {
   align-items: center;
+}
+  .justify-center {
+  justify-content: center;
 }
   .justify-between {
   justify-content: space-between;
@@ -689,6 +692,10 @@ video {
   .rounded-lg {
   border-radius: var(--radius);
 }
+  .bg-\[\#243238\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(36 50 56 / var(--tw-bg-opacity));
+}
   .bg-\[\#3081D0\] {
   --tw-bg-opacity: 1;
   background-color: rgb(48 129 208 / var(--tw-bg-opacity));
@@ -697,9 +704,9 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(202 244 255 / var(--tw-bg-opacity));
 }
-  .bg-blue-500 {
+  .bg-\[\#fafdfc\] {
   --tw-bg-opacity: 1;
-  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+  background-color: rgb(250 253 252 / var(--tw-bg-opacity));
 }
   .bg-transparent {
   background-color: transparent;
@@ -757,6 +764,14 @@ video {
   --tw-text-opacity: 1;
   color: rgb(160 222 255 / var(--tw-text-opacity));
 }
+  .text-\[\#243238\] {
+  --tw-text-opacity: 1;
+  color: rgb(36 50 56 / var(--tw-text-opacity));
+}
+  .text-\[\#9ea5a8\] {
+  --tw-text-opacity: 1;
+  color: rgb(158 165 168 / var(--tw-text-opacity));
+}
   .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
@@ -764,22 +779,6 @@ video {
   .text-blue-500 {
   --tw-text-opacity: 1;
   color: rgb(59 130 246 / var(--tw-text-opacity));
-}
-  .text-gray-500 {
-  --tw-text-opacity: 1;
-  color: rgb(107 114 128 / var(--tw-text-opacity));
-}
-  .text-gray-600 {
-  --tw-text-opacity: 1;
-  color: rgb(75 85 99 / var(--tw-text-opacity));
-}
-  .text-gray-700 {
-  --tw-text-opacity: 1;
-  color: rgb(55 65 81 / var(--tw-text-opacity));
-}
-  .text-gray-800 {
-  --tw-text-opacity: 1;
-  color: rgb(31 41 55 / var(--tw-text-opacity));
 }
   .text-white {
   --tw-text-opacity: 1;
@@ -814,19 +813,19 @@ video {
   }
 }
 
+  .hover\:bg-\[\#243238\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(36 50 56 / var(--tw-bg-opacity));
+}
+
   .hover\:bg-\[\#A0DEFF\]:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(160 222 255 / var(--tw-bg-opacity));
 }
 
-  .hover\:bg-blue-100:hover {
+  .hover\:bg-slate-600:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(219 234 254 / var(--tw-bg-opacity));
-}
-
-  .hover\:bg-blue-600:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(37 99 235 / var(--tw-bg-opacity));
+  background-color: rgb(71 85 105 / var(--tw-bg-opacity));
 }
 
   .hover\:text-BlueColor:hover {
@@ -839,6 +838,11 @@ video {
   color: rgb(55 65 81 / var(--tw-text-opacity));
 }
 
+  .hover\:text-white:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
   .hover\:shadow-xl:hover {
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
@@ -848,6 +852,17 @@ video {
   .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+  @media (min-width: 768px) {
+
+  .md\:flex-row {
+    flex-direction: row;
+  }
+
+  .md\:items-end {
+    align-items: flex-end;
+  }
 }
 
   @media (min-width: 1024px) {
