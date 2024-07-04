@@ -26,8 +26,6 @@ module.exports = {
         mulish: ["Mulish", "sans-serif"],
       },
       colors: {
-        green: "#263238",
-        pagecolor: "#FFFFFB",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
