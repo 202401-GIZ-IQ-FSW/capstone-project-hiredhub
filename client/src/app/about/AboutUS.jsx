@@ -1,6 +1,7 @@
 import React from "react";
 const AboutUS = () => {
   return;
+  //navbard//
   <div className="container mx-auto p-6">
     <div className="my-8">
       <h2 className="text-2xl font-semibold mb-4 text-[#40A578]">
@@ -117,5 +118,6 @@ const AboutUS = () => {
       </div>
     </div>
   </div>;
+  <Footer />;
 };
 export default AboutUS;
