@@ -3,7 +3,7 @@ const AboutUS = () => {
   return;
   //navbard//
   <div className="container mx-auto p-6">
-    <div className="my-8">
+    <div className=" topSection my-8">
       <h2 className="text-2xl font-semibold mb-4 text-[#40A578]">
         About HiredHub!
       </h2>
@@ -38,7 +38,7 @@ const AboutUS = () => {
         </div>
       </div>
     </div>
-    <div className="my-8">
+    <div className="teamSection my-8">
       <h2 className="text-2xl text-[#40A578] font-semibold mb-8">
         Meet Our Team
       </h2>
