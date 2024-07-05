@@ -1,4 +1,4 @@
-// File: C:\Users\HALWEST\Documents\Projects\capstone-project-hiredhub\client\src\app\layout.js
+// File: /home/hana/Desktop/work/Recoded/capstone-project-hiredhub/client/src/app/layout.js
 import * as entry from '../../../src/app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
