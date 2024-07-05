@@ -11,11 +11,11 @@ const SearchBox = () => {
             <IoSearch className="searchIcon cursor-pointer text-2xl md:text-3xl" />
             <input
               type="text"
-              className="w-full md:w-auto flex-grow bg-transparent text-green-700 focus:outline-none text-lg md:text-xl"
+              className="w-full md:w-auto flex-grow bg-transparent text-[#40A578] focus:outline-none text-lg md:text-xl"
               placeholder="Browse Jobs ..."
             />
           </div>
-          <button className="w-full md:w-auto rounded-lg bg-white py-2 md:py-3 px-6 md:px-10 text-gray-900 hover:bg-green-700 hover:text-gray-100 font-bold">
+          <button className="w-full md:w-auto rounded-lg bg-white py-2 md:py-3 px-6 md:px-10 text-gray-900 hover:bg-[#40A578] hover:text-gray-100 font-bold">
             Find Job!
           </button>
         </div>
