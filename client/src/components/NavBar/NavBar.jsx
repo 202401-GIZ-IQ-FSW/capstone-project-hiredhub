@@ -15,31 +15,31 @@ const NavBar = () => {
         </h1>
       </div>
 
-      <div class="menu hidden md:flex gap-8">
-        <li class="menuList text-black hover:text-[#40A578] hover:font-bold list-none cursor-pointer">
+      <div className="menu hidden md:flex gap-8">
+        <li className="menuList text-black hover:text-[#40A578] hover:font-bold list-none cursor-pointer">
           HOME
         </li>
-        <li class="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer">
+        <li className="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer">
           JOBS
         </li>
-        <li class="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer">
+        <li className="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer">
           EMPLOYERS
         </li>
-        <li class="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer">
+        <li className="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer">
           ABOUT
         </li>
-        <li class="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer">
+        <li className="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer">
           CONTACTS
         </li>
       </div>
 
-      <div class="md:hidden flex items-center">
+      <div className="md:hidden flex items-center">
         <button
           onClick={handleToggle}
-          class="text-[#40A578] focus:outline-none"
+          className="text-[#40A578] focus:outline-none"
         >
           <svg
-            class="w-6 h-6"
+            className="w-6 h-6"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -55,20 +55,20 @@ const NavBar = () => {
         </button>
       </div>
       {isMobileMenuOpen && (
-        <div class="menu flex-col items-center bg-white p-4 md:hidden absolute top-16 left-0 right-0 shadow-lg z-10">
-          <li class="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer py-2">
+        <div className="menu flex-col items-center bg-white p-4 md:hidden absolute top-16 left-0 right-0 shadow-lg z-10">
+          <li className="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer py-2">
             HOME
           </li>
-          <li class="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer py-2">
+          <li className="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer py-2">
             JOBS
           </li>
-          <li class="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer py-2">
+          <li className="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer py-2">
             EMPLOYERS
           </li>
-          <li class="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer py-2">
+          <li className="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer py-2">
             ABOUT
           </li>
-          <li class="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer py-2">
+          <li className="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer py-2">
             CONTACTS
           </li>
         </div>
