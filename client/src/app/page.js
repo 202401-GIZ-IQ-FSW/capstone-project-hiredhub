@@ -1,10 +1,11 @@
+import LandingHero from "@/components/LandingHero/LandingHero";
 import Test from "../components/Test";
 
 export default function Home() {
   return (
     <main>
       <div>
-        <Test />
+        <LandingHero />
       </div>
     </main>
   );
