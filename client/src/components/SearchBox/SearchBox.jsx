@@ -4,18 +4,18 @@ import { IoSearch } from "react-icons/io5";
 
 const SearchBox = () => {
   return (
-    <div className="searchBox grid gp-10 bg-[#CAF4FF] rounded-[10px] p-[3rem]">
+    <div className="searchBox grid rounded-lg p-6 md:p-12 ">
       <form action="">
-        <div className=" flex justify-between items-center rounded-[8px] gap-[10px] bg-white p-5 shadow-lg shadow-gray-400">
-          <div className="flex gap-2 items-center">
-            <IoSearch className="searchIcon text-[25px] cursor-pointer" />
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6 rounded-lg bg-white p-4 md:p-6 shadow-lg">
+          <div className="flex items-center w-full md:w-auto gap-2">
+            <IoSearch className="searchIcon cursor-pointer text-2xl md:text-3xl" />
             <input
               type="text"
-              className="bg-transparent text-blue-500 focus:outline-none w-[100%]"
+              className="w-full md:w-auto flex-grow bg-transparent text-[#40A578] focus:outline-none text-lg md:text-xl"
               placeholder="Browse Jobs ..."
             />
           </div>
-          <button className="searchButton bg-[#3081D0] h-full p-5 px-10 rounded-[10px] text-white hover:bg-[#A0DEFF] hover:text-gray-700">
+          <button className="w-full md:w-auto rounded-lg bg-white py-2 md:py-3 px-6 md:px-10 text-gray-900 hover:bg-[#40A578] hover:text-gray-100 font-bold">
             Find Job!
           </button>
         </div>
