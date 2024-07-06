@@ -15,7 +15,7 @@ const NavBar = () => {
           <strong className='text-blue-700'>Hired</strong>Hub
         </h1>
       </div>
-      <div className='menu hidden md:flex gap-8'>
+[      <div className='menu hidden md:flex gap-8'>
         <li className='menuList text-blue-700 hover:text-blue-400 hover:font-bold list-none cursor-pointer'>
           HOME
         </li>
@@ -36,6 +36,30 @@ const NavBar = () => {
         <button
           onClick={handleToggle}
           className='text-blue-700 focus:outline-none'>
+
+      <div className="menu hidden md:flex gap-8">
+        <li className="menuList text-black hover:text-[#40A578] hover:font-bold list-none cursor-pointer">
+          HOME
+        </li>
+        <li className="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer">
+          JOBS
+        </li>
+        <li className="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer">
+          EMPLOYERS
+        </li>
+        <li className="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer">
+          ABOUT
+        </li>
+        <li className="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer">
+          CONTACTS
+        </li>
+      </div>
+
+      <div className="md:hidden flex items-center">
+        <button
+          onClick={handleToggle}
+          className="text-[#40A578] focus:outline-none"
+        >
           <svg
             className='w-6 h-6'
             fill='none'
@@ -51,20 +75,21 @@ const NavBar = () => {
         </button>
       </div>
       {isMobileMenuOpen && (
-        <div className='menu flex-col items-center bg-white p-4 md:hidden absolute top-16 left-0 right-0 shadow-lg z-10'>
-          <li className='menuList text-blue-700 hover:text-blue-400 hover:font-bold list-none cursor-pointer py-2'>
+
+        <div className="menu flex-col items-center bg-white p-4 md:hidden absolute top-16 left-0 right-0 shadow-lg z-10">
+          <li className="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer py-2">
             HOME
           </li>
-          <li className='menuList text-blue-700 hover:text-blue-400 hover:font-bold list-none cursor-pointer py-2'>
+          <li className="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer py-2">
             JOBS
           </li>
-          <li className='menuList text-blue-700 hover:text-blue-400 hover:font-bold list-none cursor-pointer py-2'>
+          <li className="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer py-2">
             EMPLOYERS
           </li>
-          <li className='menuList text-blue-700 hover:text-blue-400 hover:font-bold list-none cursor-pointer py-2'>
+          <li className="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer py-2">
             ABOUT
           </li>
-          <li className='menuList text-blue-700 hover:text-blue-400 hover:font-bold list-none cursor-pointer py-2'>
+          <li className="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer py-2">
             CONTACTS
           </li>
         </div>
