@@ -1,80 +1,120 @@
-import { useState } from "react";
+"use client";
 
-const NavBar = () => {
-  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+import Link from "next/link";
+import React, { useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
+import logo from "../../assets/HiredhubLogo.svg";
+import { Separator } from "@/components/ui/separator";
 
-  const handleToggle = () => {
-    setMobileMenuOpen(!isMobileMenuOpen);
-  };
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+
+const Navbar = () => {
+  const [nav, setNav] = useState(false);
+
+  const links = [
+    {
+      id: 1,
+      link: "Browse",
+    },
+    {
+      id: 2,
+      link: "jobs",
+    },
+    {
+      id: 3,
+      link: "Post Jobs",
+    },
+    {
+      id: 4,
+      link: "about us",
+    },
+    {
+      id: 5,
+      link: "contact",
+    },
+  ];
+  const linksMobile = [
+    {
+      id: 1,
+      link: "Browse",
+    },
+    {
+      id: 2,
+      link: "jobs",
+    },
+    {
+      id: 3,
+      link: "Post Jobs",
+    },
+    {
+      id: 4,
+      link: "about us",
+    },
+    {
+      id: 5,
+      link: "contact",
+    },
+    { id: 6, link: "Log in" },
+    {
+      id: 7,
+      link: "Sign up",
+    },
+  ];
 
   return (
-    <nav className="navBar flex justify-between items-center p-6 md:p-12 bg-white shadow-lg">
-      <div className="logoIcon">
-        <h1 className="logo text-30 text-blue-500">
-          <strong className="text-blue-700">Hired</strong>Hub
-        </h1>
+    <div className="flex justify-between items-center border-b-2 border-gray-400 w-full h-20 px-4 text-white bg-white fixed nav">
+      <div>
+        <Link href={"/"}>
+          <div>
+            <Image
+              className="w-[150px] md:m-10 md:w-[200px]"
+              src={logo}
+              width={200}
+              height={200}
+            />
+          </div>
+        </Link>
       </div>
 
-      <div className="menu hidden md:flex gap-8">
-        <li className="menuList text-black hover:text-[#40A578] hover:font-bold list-none cursor-pointer">
-          HOME
-        </li>
-        <li className="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer">
-          JOBS
-        </li>
-        <li className="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer">
-          EMPLOYERS
-        </li>
-        <li className="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer">
-          ABOUT
-        </li>
-        <li className="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer">
-          CONTACTS
-        </li>
-      </div>
-
-      <div className="md:hidden flex items-center">
-        <button
-          onClick={handleToggle}
-          className="text-[#40A578] focus:outline-none"
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+      <ul className="hidden md:flex">
+        {links.map(({ id, link }) => (
+          <li
+            key={id}
+            className="nav-links px-4 cursor-pointer capitalize font-medium text-gray-500 hover:underline duration-200 link-underline"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            ></path>
-          </svg>
-        </button>
+            <Link href={link}>{link}</Link>
+          </li>
+        ))}
+      </ul>
+      <div className="hidden md:flex flex-row gap-4">
+        <Button>Log in</Button>
+        <Button>Sign up</Button>
       </div>
-      {isMobileMenuOpen && (
-        <div className="menu flex-col items-center bg-white p-4 md:hidden absolute top-16 left-0 right-0 shadow-lg z-10">
-          <li className="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer py-2">
-            HOME
-          </li>
-          <li className="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer py-2">
-            JOBS
-          </li>
-          <li className="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer py-2">
-            EMPLOYERS
-          </li>
-          <li className="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer py-2">
-            ABOUT
-          </li>
-          <li className="menuList text-[#263238] hover:text-[#40A578] hover:font-bold list-none cursor-pointer py-2">
-            CONTACTS
-          </li>
-        </div>
+
+      <div
+        onClick={() => setNav(!nav)}
+        className="cursor-pointer pr-4 z-10 text-gray-500 md:hidden"
+      >
+        {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
+      </div>
+
+      {nav && (
+        <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-white text-gray-500">
+          {linksMobile.map(({ id, link }) => (
+            <li
+              key={id}
+              className="px-4 cursor-pointer capitalize py-6 text-4xl"
+            >
+              <Link onClick={() => setNav(!nav)} href={link}>
+                {link}
+              </Link>
+            </li>
+          ))}
+        </ul>
       )}
-    </nav>
+    </div>
   );
 };
 
-export default NavBar;
+export default Navbar;
