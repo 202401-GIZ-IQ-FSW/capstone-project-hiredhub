@@ -68,7 +68,7 @@ const Navbar = () => {
         <Link href={"/"}>
           <div>
             <Image
-              className="w-[150px] md:m-10 md:w-[200px]"
+              className="w-[160px] m-4 md:m-2 md:w-[200px]"
               src={logo}
               width={150}
               height={150}
@@ -81,7 +81,7 @@ const Navbar = () => {
         {links.map(({ id, link }) => (
           <li
             key={id}
-            className="nav-links px-6 cursor-pointer capitalize font-medium text-gray-500 hover:underline duration-400 link-underline"
+            className="nav-links xl:px-6 md:px-4 sm:px-4 cursor-pointer capitalize font-medium text-gray-500 hover:underline duration-400 link-underline"
           >
             <Link href={link}>{link}</Link>
           </li>
