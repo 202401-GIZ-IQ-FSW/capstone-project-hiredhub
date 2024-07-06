@@ -1,0 +1,58 @@
+[
+    {
+      "name": "lastPosted",
+      "label": "Last Posted",
+      "options": [
+        { "value": "all", "label": "All" },
+        { "value": "24h", "label": "Last 24 hours" },
+        { "value": "7d", "label": "Last 7 days" },
+        { "value": "30d", "label": "Last 30 days" }
+      ]
+    },
+    {
+      "name": "salaryRange",
+      "label": "Salary Range",
+      "options": [
+        { "value": "all", "label": "Any" },
+        { "value": "0-20000", "label": "Up to $20,000" },
+        { "value": "20000-40000", "label": "$20,000 - $40,000" },
+        { "value": "40000-60000", "label": "$40,000 - $60,000" },
+        { "value": "60000-80000", "label": "$60,000 - $80,000" },
+        { "value": "80000+", "label": "$80,000+" }
+      ]
+    },
+    {
+      "name": "jobType",
+      "label": "Job Type",
+      "options": [
+        { "value": "all", "label": "Any" },
+        { "value": "Full-Time", "label": "Full-Time" },
+        { "value": "Part-Time", "label": "Part-Time" },
+        { "value": "Contract", "label": "Contract" },
+        { "value": "Internship", "label": "Internship" }
+      ]
+    },
+    {
+      "name": "experienceLevel",
+      "label": "Experience Level",
+      "options": [
+        { "value": "all", "label": "Any" },
+        { "value": "0-1 years", "label": "0-1 years" },
+        { "value": "1-3 years", "label": "1-3 years" },
+        { "value": "3-5 years", "label": "3-5 years" },
+        { "value": "5-7 years", "label": "5-7 years" },
+        { "value": "7+ years", "label": "7+ years" }
+      ]
+    },
+    {
+      "name": "jobLocation",
+      "label": "On-site/Remote",
+      "options": [
+        { "value": "all", "label": "Any" },
+        { "value": "On-site", "label": "On-site" },
+        { "value": "Hybrid", "label": "Hybrid" },
+        { "value": "Remote", "label": "Remote" }
+      ]
+    }
+  ]
+  
