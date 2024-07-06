@@ -70,8 +70,8 @@ const Navbar = () => {
             <Image
               className="w-[150px] md:m-10 md:w-[200px]"
               src={logo}
-              width={200}
-              height={200}
+              width={150}
+              height={150}
             />
           </div>
         </Link>
@@ -81,14 +81,14 @@ const Navbar = () => {
         {links.map(({ id, link }) => (
           <li
             key={id}
-            className="nav-links px-4 cursor-pointer capitalize font-medium text-gray-500 hover:underline duration-200 link-underline"
+            className="nav-links px-6 cursor-pointer capitalize font-medium text-gray-500 hover:underline duration-400 link-underline"
           >
             <Link href={link}>{link}</Link>
           </li>
         ))}
       </ul>
       <div className="hidden md:flex flex-row gap-4">
-        <Button>Log in</Button>
+        <Button className="bg-[#40A578]">Log in</Button>
         <Button>Sign up</Button>
       </div>
 
