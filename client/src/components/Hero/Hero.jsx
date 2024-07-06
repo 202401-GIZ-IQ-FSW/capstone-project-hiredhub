@@ -26,7 +26,7 @@ function Hero() {
             </h4>
           </div>
         </div>
-        <div className="sm:p-10 xl:p-1 w-[300px] xl:w-[450px] md:w-[450px] sm:w-[400]">
+        <div className="w-[300px] sm:w-[350px] md:w-[400px] xl:w-[450px]">
           <Image
             src={hero}
             width={500}
@@ -38,7 +38,7 @@ function Hero() {
 
       <div className="flex flex-col  w-screen place-items-center place-content-center mt-10">
         <h1 className="text-2xl mb-4 font-raleway">Let's find your next job</h1>
-        <div className="flex  items-center space-x-2 mb-4">
+        <div className="flex  items-center space-x-2 mb-8">
           <Input
             className="xl:w-[500px] sm:w-[300px]"
             type="email"
