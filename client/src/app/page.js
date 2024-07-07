@@ -1,12 +1,20 @@
-import LandingHero from "@/components/LandingHero/LandingHero";
-import Test from "../components/Test";
+
+
+
+
+import JobCard from "@/components/JobCard/JobCard";
+
+
 
 export default function Home() {
   return (
     <main>
-      <div>
-        <LandingHero />
-      </div>
+
+
+ 
+
+      <JobCard />
+
     </main>
   );
 }
