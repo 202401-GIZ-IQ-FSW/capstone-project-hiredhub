@@ -1,11 +1,15 @@
-import NavBar from "@/components/NavBar/NavBar";
+
+import JobCard from "@/components/JobCard/JobCard";
+
 
 export default function Home() {
   return (
     <main>
-      <div>
-        <NavBar />
-      </div>
+
+ 
+
+      <JobCard />
+
     </main>
   );
 }
