@@ -63,7 +63,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="flex justify-between items-center border-b-2 border-gray-400 w-full h-20 px-4 text-white bg-white fixed nav">
+    <div className="flex justify-between items-center border-b-2 border-gray-400 w-full h-20 px-4 bg-[#F5F7F8] static nav">
       <div>
         <Link href={"/"}>
           <div>
@@ -81,9 +81,14 @@ const Navbar = () => {
         {links.map(({ id, link }) => (
           <li
             key={id}
-            className="nav-links xl:px-6 md:px-4 sm:px-4 cursor-pointer capitalize font-medium text-gray-500 hover:underline duration-400 link-underline"
+            className="nav-links xl:px-6 md:px-4 sm:px-4 cursor-pointer capitalize font-medium text-gray-600 "
           >
-            <Link href={link}>{link}</Link>
+            <Link
+              className="border-transparent border-b-2 pb-1 hover:border-b-gray-300  duration-200"
+              href={link}
+            >
+              {link}
+            </Link>
           </li>
         ))}
       </ul>

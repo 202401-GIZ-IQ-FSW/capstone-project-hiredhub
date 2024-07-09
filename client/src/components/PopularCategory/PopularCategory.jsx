@@ -6,11 +6,14 @@ export default function () {
     <div>
       <div class="relative flex py-5 items-center">
         <div class="flex-grow border-t border-gray-400"></div>
-        <span class="flex-shrink mx-4 text-xl text-gray-900">Popular jobs</span>
+        <span class="flex-shrink mx-4 text-2xl text-gray-700 font-poppins">
+          Popular jobs
+        </span>
         <div class="flex-grow border-t border-gray-400"></div>
       </div>
-      <div className=" w-screen flex flex-row justify-center">
-        <div className="w-max grid md:grid-cols-2 xl:grid-cols-3 sm:grid-cols-1 justify-items-center mt-16 gap-6 place-content-center">
+      <div className=" flex flex-row justify-center">
+        
+        <div className=" grid md:grid-cols-2 xl:grid-cols-3 sm:grid-cols-1 justify-items-center mt-16 gap-6 place-content-center">
           <CategoryCard />
           <CategoryCard />
           <CategoryCard />
@@ -23,8 +26,10 @@ export default function () {
         </div>
       </div>
       <div className="mt-20 w-screen flex flex-col gap-8  items-center justify-center">
-        <div className="text-3xl">Are you an employer?</div>
-        <div className="text-2xl">
+        <div className="text-2xl text-gray-700 font-poppins md:text-3xl">
+          Are you an employer?
+        </div>
+        <div className="text-[1rem] md:text-xl text-gray-700 font-poppins">
           Register your company and post your job listings
         </div>
       </div>
