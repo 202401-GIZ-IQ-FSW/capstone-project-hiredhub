@@ -3,8 +3,20 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import hero from "../../assets/Hero-section.svg";
 import Image from "next/image";
+import { useState } from "react";
+import { redirect } from "next/navigation";
 
 function LandingHero() {
+  const [searchTerm, setSearchterm] = useState();
+
+  function handleChange(e) {
+    setSearchterm(e.target.value);
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    redirect(`api/jobs/search?${searchTerm}`);
+  };
   return (
     <div className="mb-14">
       <div className="grid xl:grid-cols-2 sm:grid-cols-1 mx-9 mt-9  justify-items-center ">
@@ -42,13 +54,21 @@ function LandingHero() {
           Let's find your next job
         </h1>
         <div className="flex  items-center space-x-2 mb-8">
-          <Input
-            className="xl:w-[550px] w-[350px]"
-            type="email"
-            placeholder="Search for jobs"
-          />
+          <form>
+            <Input
+              onSubmit={handleSubmit}
+              onChange={handleChange}
+              value={searchTerm}
+              className="xl:w-[550px] w-[350px]"
+              type="text"
+              placeholder="Search for jobs"
+            />
+          </form>
         </div>
-        <Button className="bg-[#263238] hover:bg-[#3f4f56] w-[200px]" type="submit">
+        <Button
+          className="bg-[#263238] hover:bg-[#3f4f56] w-[200px]"
+          type="submit"
+        >
           Advanced Search
         </Button>
       </div>
