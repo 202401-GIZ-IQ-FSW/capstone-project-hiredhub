@@ -67,7 +67,7 @@ function Navbar() {
   ];
 
   return (
-    <nav className="flex justify-between items-center border-b-2 border-gray-400 w-full h-20 px-4 bg-[#F5F7F8] static nav">
+    <nav className="flex justify-between items-center border-b-2 border-gray-400 w-full h-20 px-10 bg-[#F5F7F8] static nav">
       <div>
         <Link href={"/"}>
           <div>
