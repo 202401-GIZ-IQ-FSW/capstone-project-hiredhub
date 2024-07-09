@@ -3,8 +3,8 @@ import { Separator } from "@/components/ui/separator";
 
 export default function () {
   return (
-    <div>
-      <div class="relative flex py-5 items-center">
+    <div className="mb-20">
+      <div class="relative flex py-5  items-center">
         <div class="flex-grow border-t border-gray-400"></div>
         <span class="flex-shrink mx-4 text-2xl text-gray-700 font-poppins">
           Popular jobs

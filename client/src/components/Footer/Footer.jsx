@@ -1,48 +1,66 @@
-import React from "react";
-import { FaMeta } from "react-icons/fa6";
-import { FaInstagram } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
-import { FaSquareXTwitter } from "react-icons/fa6";
+import { FaFacebookF } from "react-icons/fa";
+import { AiOutlineTwitter, AiFillYoutube } from "react-icons/ai";
+import { BiLogoPinterestAlt } from "react-icons/bi";
+import Image from "next/image";
+import logo from "../../assets/HiredhubLogo.svg";
 
-const Footer = () => {
+function Footer() {
+  const iconsTab = [
+    { icon: <FaFacebookF /> },
+    { icon: <AiOutlineTwitter /> },
+    { icon: <AiFillYoutube /> },
+    { icon: <BiLogoPinterestAlt /> },
+  ];
+
+  const links = [
+    {
+      id: 1,
+      link: "Browse",
+    },
+    {
+      id: 2,
+      link: "jobs",
+    },
+    {
+      id: 3,
+      link: "Post Jobs",
+    },
+    {
+      id: 4,
+      link: "about us",
+    },
+    {
+      id: 5,
+      link: "contact",
+    },
+  ];
   return (
-    <div className="footerDiv p-8 mb-4 bg-[#263238] w-full md:w-3/4 rounded-lg gap-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 m-auto items-center justify-center">
-      <div className="logoIcon col-span-1">
-        <h1 className="logo text-25 text-white pb-6">
-          <strong className="text-white">Hired</strong>Hub
-        </h1>
-      </div>
-      <div className="quick-links col-span-1">
-        <span className="text-18 font-semibold pb-6 text-white">
-          Quick Links
-        </span>
-        <ul className="list-none grid gap-3">
-          <li className="text-white opacity-70 hover:opacity-100">About Us</li>
-          <li className="text-white opacity-70 hover:opacity-100">Employers</li>
-          <li className="text-white opacity-70 hover:opacity-100">
-            Candidates
-          </li>
-          <li className="text-white opacity-70 hover:opacity-100">Sign Up</li>
-        </ul>
-      </div>
-      <div className="resources col-span-1">
-        <span className="text-18 font-semibold pb-6 text-white">Resources</span>
-        <ul className="list-none grid gap-3">
-          <li className="text-white opacity-70 hover:opacity-100">Support</li>
-          <li className="text-white opacity-70 hover:opacity-100">FAQ</li>
-          <li className="text-white opacity-70 hover:opacity-100">Our Team</li>
-        </ul>
-      </div>
-      <div className="find-us gap-5 col-span-1">
-        <span className="text-18 font-semibold pb-6 text-white">Find Us!</span>
-        <div className="icons flex gap-8">
-          <FaMeta className="bg-white p-4 h-9 w-9 rounded-full icon text-[#40A578]" />
-          <FaInstagram className="bg-white p-4 h-9 w-9 rounded-full icon text-[#40A578]" />
-          <FaSquareXTwitter className="bg-white p-4 h-9 w-9 rounded-full icon text-[#40A578]" />
-          <FaLinkedin className="bg-white p-4 h-9 w-9 rounded-full icon text-[#40A578]" />
+    <>
+      <footer className="bg-[#f5f8f6] border-t-2">
+        <div className="container mx-auto  py-[10rem]">
+          <div className="flex justify-between flex-col md:flex-row  items-center md:items-start  md:gap-[5rem] text-left">
+            <div className="flex flex-col w-1/2 md:p-0 py-4 gap-8">
+              <Image src={logo} alt="footer_logo" className="w-[18rem]" />
+
+              <div className="flex gap-7 text-[18px] text-[#646464] justify-center md:justify-start">
+                {iconsTab.map(({ icon }, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className="text-2xl bg-[#efefef] p-2 rounded-full hover:bg-[#bbb9ba] hover:text-white"
+                      style={{ transition: "all 0.3s" }}
+                    >
+                      {icon}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      </footer>
+    </>
   );
-};
+}
+
 export default Footer;
