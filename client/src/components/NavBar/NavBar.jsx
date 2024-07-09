@@ -1,15 +1,19 @@
 "use client";
-
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import logo from "../../assets/HiredhubLogo.svg";
-import { Separator } from "@/components/ui/separator";
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
-const Navbar = () => {
+function Navbar() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const [nav, setNav] = useState(false);
 
   const links = [
@@ -63,7 +67,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="flex justify-between items-center border-b-2 border-gray-400 w-full h-20 px-4 bg-[#F5F7F8] static nav">
+    <nav className="flex justify-between items-center border-b-2 border-gray-400 w-full h-20 px-4 bg-[#F5F7F8] static nav">
       <div>
         <Link href={"/"}>
           <div>
@@ -81,7 +85,7 @@ const Navbar = () => {
         {links.map(({ id, link }) => (
           <li
             key={id}
-            className="nav-links xl:px-6 md:px-4 sm:px-4 cursor-pointer capitalize font-medium text-gray-600 "
+            className="nav-links xl:px-6 md:px-4 sm:px-4 cursor-pointer capitalize font-lato font-medium text-gray-600 "
           >
             <Link
               className="border-transparent border-b-2 pb-1 hover:border-b-gray-300  duration-200"
@@ -93,8 +97,12 @@ const Navbar = () => {
         ))}
       </ul>
       <div className="hidden md:flex flex-row gap-4">
-        <Button className="bg-[#40A578]">Log in</Button>
-        <Button>Sign up</Button>
+        <Button className="bg-[#40A578] font-lato hover:bg-[#5abb91] ">
+          Log in
+        </Button>
+        <Button className="font-lato bg-[#263238] hover:bg-[#3f4f56]">
+          Sign up
+        </Button>
       </div>
 
       <div
@@ -109,7 +117,7 @@ const Navbar = () => {
           {linksMobile.map(({ id, link }) => (
             <li
               key={id}
-              className="px-4 cursor-pointer capitalize py-6 text-4xl"
+              className="px-4 cursor-pointer font-lato capitalize py-6 text-4xl"
             >
               <Link onClick={() => setNav(!nav)} href={link}>
                 {link}
@@ -118,8 +126,8 @@ const Navbar = () => {
           ))}
         </ul>
       )}
-    </div>
+    </nav>
   );
-};
+}
 
 export default Navbar;

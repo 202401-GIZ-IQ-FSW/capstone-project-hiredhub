@@ -21,6 +21,7 @@ module.exports = {
         martian: ["Martian Mono", "sans-serif"],
         workSans: ["Work Sans", "sans-serif"],
         poppins: ["Poppins", "sans-serif"],
+        lato: ["Lato", "sans-serif"],
       },
       colors: {
         greenprime: "#006769",

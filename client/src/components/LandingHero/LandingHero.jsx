@@ -48,7 +48,9 @@ function LandingHero() {
             placeholder="Search for jobs"
           />
         </div>
-        <Button type="submit">Advanced Search</Button>
+        <Button className="bg-[#263238] hover:bg-[#3f4f56] w-[200px]" type="submit">
+          Advanced Search
+        </Button>
       </div>
     </div>
   );
