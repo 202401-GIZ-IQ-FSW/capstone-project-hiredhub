@@ -1,66 +1,43 @@
-import { FaFacebookF } from "react-icons/fa";
-import { AiOutlineTwitter, AiFillYoutube } from "react-icons/ai";
-import { BiLogoPinterestAlt } from "react-icons/bi";
 import Image from "next/image";
+import Link from "next/link";
 import logo from "../../assets/HiredhubLogo.svg";
 
-function Footer() {
-  const iconsTab = [
-    { icon: <FaFacebookF /> },
-    { icon: <AiOutlineTwitter /> },
-    { icon: <AiFillYoutube /> },
-    { icon: <BiLogoPinterestAlt /> },
-  ];
-
-  const links = [
-    {
-      id: 1,
-      link: "Browse",
-    },
-    {
-      id: 2,
-      link: "jobs",
-    },
-    {
-      id: 3,
-      link: "Post Jobs",
-    },
-    {
-      id: 4,
-      link: "about us",
-    },
-    {
-      id: 5,
-      link: "contact",
-    },
-  ];
+const Footer = () => {
   return (
-    <>
-      <footer className="bg-[#f5f8f6] border-t-2">
-        <div className="container mx-auto  py-[10rem]">
-          <div className="flex justify-between flex-col md:flex-row  items-center md:items-start  md:gap-[5rem] text-left">
-            <div className="flex flex-col w-1/2 md:p-0 py-4 gap-8">
-              <Image src={logo} alt="footer_logo" className="w-[18rem]" />
-
-              <div className="flex gap-7 text-[18px] text-[#646464] justify-center md:justify-start">
-                {iconsTab.map(({ icon }, index) => {
-                  return (
-                    <div
-                      key={index}
-                      className="text-2xl bg-[#efefef] p-2 rounded-full hover:bg-[#bbb9ba] hover:text-white"
-                      style={{ transition: "all 0.3s" }}
-                    >
-                      {icon}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
+    <div className="bg-[#F5F7F8] border-t-2  px-4 pt-16 mx-auto  md:px-24 lg:px-8">
+      <div className="flex flex-col gap-5 mb-5 xl:flex-row justify-around">
+        <div className="sm:col-span-2">
+          <Link href={"/"}>
+            <Image
+              className="w-[160px]  md:w-[200px]"
+              src={logo}
+              width={100}
+              height={100}
+            />
+          </Link>
+          <div className="mt-6 lg:max-w-sm">
+            <p className="text-sm text-gray-800">
+              HiredHub is the place to find amazing job opportunites and
+              talenets.
+            </p>
+            <p className="mt-4 text-sm text-gray-800">
+              Finding work has never been easier.
+            </p>
           </div>
         </div>
-      </footer>
-    </>
+        <div>
+          <Link className="font-poppins text-xl text-gray-600 " href={"/"}>
+            Contact us
+          </Link>
+        </div>
+      </div>
+      <div className="flex flex-col-reverse justify-center pt-5 pb-10 border-t lg:flex-row">
+        <p className="text-sm text-gray-600">
+          © Copyright 2024 HiredHub inc. All rights reserved.
+        </p>
+      </div>
+    </div>
   );
-}
+};
 
 export default Footer;

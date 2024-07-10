@@ -1,4 +1,3 @@
-import JobCard from "@/components/JobCard/JobCard";
 import LandingHero from "@/components/LandingHero/LandingHero";
 
 import PopularCategory from "@/components/PopularCategory/PopularCategory";
