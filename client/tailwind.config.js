@@ -2,10 +2,12 @@
 module.exports = {
   darkMode: ["class"],
   content: [
+
     './pages/**/*.{js,jsx}',
     './components/**/*.{js,jsx}',
     './app/**/*.{js,jsx}',
     './src/**/*.{js,jsx}',
+
   ],
   prefix: "",
   theme: {
@@ -17,7 +19,19 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        martian: ["Martian Mono", "sans-serif"],
+        workSans: ["Work Sans", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
+        lato: ["Lato", "sans-serif"],
+      },
       colors: {
+
+        greenprime: "#006769",
+        BlueColor: "#5AB2FF",
+        LightBlue: "#A0DEFF",
+        BlueShadow: "#CAF4FF",
+
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
