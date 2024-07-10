@@ -1,6 +1,6 @@
 "use client";
 import FilterJobBrowse from "../../components/BrowseJob/FilterJobBrowse/FilterJobBrowse.jsx";
-import JobCard from "../../components/JobCard/JobCard.jsx";
+import JobCard from "../../components/BrowseJob/JobCard/JobCard.jsx";
 import jobsData from "./../../dummyJobData.json";
 import { Button } from "@/components/ui/button";
 import { useSearchParams } from "next/navigation";
