@@ -6,4 +6,4 @@ COPY package.json .
 RUN npm install 
 WORKDIR /backend-app/server
 COPY ./server ./server
-CMD [ "yarn", "run", "start" ]
+CMD [ "yarn", "&&", "yarn" , "start" ]
