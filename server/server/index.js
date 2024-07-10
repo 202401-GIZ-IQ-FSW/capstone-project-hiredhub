@@ -25,12 +25,6 @@ const jobRoutes = require("./routes/jobRoutes")
 const profileRoutes = require("./routes/profileRoutes");
 
 
-//DB Connect
-const connectToMongo = require("./db/connection");
-const logging = require("./middlewares/logging");
-
-
-
 const app = express();
 const port =
   process.env.NODE_ENV === "test"
@@ -60,7 +54,7 @@ app.use("/api/companies", companyRoutes);
 app.use("/api/send-email", emailRoutes);
 app.use("/api/profile", profileRoutes);
 app.use("/api/", categoryRoutes);
-app.use("/backend-app", getFile);
+// app.use("/backend-app", getFile);
 
 //SERVER
 app.listen(port, () => {
