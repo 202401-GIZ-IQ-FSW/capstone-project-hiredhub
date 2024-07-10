@@ -1,0 +1,507 @@
+[
+    {
+      "companyId": "60d5f4ab7f7c9b3a4f8e4c21",
+      "wage": 50000,
+      "title": "Software Engineer",
+      "description": "Develop and maintain web applications.",
+      "jobType": ["Full-Time", "Remote"],
+      "category": "60d5f4ab7f7c9b3a4f8e4c22",
+      "location": "San Francisco",
+      "requirements": {
+        "educationalLevel": "Bachelor",
+        "yearsOfExperience": "3-5 years",
+        "certifications": ["AWS Certified", "PMP"],
+        "skills": ["JavaScript", "Node.js", "React", "MongoDB"]
+      },
+      "applicationDetails": {
+        "deadline": "2024-12-31T00:00:00Z",
+        "method": "Apply online"
+      },
+      "views": 100,
+      "applicants": ["60d5f4ab7f7c9b3a4f8e4c23", "60d5f4ab7f7c9b3a4f8e4c24"],
+      "status": "open",
+      "createdAt": "2024-01-01T00:00:00Z",
+      "updatedAt": "2024-01-01T00:00:00Z"
+    },
+    {
+      "companyId": "60d5f4ab7f7c9b3a4f8e4c25",
+      "wage": 45000,
+      "title": "Marketing Specialist",
+      "description": "Plan and execute marketing campaigns.",
+      "jobType": ["Part-Time", "Hybrid"],
+      "category": "60d5f4ab7f7c9b3a4f8e4c26",
+      "location": "New York",
+      "requirements": {
+        "educationalLevel": "Bachelor",
+        "yearsOfExperience": "1-3 years",
+        "certifications": ["Google Analytics", "HubSpot"],
+        "skills": ["SEO", "Content Marketing", "Social Media"]
+      },
+      "applicationDetails": {
+        "deadline": "2024-11-30T00:00:00Z",
+        "method": "Apply via email"
+      },
+      "views": 200,
+      "applicants": ["60d5f4ab7f7c9b3a4f8e4c27"],
+      "status": "open",
+      "createdAt": "2024-02-01T00:00:00Z",
+      "updatedAt": "2024-02-01T00:00:00Z"
+    },
+    {
+      "companyId": "60d5f4ab7f7c9b3a4f8e4c28",
+      "wage": 60000,
+      "title": "Project Manager",
+      "description": "Lead project teams to deliver projects on time.",
+      "jobType": ["Full-Time", "On-site"],
+      "category": "60d5f4ab7f7c9b3a4f8e4c29",
+      "location": "Chicago",
+      "requirements": {
+        "educationalLevel": "Master",
+        "yearsOfExperience": "5-7 years",
+        "certifications": ["PMP"],
+        "skills": ["Project Management", "Agile", "Scrum"]
+      },
+      "applicationDetails": {
+        "deadline": "2024-10-31T00:00:00Z",
+        "method": "Apply online"
+      },
+      "views": 150,
+      "applicants": ["60d5f4ab7f7c9b3a4f8e4c30", "60d5f4ab7f7c9b3a4f8e4c31"],
+      "status": "open",
+      "createdAt": "2024-03-01T00:00:00Z",
+      "updatedAt": "2024-03-01T00:00:00Z"
+    },
+    {
+      "companyId": "60d5f4ab7f7c9b3a4f8e4c32",
+      "wage": 70000,
+      "title": "Data Scientist",
+      "description": "Analyze and interpret complex data sets.",
+      "jobType": ["Full-Time", "Remote"],
+      "category": "60d5f4ab7f7c9b3a4f8e4c33",
+      "location": "Seattle",
+      "requirements": {
+        "educationalLevel": "Doctorate",
+        "yearsOfExperience": "7+ years",
+        "certifications": ["Certified Data Scientist"],
+        "skills": ["Python", "Machine Learning", "Data Analysis"]
+      },
+      "applicationDetails": {
+        "deadline": "2024-09-30T00:00:00Z",
+        "method": "Apply online"
+      },
+      "views": 300,
+      "applicants": ["60d5f4ab7f7c9b3a4f8e4c34"],
+      "status": "open",
+      "createdAt": "2024-04-01T00:00:00Z",
+      "updatedAt": "2024-04-01T00:00:00Z"
+    },
+    {
+      "companyId": "60d5f4ab7f7c9b3a4f8e4c35",
+      "wage": 55000,
+      "title": "UI/UX Designer",
+      "description": "Design user interfaces and experiences.",
+      "jobType": ["Full-Time", "Hybrid"],
+      "category": "60d5f4ab7f7c9b3a4f8e4c36",
+      "location": "Austin",
+      "requirements": {
+        "educationalLevel": "Bachelor",
+        "yearsOfExperience": "3-5 years",
+        "certifications": ["Certified UX Designer"],
+        "skills": ["Adobe XD", "Sketch", "Figma"]
+      },
+      "applicationDetails": {
+        "deadline": "2024-08-31T00:00:00Z",
+        "method": "Apply via email"
+      },
+      "views": 250,
+      "applicants": ["60d5f4ab7f7c9b3a4f8e4c37", "60d5f4ab7f7c9b3a4f8e4c38"],
+      "status": "open",
+      "createdAt": "2024-05-01T00:00:00Z",
+      "updatedAt": "2024-05-01T00:00:00Z"
+    },
+    {
+      "companyId": "60d5f4ab7f7c9b3a4f8e4c39",
+      "wage": 40000,
+      "title": "Content Writer",
+      "description": "Create and manage content for blogs and social media.",
+      "jobType": ["Freelance", "Remote"],
+      "category": "60d5f4ab7f7c9b3a4f8e4c40",
+      "location": "Los Angeles",
+      "requirements": {
+        "educationalLevel": "Associate",
+        "yearsOfExperience": "1-3 years",
+        "certifications": ["Content Marketing Certification"],
+        "skills": ["Copywriting", "SEO", "Social Media Management"]
+      },
+      "applicationDetails": {
+        "deadline": "2024-07-31T00:00:00Z",
+        "method": "Apply online"
+      },
+      "views": 350,
+      "applicants": ["60d5f4ab7f7c9b3a4f8e4c41"],
+      "status": "open",
+      "createdAt": "2024-06-01T00:00:00Z",
+      "updatedAt": "2024-06-01T00:00:00Z"
+    },
+    {
+      "companyId": "60d5f4ab7f7c9b3a4f8e4c42",
+      "wage": 48000,
+      "title": "HR Manager",
+      "description": "Manage HR activities and employee relations.",
+      "jobType": ["Full-Time", "On-site"],
+      "category": "60d5f4ab7f7c9b3a4f8e4c43",
+      "location": "Miami",
+      "requirements": {
+        "educationalLevel": "Bachelor",
+        "yearsOfExperience": "3-5 years",
+        "certifications": ["SHRM-CP"],
+        "skills": ["Recruitment", "Employee Relations", "HR Policies"]
+      },
+      "applicationDetails": {
+        "deadline": "2024-06-30T00:00:00Z",
+        "method": "Apply via email"
+      },
+      "views": 180,
+      "applicants": ["60d5f4ab7f7c9b3a4f8e4c44", "60d5f4ab7f7c9b3a4f8e4c45"],
+      "status": "open",
+      "createdAt": "2024-07-01T00:00:00Z",
+      "updatedAt": "2024-07-01T00:00:00Z"
+    },
+    {
+      "companyId": "60d5f4ab7f7c9b3a4f8e4c46",
+      "wage": 65000,
+      "title": "DevOps Engineer",
+      "description": "Maintain and optimize cloud infrastructure.",
+      "jobType": ["Full-Time", "Hybrid"],
+      "category": "60d5f4ab7f7c9b3a4f8e4c47",
+      "location": "Boston",
+      "requirements": {
+        "educationalLevel": "Bachelor",
+        "yearsOfExperience": "5-7 years",
+        "certifications": ["AWS Certified DevOps Engineer"],
+        "skills": ["AWS", "Docker", "Kubernetes"]
+      },
+      "applicationDetails": {
+        "deadline": "2024-05-31T00:00:00Z",
+        "method": "Apply online"
+      },
+      "views": 220,
+      "applicants": ["60d5f4ab7f7c9b3a4f8e4c48", "60d5f4ab7f7c9b3a4f8e4c49"],
+      "status": "open",
+      "createdAt": "2024-08-01T00:00:00Z",
+      "updatedAt": "2024-08-01T00:00:00Z"
+    },
+    {
+      "companyId": "60d5f4ab7f7c9b3a4f8e4c50",
+      "wage": 42000,
+      "title": "Graphic Designer",
+      "description": "Create visual content for digital and print media.",
+      "jobType": ["Contract", "Remote"],
+      "category": "60d5f4ab7f7c9b3a4f8e4c51",
+      "location": "Denver",
+      "requirements": {
+        "educationalLevel": "Associate",
+        "yearsOfExperience": "1-3 years",
+        "certifications": ["Graphic Design Certification"],
+        "skills": ["Adobe Photoshop", "Illustrator", "InDesign"]
+      },
+      "applicationDetails": {
+        "deadline": "2024-04-30T00:00:00Z",
+        "method": "Apply via email"
+      },
+      "views": 400,
+      "applicants": ["60d5f4ab7f7c9b3a4f8e4c52"],
+      "status": "open",
+      "createdAt": "2024-09-01T00:00:00Z",
+      "updatedAt": "2024-09-01T00:00:00Z"
+    },
+    {
+      "companyId": "60d5f4ab7f7c9b3a4f8e4c53",
+      "wage": 52000,
+      "title": "Product Manager",
+      "description": "Oversee product development and strategy.",
+      "jobType": ["Full-Time", "Hybrid"],
+      "category": "60d5f4ab7f7c9b3a4f8e4c54",
+      "location": "San Diego",
+      "requirements": {
+        "educationalLevel": "Bachelor",
+        "yearsOfExperience": "3-5 years",
+        "certifications": ["Certified Scrum Product Owner"],
+        "skills": ["Product Management", "Agile", "Scrum"]
+      },
+      "applicationDetails": {
+        "deadline": "2024-03-31T00:00:00Z",
+        "method": "Apply online"
+      },
+      "views": 260,
+      "applicants": ["60d5f4ab7f7c9b3a4f8e4c55"],
+      "status": "open",
+      "createdAt": "2024-10-01T00:00:00Z",
+      "updatedAt": "2024-10-01T00:00:00Z"
+    },
+    {
+      "companyId": "60d5f4ab7f7c9b3a4f8e4c56",
+      "wage": 47000,
+      "title": "Business Analyst",
+      "description": "Analyze business processes and recommend improvements.",
+      "jobType": ["Full-Time", "Remote"],
+      "category": "60d5f4ab7f7c9b3a4f8e4c57",
+      "location": "Houston",
+      "requirements": {
+        "educationalLevel": "Bachelor",
+        "yearsOfExperience": "1-3 years",
+        "certifications": ["Certified Business Analysis Professional"],
+        "skills": ["Data Analysis", "Process Improvement", "SQL"]
+      },
+      "applicationDetails": {
+        "deadline": "2024-02-29T00:00:00Z",
+        "method": "Apply via email"
+      },
+      "views": 210,
+      "applicants": ["60d5f4ab7f7c9b3a4f8e4c58", "60d5f4ab7f7c9b3a4f8e4c59"],
+      "status": "open",
+      "createdAt": "2024-11-01T00:00:00Z",
+      "updatedAt": "2024-11-01T00:00:00Z"
+    },
+    {
+      "companyId": "60d5f4ab7f7c9b3a4f8e4c60",
+      "wage": 53000,
+      "title": "Systems Administrator",
+      "description": "Manage and maintain IT systems and infrastructure.",
+      "jobType": ["Full-Time", "On-site"],
+      "category": "60d5f4ab7f7c9b3a4f8e4c61",
+      "location": "Atlanta",
+      "requirements": {
+        "educationalLevel": "Bachelor",
+        "yearsOfExperience": "3-5 years",
+        "certifications": ["CompTIA A+", "Microsoft Certified Solutions Expert"],
+        "skills": ["System Administration", "Linux", "Windows Server"]
+      },
+      "applicationDetails": {
+        "deadline": "2024-01-31T00:00:00Z",
+        "method": "Apply online"
+      },
+      "views": 230,
+      "applicants": ["60d5f4ab7f7c9b3a4f8e4c62", "60d5f4ab7f7c9b3a4f8e4c63"],
+      "status": "open",
+      "createdAt": "2024-12-01T00:00:00Z",
+      "updatedAt": "2024-12-01T00:00:00Z"
+    },
+    {
+      "companyId": "60d5f4ab7f7c9b3a4f8e4c64",
+      "wage": 60000,
+      "title": "Cybersecurity Analyst",
+      "description": "Protect systems and data from cyber threats.",
+      "jobType": ["Full-Time", "Remote"],
+      "category": "60d5f4ab7f7c9b3a4f8e4c65",
+      "location": "San Jose",
+      "requirements": {
+        "educationalLevel": "Bachelor",
+        "yearsOfExperience": "5-7 years",
+        "certifications": ["CISSP", "CEH"],
+        "skills": ["Cybersecurity", "Network Security", "Incident Response"]
+      },
+      "applicationDetails": {
+        "deadline": "2024-12-15T00:00:00Z",
+        "method": "Apply online"
+      },
+      "views": 240,
+      "applicants": ["60d5f4ab7f7c9b3a4f8e4c66"],
+      "status": "open",
+      "createdAt": "2024-01-01T00:00:00Z",
+      "updatedAt": "2024-01-01T00:00:00Z"
+    },
+    {
+      "companyId": "60d5f4ab7f7c9b3a4f8e4c67",
+      "wage": 56000,
+      "title": "Sales Representative",
+      "description": "Sell products and services to clients.",
+      "jobType": ["Full-Time", "On-site"],
+      "category": "60d5f4ab7f7c9b3a4f8e4c68",
+      "location": "Dallas",
+      "requirements": {
+        "educationalLevel": "Bachelor",
+        "yearsOfExperience": "3-5 years",
+        "certifications": ["Certified Sales Professional"],
+        "skills": ["Sales", "Customer Service", "Negotiation"]
+      },
+      "applicationDetails": {
+        "deadline": "2024-02-28T00:00:00Z",
+        "method": "Apply via email"
+      },
+      "views": 320,
+      "applicants": ["60d5f4ab7f7c9b3a4f8e4c69", "60d5f4ab7f7c9b3a4f8e4c70"],
+      "status": "open",
+      "createdAt": "2024-02-01T00:00:00Z",
+      "updatedAt": "2024-02-01T00:00:00Z"
+    },
+    {
+      "companyId": "60d5f4ab7f7c9b3a4f8e4c71",
+      "wage": 62000,
+      "title": "Network Engineer",
+      "description": "Design and implement network solutions.",
+      "jobType": ["Full-Time", "Hybrid"],
+      "category": "60d5f4ab7f7c9b3a4f8e4c72",
+      "location": "San Francisco",
+      "requirements": {
+        "educationalLevel": "Bachelor",
+        "yearsOfExperience": "5-7 years",
+        "certifications": ["CCNA", "CCNP"],
+        "skills": ["Networking", "Cisco", "Network Security"]
+      },
+      "applicationDetails": {
+        "deadline": "2024-01-15T00:00:00Z",
+        "method": "Apply online"
+      },
+      "views": 280,
+      "applicants": ["60d5f4ab7f7c9b3a4f8e4c73"],
+      "status": "open",
+      "createdAt": "2024-03-01T00:00:00Z",
+      "updatedAt": "2024-03-01T00:00:00Z"
+    },
+    {
+      "companyId": "60d5f4ab7f7c9b3a4f8e4c74",
+      "wage": 46000,
+      "title": "Customer Support Specialist",
+      "description": "Assist customers with product and service inquiries.",
+      "jobType": ["Full-Time", "Remote"],
+      "category": "60d5f4ab7f7c9b3a4f8e4c75",
+      "location": "Phoenix",
+      "requirements": {
+        "educationalLevel": "High School",
+        "yearsOfExperience": "1-3 years",
+        "certifications": ["Certified Customer Service Professional"],
+        "skills": ["Customer Support", "Communication", "Problem Solving"]
+      },
+      "applicationDetails": {
+        "deadline": "2024-04-15T00:00:00Z",
+        "method": "Apply online"
+      },
+      "views": 330,
+      "applicants": ["60d5f4ab7f7c9b3a4f8e4c76"],
+      "status": "open",
+      "createdAt": "2024-04-01T00:00:00Z",
+      "updatedAt": "2024-04-01T00:00:00Z"
+    },
+    {
+      "companyId": "60d5f4ab7f7c9b3a4f8e4c77",
+      "wage": 59000,
+      "title": "Financial Analyst",
+      "description": "Analyze financial data and provide recommendations.",
+      "jobType": ["Full-Time", "On-site"],
+      "category": "60d5f4ab7f7c9b3a4f8e4c78",
+      "location": "Charlotte",
+      "requirements": {
+        "educationalLevel": "Bachelor",
+        "yearsOfExperience": "3-5 years",
+        "certifications": ["CFA"],
+        "skills": ["Financial Analysis", "Excel", "Financial Modeling"]
+      },
+      "applicationDetails": {
+        "deadline": "2024-05-15T00:00:00Z",
+        "method": "Apply online"
+      },
+      "views": 290,
+      "applicants": ["60d5f4ab7f7c9b3a4f8e4c79", "60d5f4ab7f7c9b3a4f8e4c80"],
+      "status": "open",
+      "createdAt": "2024-05-01T00:00:00Z",
+      "updatedAt": "2024-05-01T00:00:00Z"
+    },
+    {
+      "companyId": "60d5f4ab7f7c9b3a4f8e4c81",
+      "wage": 47000,
+      "title": "Administrative Assistant",
+      "description": "Provide administrative support to the office.",
+      "jobType": ["Part-Time", "On-site"],
+      "category": "60d5f4ab7f7c9b3a4f8e4c82",
+      "location": "Orlando",
+      "requirements": {
+        "educationalLevel": "High School",
+        "yearsOfExperience": "0-1 years",
+        "certifications": ["Administrative Professional Certification"],
+        "skills": ["Administrative Support", "Microsoft Office", "Organization"]
+      },
+      "applicationDetails": {
+        "deadline": "2024-06-15T00:00:00Z",
+        "method": "Apply via email"
+      },
+      "views": 340,
+      "applicants": ["60d5f4ab7f7c9b3a4f8e4c83"],
+      "status": "open",
+      "createdAt": "2024-06-01T00:00:00Z",
+      "updatedAt": "2024-06-01T00:00:00Z"
+    },
+    {
+      "companyId": "60d5f4ab7f7c9b3a4f8e4c84",
+      "wage": 53000,
+      "title": "Operations Manager",
+      "description": "Oversee daily operations and improve processes.",
+      "jobType": ["Full-Time", "On-site"],
+      "category": "60d5f4ab7f7c9b3a4f8e4c85",
+      "location": "Las Vegas",
+      "requirements": {
+        "educationalLevel": "Bachelor",
+        "yearsOfExperience": "3-5 years",
+        "certifications": ["Certified Operations Manager"],
+        "skills": ["Operations Management", "Process Improvement", "Leadership"]
+      },
+      "applicationDetails": {
+        "deadline": "2024-07-15T00:00:00Z",
+        "method": "Apply online"
+      },
+      "views": 300,
+      "applicants": ["60d5f4ab7f7c9b3a4f8e4c86", "60d5f4ab7f7c9b3a4f8e4c87"],
+      "status": "open",
+      "createdAt": "2024-07-01T00:00:00Z",
+      "updatedAt": "2024-07-01T00:00:00Z"
+    },
+    {
+      "companyId": "60d5f4ab7f7c9b3a4f8e4c88",
+      "wage": 52000,
+      "title": "Accountant",
+      "description": "Manage financial records and ensure accuracy.",
+      "jobType": ["Full-Time", "Remote"],
+      "category": "60d5f4ab7f7c9b3a4f8e4c89",
+      "location": "Salt Lake City",
+      "requirements": {
+        "educationalLevel": "Bachelor",
+        "yearsOfExperience": "3-5 years",
+        "certifications": ["CPA"],
+        "skills": ["Accounting", "QuickBooks", "Financial Reporting"]
+      },
+      "applicationDetails": {
+        "deadline": "2024-08-15T00:00:00Z",
+        "method": "Apply via email"
+      },
+      "views": 310,
+      "applicants": ["60d5f4ab7f7c9b3a4f8e4c90"],
+      "status": "open",
+      "createdAt": "2024-08-01T00:00:00Z",
+      "updatedAt": "2024-08-01T00:00:00Z"
+    },
+    {
+      "companyId": "60d5f4ab7f7c9b3a4f8e4c91",
+      "wage": 55000,
+      "title": "Technical Support Engineer",
+      "description": "Provide technical support to clients.",
+      "jobType": ["Full-Time", "Remote"],
+      "category": "60d5f4ab7f7c9b3a4f8e4c92",
+      "location": "Nashville",
+      "requirements": {
+        "educationalLevel": "Bachelor",
+        "yearsOfExperience": "1-3 years",
+        "certifications": ["CompTIA A+"],
+        "skills": ["Technical Support", "Troubleshooting", "Customer Service"]
+      },
+      "applicationDetails": {
+        "deadline": "2024-09-15T00:00:00Z",
+        "method": "Apply online"
+      },
+      "views": 350,
+      "applicants": ["60d5f4ab7f7c9b3a4f8e4c93"],
+      "status": "open",
+      "createdAt": "2024-09-01T00:00:00Z",
+      "updatedAt": "2024-09-01T00:00:00Z"
+    }
+  ]
+  
