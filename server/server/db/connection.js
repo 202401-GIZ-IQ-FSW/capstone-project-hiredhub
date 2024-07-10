@@ -12,7 +12,8 @@ const url = DB_URI;
 const connectToMongo = () => {
   mongoose.connect(url, {
     useNewUrlParser: true,
-    serverSelectionTimeoutMS: 30000, // Increase timeout to 30 seconds
+    serverSelectionTimeoutMS: 5000,
+    socketTimeoutMS: 45000,
   });
 
   db = mongoose.connection;
