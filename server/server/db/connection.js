@@ -6,9 +6,10 @@ const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME, TEST_DB_HOST } =
 const DB_URI = `mongodb://${DB_USER}:${DB_PASSWORD}@${
   process.env.NODE_ENV === "test" ? TEST_DB_HOST : DB_HOST
 }:${DB_PORT}/${DB_NAME}?authSource=admin`;
+mongoose.set("strictQuery", false);
 
 const url = DB_URI;
-
+console.log("url################################", url);
 const connectToMongo = () => {
   mongoose.connect(url, {
     useNewUrlParser: true,

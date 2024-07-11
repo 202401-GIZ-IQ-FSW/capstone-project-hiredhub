@@ -1,5 +1,5 @@
 {
-  "name": "capstone-server",
+  "name": "Capstone-Server",
   "version": "1.0.0",
   "description": "Express server for capstone",
   "main": "server/server/index.js",
