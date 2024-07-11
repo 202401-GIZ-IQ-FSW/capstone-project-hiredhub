@@ -8,10 +8,21 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 function Navbar() {
-  const [isClient, setIsClient] = useState(false);
+  const [header, setHeader] = useState(false);
+
+  const scrollHeader = () => {
+    if (window.scrollY >= 5) {
+      setHeader(true);
+    } else {
+      setHeader(false);
+    }
+  };
 
   useEffect(() => {
-    setIsClient(true);
+    window.addEventListener("scroll", scrollHeader);
+    return () => {
+      window.addEventListener("scroll", scrollHeader);
+    };
   }, []);
 
   const [nav, setNav] = useState(false);
@@ -67,7 +78,13 @@ function Navbar() {
   ];
 
   return (
-    <nav className="flex justify-between items-center border-b-2 border-gray-400 w-full h-20 px-10 bg-[#F5F7F8] static nav">
+    <nav
+      className={
+        header
+          ? "sticky top-0 z-50 flex justify-between items-center border-b-2 border-gray-200 w-full h-20 px-10 bg-[#F5F7F8]"
+          : " flex justify-between items-center border-b-2 border-gray-400 w-full h-20 px-10 bg-[#F5F7F8]"
+      }
+    >
       <div>
         <Link href={"/"}>
           <div>
