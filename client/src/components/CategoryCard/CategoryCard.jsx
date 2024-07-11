@@ -11,12 +11,12 @@ const CategoryCard = () => {
   return (
     <>
     <Link href={'#'}>
-        <Card className="bg-[#263238] hover:bg-[#263238]/[0.95] text-slate-50 pr-10 py-1">
+        <Card className="bg-[#263238] hover:bg-[#263238]/[0.95] w-[250px] text-slate-50 pr-10 py-1">
           <CardHeader>
-            <CardTitle>Sales</CardTitle>
+            <CardTitle className="font-poppins font-semibold">Sales</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-slate-200">24 Job Listings</p>
+            <p className="text-slate-200 font-poppins">24 Job Listings</p>
           </CardContent>
         </Card>
     </Link>
