@@ -1,16 +1,20 @@
 import { MapPin } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Dot } from "lucide-react";
 
 export default function () {
   return (
-    <div className="container mt-8">
+    <div className="flex flex-col w-screen mt-10 items-center">
       <div className="xl:w-[700px] w-[300px] md:w-[600px] grid grid-col gap-5 items-center justify-center">
         <div className="flex flex-col gap-3">
           <div className="text-2xl font-poppins">Half Stack Developer</div>
 
-          <div className="text-xl flex font-lato">
-            <MapPin size={20} />
-            New York, NY
+          <div className="text-xl flex gap-2 font-lato">
+            <div>Company</div> <Dot />
+            <div className="flex flex-row">
+              <MapPin size={20} />
+              New York, NY
+            </div>
           </div>
           <div>
             <Badge variant="outline">Open</Badge>
@@ -18,7 +22,7 @@ export default function () {
           </div>
         </div>
         <div>
-            <div className="font-xl mb-2">About this job</div>
+          <div className="font-xl mb-2">About this job</div>
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
