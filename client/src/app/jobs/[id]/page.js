@@ -1,10 +1,11 @@
 import { MapPin } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Dot } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function () {
   return (
-    <div className="flex flex-col w-screen mt-10 items-center">
+    <div className="flex flex-col w-screen h-screen mt-10 items-center">
       <div className="xl:w-[700px] w-[300px] md:w-[600px] grid grid-col gap-5 items-center justify-center">
         <div className="flex flex-col gap-3">
           <div className="text-2xl font-poppins">Half Stack Developer</div>
