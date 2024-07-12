@@ -42,7 +42,7 @@ services:
     ports:
       - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
     environment:
-      - DB_HOST=mongodb-capstone
+      - DB_HOST=commerce-db.mmhfrnv.mongodb.net
       - TEST_DB_HOST=mongodb-capstone-test
       - DB_USER=$MONGODB_USER
       - DB_PASSWORD=$MONGODB_PASSWORD
