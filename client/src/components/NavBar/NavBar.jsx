@@ -1,15 +1,30 @@
 "use client";
-
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import logo from "../../assets/HiredhubLogo.svg";
-import { Separator } from "@/components/ui/separator";
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
-const Navbar = () => {
+function Navbar() {
+  const [header, setHeader] = useState(false);
+
+  const scrollHeader = () => {
+    if (window.scrollY >= 5) {
+      setHeader(true);
+    } else {
+      setHeader(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrollHeader);
+    return () => {
+      window.addEventListener("scroll", scrollHeader);
+    };
+  }, []);
+
   const [nav, setNav] = useState(false);
 
   const links = [
@@ -63,7 +78,13 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="flex justify-between items-center border-b-2 border-gray-400 w-full h-20 px-4 text-white bg-white fixed nav">
+    <nav
+      className={
+        header
+          ? "sticky top-0 z-50 flex justify-between items-center border-b-2 border-gray-200 w-full h-20 px-10 bg-[#F5F7F8]"
+          : " flex justify-between items-center border-b-2 border-gray-400 w-full h-20 px-10 bg-[#F5F7F8]"
+      }
+    >
       <div>
         <Link href={"/"}>
           <div>
@@ -81,15 +102,24 @@ const Navbar = () => {
         {links.map(({ id, link }) => (
           <li
             key={id}
-            className="nav-links xl:px-6 md:px-4 sm:px-4 cursor-pointer capitalize font-medium text-gray-500 hover:underline duration-400 link-underline"
+            className="nav-links xl:px-6 md:px-4 sm:px-4 cursor-pointer capitalize font-lato font-medium text-gray-600 "
           >
-            <Link href={link}>{link}</Link>
+            <Link
+              className="border-transparent border-b-2 pb-1 hover:border-b-gray-300  duration-200"
+              href={link}
+            >
+              {link}
+            </Link>
           </li>
         ))}
       </ul>
       <div className="hidden md:flex flex-row gap-4">
-        <Button className="bg-[#40A578]">Log in</Button>
-        <Button>Sign up</Button>
+        <Button className="bg-[#40A578] font-lato hover:bg-[#5abb91] ">
+          Log in
+        </Button>
+        <Button className="font-lato bg-[#263238] hover:bg-[#3f4f56]">
+          Sign up
+        </Button>
       </div>
 
       <div
@@ -100,11 +130,11 @@ const Navbar = () => {
       </div>
 
       {nav && (
-        <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-white text-gray-500">
+        <ul className="flex flex-col justify-center items-center  absolute top-0 left-0 w-full h-screen bg-white text-gray-500">
           {linksMobile.map(({ id, link }) => (
             <li
               key={id}
-              className="px-4 cursor-pointer capitalize py-6 text-4xl"
+              className="px-4 cursor-pointer font-lato capitalize py-6 text-4xl"
             >
               <Link onClick={() => setNav(!nav)} href={link}>
                 {link}
@@ -113,8 +143,8 @@ const Navbar = () => {
           ))}
         </ul>
       )}
-    </div>
+    </nav>
   );
-};
+}
 
 export default Navbar;
