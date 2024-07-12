@@ -26,7 +26,7 @@ const Footer = () => {
           </div>
         </div>
         <div>
-          <Link className="font-poppins text-xl text-gray-600 " href={"/"}>
+          <Link className="font-poppins text-xl text-gray-600 " href={"/contact"}>
             Contact us
           </Link>
         </div>
