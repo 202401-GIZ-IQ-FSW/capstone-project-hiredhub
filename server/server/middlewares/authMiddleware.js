@@ -9,7 +9,7 @@ const JwtAuthorize = (req, res, next) => {
         if (parts.length === 2 && parts[0] === 'Bearer') {
             const token = parts[1];
 
-            jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+            jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
                 if (err) {
                     return res.status(403).json({ message: 'Token is invalid or expired' });
                 }

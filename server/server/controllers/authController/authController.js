@@ -1,6 +1,7 @@
 const User = require('../../models/User');
 const bcrypt = require('bcrypt');
-const generateToken = require('../../utils/token');
+const { generateAccessToken, generateRefreshToken } = require('../../utils/token');
+const jwt = require('jsonwebtoken');
 
 exports.signup = async (req, res) => {
   const { email, password, password2, role } = req.body;
@@ -27,8 +28,12 @@ exports.signup = async (req, res) => {
       role
     });
 
-    // Generate a token
-    const token = generateToken(user);
+    // Generate access and refresh token
+    const accessToken = generateAccessToken(user);
+    const refreshToken = generateRefreshToken(user);
+
+    user.refreshToken = refreshToken;
+    await user.save();
 
     // Return the user (without password) and access token
     res.status(201).json({
@@ -37,7 +42,8 @@ exports.signup = async (req, res) => {
         email: user.email,
         role: user.role
       },
-      access_token: token
+      access_token: accessToken,
+      refresh_token: refreshToken
     });
   } catch (err) {
     res.status(400).json({ error: err.message });
@@ -60,8 +66,13 @@ exports.signin = async (req, res) => {
       return res.status(401).json({ error: "Invalid password" })
     }
 
-     // Generate a token
-    const token = generateToken(user)
+    // Generate access and refresh token
+    const accessToken = generateAccessToken(user);
+    const refreshToken = generateRefreshToken(user);
+
+    user.refreshToken = refreshToken;
+    await user.save();
+
 
     // Return user (without password) and access token
     res.status(201).json({
@@ -70,7 +81,8 @@ exports.signin = async (req, res) => {
         email: user.email,
         role: user.role
       },
-      access_token: token
+      access_token: accessToken,
+      refresh_token: refreshToken
     });
   }catch(err){
     res.status(400).json({ error: err.message });
@@ -86,7 +98,8 @@ exports.signout = async (req, res) => {
 exports.googleCallback = async (req, res) => {
   try {
     const user = req.user;
-    const token = generateToken(user);
+    const accessToken = generateAccessToken(user);
+    const refreshToken = generateRefreshToken(user);
 
     // Return user (without password) and access token
     res.status(201).json({
@@ -95,7 +108,8 @@ exports.googleCallback = async (req, res) => {
         email: user.email,
         role: user.role
       },
-      access_token: token
+      access_token: accessToken,
+      refresh_token: refreshToken
     });
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -106,4 +120,40 @@ exports.setRole = async (req, res, next) => {
   // Store the role in session
   req.session.role = req.query.role || 'jobSeeker'; // Default role if none provided
   next();
+};
+
+exports.refreshToken = async (req, res) => {
+  const { token } = req.body;
+
+  if (!token) {
+    return res.status(401).json({ error: "Refresh token required" });
+  }
+
+  try {
+    const decoded = jwt.verify(token, process.env.REFRESH_TOKEN_SECRET);
+    const user = await User.findById(decoded.id);
+
+    if (!user) {
+      console.log("User not found");
+      return res.status(403).json({ error: "Invalid refresh token" });
+    }
+
+    if (user.refreshToken !== token) {
+      console.log("Token mismatch");
+      return res.status(403).json({ error: "Invalid refresh token" });
+    }
+
+    const newAccessToken = generateAccessToken(user);
+    const newRefreshToken = generateRefreshToken(user);
+
+    user.refreshToken = newRefreshToken;
+    await user.save();
+
+    res.json({
+      access_token: newAccessToken,
+      refresh_token: newRefreshToken
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 };
