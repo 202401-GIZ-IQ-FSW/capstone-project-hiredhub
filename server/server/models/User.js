@@ -20,10 +20,12 @@ const userSchema = new mongoose.Schema(
       enum: ["jobSeeker", "employer"],
       required: true,
     },
+
+    refreshToken: {
+      type: String,
+    },
   },
-  refreshToken: {
-    type: String,
-  }
-}, { timestamps: true });
+  { timestamps: true }
+);
 
 module.exports = mongoose.model("User", userSchema);
