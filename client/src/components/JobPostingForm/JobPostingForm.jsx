@@ -5,15 +5,19 @@ import { CiCalendar } from "react-icons/ci";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 import categories from "@/data/categories.json";
 import jobTypes from "@/data/jobTypes.json";
 import minEducation from "@/data/minEducation.json";
 import yearsOfExperience from "@/data/yearsOfExperience.json";
-import { validationSchema } from "@/validations/validationSchema"
-import InputField from "@/components/InputField/InputField"
+import { validationSchema } from "@/validations/validationSchema";
+import InputField from "@/components/InputField/InputField";
 import Selection from "@/components/Selection/Selection";
 import * as Yup from "yup";
 import { AiOutlinePlus } from "react-icons/ai";
@@ -43,7 +47,10 @@ const initialValues = {
 function JobPostingForm() {
   const [date, setDate] = useState();
   return (
-    <div className="container">
+    <div className="container py-10">
+      <div className="text-2xl font-poppins font-semibold mb-10  place-content-center">
+        Post your job listing
+      </div>
       <Formik
         initialValues={initialValues}
         validationSchema={Yup.object(validationSchema)}
@@ -52,12 +59,14 @@ function JobPostingForm() {
         }}
       >
         {({ setFieldValue, errors, touched }) => (
-          <Form>
-            <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-6 space-y-3 space-x-3 my-5">
+          <Form className="bg-slate-200 p-4 rounded-md ">
+            <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-6 space-x-3 pb-12 ">
               <Label htmlFor="jobDetails" className="lg:col-span-2 ml-3">
-                <h3 className="text-lg font-semibold font-poppins">Post your job</h3>
+                <h3 className="text-lg font-semibold font-poppins">
+                  Job details
+                </h3>
               </Label>
-              <div className="flex flex-col space-y-2">
+              <div className="flex flex-col space-y-2 ">
                 {/* Job title */}
                 <InputField
                   id="title"
@@ -199,9 +208,7 @@ function JobPostingForm() {
                                 >
                                   <AiOutlinePlus />
                                 </Button>
-                              ) : (
-                                null
-                              )}
+                              ) : null}
                               {index !==
                               form.values.certifications.length - 1 ? (
                                 <Button
@@ -211,9 +218,7 @@ function JobPostingForm() {
                                 >
                                   <AiOutlineMinus />
                                 </Button>
-                              ) : (
-                                null
-                              )}
+                              ) : null}
                             </div>
                           )
                         )}
@@ -244,9 +249,7 @@ function JobPostingForm() {
                               >
                                 <AiOutlinePlus />
                               </Button>
-                            ) : (
-                              null
-                            )}
+                            ) : null}
                             {index !== form.values.skills.length - 1 ? (
                               <Button
                                 type="button"
@@ -255,9 +258,7 @@ function JobPostingForm() {
                               >
                                 <AiOutlineMinus />
                               </Button>
-                            ) : (
-                              null
-                            )}
+                            ) : null}
                           </div>
                         ))}
                       </div>
@@ -332,7 +333,10 @@ function JobPostingForm() {
                 />
               </div>
             </div>
-            <Button className="ml-3 bg-[#263238] px-8" type="submit">
+            <Button
+              className="ml-3 bg-[#263238] hover:bg-[#3f4f56] px-8 mb-10 w-[300px] font-lato font-semibold "
+              type="submit"
+            >
               Post Job
             </Button>
           </Form>
