@@ -1,6 +1,7 @@
 import { MapPin } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Dot } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function () {
   return (
@@ -37,6 +38,9 @@ export default function () {
           <div>Years of experience: 1-5 years</div>
         </div>
       </div>
+      <Button className="w-[200px] bg-[#263238] hover:bg-[#3f4f56] font-lato mt-14">
+        Apply for this job
+      </Button>
     </div>
   );
 }
