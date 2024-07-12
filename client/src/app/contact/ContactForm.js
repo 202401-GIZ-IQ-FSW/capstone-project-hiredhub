@@ -59,10 +59,7 @@ export function ContactForm() {
               <FormControl>
                 <Input placeholder="John Doe" {...field} />
               </FormControl>
-              <FormDescription>
-                Enter your full name.
-              </FormDescription>
-              <FormMessage />
+              <FormMessage className="min-h-5" />
             </FormItem>
           )}
         />
@@ -75,10 +72,7 @@ export function ContactForm() {
               <FormControl>
                 <Input placeholder="john.doe@example.com" {...field} />
               </FormControl>
-              <FormDescription>
-                Enter your email address.
-              </FormDescription>
-              <FormMessage />
+              <FormMessage className="min-h-5"/>
             </FormItem>
           )}
         />
@@ -91,10 +85,7 @@ export function ContactForm() {
               <FormControl>
                 <Input placeholder="Subject" {...field} />
               </FormControl>
-              <FormDescription>
-                Enter the subject of your message.
-              </FormDescription>
-              <FormMessage />
+              <FormMessage className="min-h-5"/>
             </FormItem>
           )}
         />
@@ -107,10 +98,7 @@ export function ContactForm() {
               <FormControl>
                 <Textarea placeholder="Your message" {...field} />
               </FormControl>
-              <FormDescription>
-                Enter the content of your message.
-              </FormDescription>
-              <FormMessage />
+              <FormMessage className="min-h-5" />
             </FormItem>
           )}
         />
