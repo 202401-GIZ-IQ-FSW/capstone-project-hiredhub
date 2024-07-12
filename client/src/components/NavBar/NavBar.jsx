@@ -130,7 +130,7 @@ function Navbar() {
       </div>
 
       {nav && (
-        <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-white text-gray-500">
+        <ul className="flex flex-col justify-center items-center  absolute top-0 left-0 w-full h-screen bg-white text-gray-500">
           {linksMobile.map(({ id, link }) => (
             <li
               key={id}
