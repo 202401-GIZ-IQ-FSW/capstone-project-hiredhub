@@ -23,12 +23,12 @@ exports.createProfile = async (req, res) => {
   const profilePicture =
     req.files["profilePicture"][0].filename === undefined
       ? ""
-      : `${process.env.BASE_URL}/backend-app/server/files/${req.files["profilePicture"][0].filename}`;
+      : `${process.env.BASE_URL}backend-app/server/files/${req.files["profilePicture"][0].filename}`;
 
   const resume =
     req.files["resume"][0].filename === undefined
       ? ""
-      : `${process.env.BASE_URL}/backend-app/server/files/${req.files["resume"][0].filename}`;
+      : `${process.env.BASE_URL}backend-app/server/files/${req.files["resume"][0].filename}`;
   try {
     const existingProfile = await Profile.findOne({ userId: userId });
     if (existingProfile) {
@@ -59,9 +59,18 @@ exports.createProfile = async (req, res) => {
 };
 
 exports.updateProfile = async (req, res) => {
-  const { firstName, lastName, phoneNumber, location, resume, profilePicture } =
-    req.body;
+  const { firstName, lastName, phoneNumber, location } = req.body;
+  const profilePicture =
+    req.files["profilePicture"][0].filename === undefined
+      ? ""
+      : `${process.env.BASE_URL}backend-app/server/files/${req.files["profilePicture"][0].filename}`;
+
+  const resume =
+    req.files["resume"][0].filename === undefined
+      ? ""
+      : `${process.env.BASE_URL}backend-app/server/files/${req.files["resume"][0].filename}`;
   const userId = req.user.id;
+
   try {
     let profile = await Profile.findOne({ userId: userId });
     if (!profile) {

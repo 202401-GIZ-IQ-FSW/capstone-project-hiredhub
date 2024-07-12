@@ -37,13 +37,10 @@ exports.createCompany = async (req, res) => {
       mission,
       values,
     } = req.body;
-    let logo = "";
-
-    // i want to check if the user has uploaded a logo then do something else do nothing
-    if (req.file) {
-      console.log(req.file);
-      logo = `${process.env.BASE_URL}/backend-app/server/files/${req.file.filename}`;
-    }
+    let logo =
+      req?.file === undefined
+        ? ""
+        : `${process.env.BASE_URL}backend-app/server/files/${req.file.filename}`;
 
     const user = await User.findById(userId);
     if (!user) {
@@ -86,7 +83,6 @@ exports.updateCompany = async (req, res) => {
     name,
     website,
     description,
-    logo,
     location,
     CEO,
     ContactInfo,
@@ -94,6 +90,11 @@ exports.updateCompany = async (req, res) => {
     mission,
     values,
   } = req.body;
+  let logo =
+    req?.file === undefined
+      ? ""
+      : `${process.env.BASE_URL}backend-app/server/files/${req.file.filename}`;
+
   try {
     const updatedCompany = await Company.findByIdAndUpdate(
       id,
