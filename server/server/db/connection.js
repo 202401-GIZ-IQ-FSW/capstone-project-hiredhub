@@ -8,9 +8,7 @@ const DB_URI = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@${
 }/?retryWrites=true&w=majority&appName=${DB_NAME}`;
 
 mongoose.set("strictQuery", false);
-console.log("DB_HOST", DB_HOST);
 const url = DB_URI;
-console.log("url################################", url);
 const connectToMongo = () => {
   mongoose.connect(url, {
     useNewUrlParser: true,

@@ -37,9 +37,14 @@ exports.createCompany = async (req, res) => {
       mission,
       values,
     } = req.body;
+    let logo = "";
 
-    const logo = req.file.path;
-    console.log("logo", logo);
+    // i want to check if the user has uploaded a logo then do something else do nothing
+    if (req.file) {
+      console.log(req.file);
+      logo = `${process.env.BASE_URL}/backend-app/server/files/${req.file.filename}`;
+    }
+
     const user = await User.findById(userId);
     if (!user) {
       return res.status(404).json({ error: "User not found" });
