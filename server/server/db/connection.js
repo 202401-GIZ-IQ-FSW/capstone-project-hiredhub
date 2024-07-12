@@ -2,10 +2,9 @@ const mongoose = require("mongoose");
 
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME, TEST_DB_HOST } =
   process.env;
-const password = encodeURIComponent(DB_PASSWORD);
-const DB_URI = `mongodb+srv://${DB_USER}:${password}@${
-  process.env.NODE_ENV === "test" ? TEST_DB_HOST : DB_HOST
-}/?retryWrites=true&w=majority&appName=${DB_NAME}&authSource=admin`;
+  const DB_URI = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@${
+    process.env.NODE_ENV === "test" ? TEST_DB_HOST : DB_HOST
+  }/?retryWrites=true&w=majority&appName=${DB_NAME}`;
 
 mongoose.set("strictQuery", false);
 console.log("DB_HOST", DB_HOST);
