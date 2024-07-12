@@ -4,7 +4,7 @@ import logo from "../../assets/HiredhubLogo.svg";
 
 const Footer = () => {
   return (
-    <div className="bg-[#F5F7F8] border-t-2  px-4 pt-16 mx-auto  md:px-24 lg:px-8">
+    <div className="bg-[#F5F7F8] border-t-2  px-4 pt-16 mx-auto   md:px-24 lg:px-8">
       <div className="flex flex-col gap-5 mb-5 xl:flex-row justify-around">
         <div className="sm:col-span-2">
           <Link href={"/"}>

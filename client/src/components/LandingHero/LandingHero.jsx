@@ -4,10 +4,12 @@ import { Button } from "@/components/ui/button";
 import hero from "../../assets/Hero-section.svg";
 import Image from "next/image";
 import { useState } from "react";
-import { redirect } from "next/navigation";
+import { useRouter } from 'next/navigation'
+import Link from "next/link";
 
 function LandingHero() {
   const [searchTerm, setSearchterm] = useState();
+  const router = useRouter()
 
   function handleChange(e) {
     setSearchterm(e.target.value);
@@ -15,7 +17,7 @@ function LandingHero() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    redirect(`api/jobs/search?${searchTerm}`);
+    router.push(`/search?${searchTerm}`);
   };
   return (
     <div className="mb-14">
@@ -34,9 +36,17 @@ function LandingHero() {
             <h2 className="text-2xl text-center text-greenprime xl:text-4xl sm:text-3xl font-workSans font-semibold xl:text-left sm:text-center">
               Skip the paperwork
             </h2>
-            <h4 className="xl:text-xl sm:text-xl text-gray-700 font-poppins md:text-left text-center font-lato">
+            <h4 className="xl:text-xl sm:text-xl text-gray-700 font-poppins md:text-left text-center ">
               Your profile is your application. Apply to jobs instantly.
             </h4>
+            <Link href={"/signup"}>
+              <Button
+                className="bg-[#263238] hover:bg-[#3f4f56] font-lato w-[200px]"
+                type="button"
+              >
+                Create your free Account
+              </Button>
+            </Link>
           </div>
         </div>
         <div className="w-[300px] sm:w-[350px] md:w-[400px] xl:w-[450px]">
@@ -54,9 +64,8 @@ function LandingHero() {
           Let's find your next job
         </h1>
         <div className="flex  items-center space-x-2 mb-8">
-          <form>
+          <form onSubmit={handleSubmit}>
             <Input
-              onSubmit={handleSubmit}
               onChange={handleChange}
               value={searchTerm}
               className="xl:w-[550px] w-[350px]"
@@ -65,12 +74,14 @@ function LandingHero() {
             />
           </form>
         </div>
-        <Button
-          className="bg-[#263238] hover:bg-[#3f4f56] w-[200px]"
-          type="submit"
-        >
-          Advanced Search
-        </Button>
+        <Link href={"/advancedsearch"}>
+          <Button
+            className="bg-[#263238] hover:bg-[#3f4f56] font-lato w-[200px]"
+            type="button"
+          >
+            Advanced Search
+          </Button>
+        </Link>
       </div>
     </div>
   );
