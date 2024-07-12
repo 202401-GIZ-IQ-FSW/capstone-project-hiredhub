@@ -48,7 +48,7 @@ function JobPostingForm() {
   const [date, setDate] = useState();
   return (
     <div className="container py-10">
-      <div className="text-2xl font-poppins font-semibold mb-10  place-content-center">
+      <div className="text-4xl font-poppins font-semibold mb-10  place-content-center">
         Post your job listing
       </div>
       <Formik
@@ -59,12 +59,13 @@ function JobPostingForm() {
         }}
       >
         {({ setFieldValue, errors, touched }) => (
-          <Form className="bg-slate-200 p-4 rounded-md ">
+          <Form>
             <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-6 space-x-3 pb-12 ">
-              <Label htmlFor="jobDetails" className="lg:col-span-2 ml-3">
-                <h3 className="text-lg font-semibold font-poppins">
-                  Job details
-                </h3>
+              <Label
+                htmlFor="jobDetails"
+                className="lg:col-span-2 ml-3 text-xl  font-semibold mb-2"
+              >
+                job details
               </Label>
               <div className="flex flex-col space-y-2 ">
                 {/* Job title */}
@@ -334,7 +335,7 @@ function JobPostingForm() {
               </div>
             </div>
             <Button
-              className="ml-3 bg-[#263238] hover:bg-[#3f4f56] px-8 mb-10 w-[300px] font-lato font-semibold "
+              className="ml-3 bg-[#263238] hover:bg-[#3f4f56] px-8 mb-10 w-[150px] font-lato font-semibold "
               type="submit"
             >
               Post Job
