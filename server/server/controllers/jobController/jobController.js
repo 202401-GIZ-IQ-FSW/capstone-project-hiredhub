@@ -81,7 +81,7 @@ exports.updateJobById = async (req, res) => {
 
 
 exports.searchJobs = async (req, res) => {
-  const { keyword, location, title, category, jobType, wage, status, educationalLevel, yearsOfExperience, page = 1, limit = 10 } = req.query;
+  const { keyword, location, title, category, jobType, workSetting, wage, status, educationalLevel, yearsOfExperience, page = 1, limit = 10 } = req.query;
   const filter = {};
 
   if (keyword) {
@@ -105,6 +105,10 @@ exports.searchJobs = async (req, res) => {
 
   if (jobType) {
     filter.jobType = { $in: jobType.split(',') };
+  }
+
+  if (workSetting) {
+    filter.workSetting = { $in: workSetting.split(',') };
   }
 
   if (wage) {

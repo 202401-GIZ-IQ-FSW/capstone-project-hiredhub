@@ -25,12 +25,6 @@ const jobRoutes = require("./routes/jobRoutes")
 const profileRoutes = require("./routes/profileRoutes");
 
 
-//DB Connect
-const connectToMongo = require("./db/connection");
-const logging = require("./middlewares/logging");
-
-
-
 const app = express();
 const port =
   process.env.NODE_ENV === "test"
