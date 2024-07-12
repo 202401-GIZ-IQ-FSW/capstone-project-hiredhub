@@ -1,9 +1,39 @@
+"use client";
+
 import { MapPin } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Dot } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function () {
+  const params = useParams();
+  const router = useRouter();
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    const application = {
+      jobId: params.id,
+      applicantId: 1,
+    };
+
+    const res = await fetch("/api/applications", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(application),
+    });
+
+    if (res.ok) {
+      router.push("/application-success");
+    } else {
+      alert("Failed to submit application.");
+    }
+  }
+
   return (
     <div className="flex flex-col w-screen mt-10 items-center">
       <div className="xl:w-[700px] w-[300px] md:w-[600px] grid grid-col gap-5 items-center justify-center">
@@ -38,9 +68,14 @@ export default function () {
           <div>Years of experience: 1-5 years</div>
         </div>
       </div>
-      <Button className="w-[200px] bg-[#263238] hover:bg-[#3f4f56] font-lato mt-14">
-        Apply for this job
-      </Button>
+      <form onSubmit={handleSubmit}>
+        <Button
+          tyep="submit"
+          className="w-[200px] bg-[#263238] hover:bg-[#3f4f56] font-lato mt-14"
+        >
+          Apply for this job
+        </Button>
+      </form>
     </div>
   );
 }
