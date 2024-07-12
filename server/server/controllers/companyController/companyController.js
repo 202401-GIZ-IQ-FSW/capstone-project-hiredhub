@@ -37,11 +37,11 @@ exports.createCompany = async (req, res) => {
       mission,
       values,
     } = req.body;
-  
+
     const logo = req.file.path;
-    
-    const user = await User.findById(userId)
-    if(!user){
+    console.log("logo", logo);
+    const user = await User.findById(userId);
+    if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
 
@@ -77,7 +77,8 @@ exports.getCompanyById = async (req, res) => {
 
 exports.updateCompany = async (req, res) => {
   const { id } = req.params;
-  const {  name,
+  const {
+    name,
     website,
     description,
     logo,
@@ -86,9 +87,11 @@ exports.updateCompany = async (req, res) => {
     ContactInfo,
     history,
     mission,
-    values, } = req.body;
+    values,
+  } = req.body;
   try {
-    const updatedCompany = await Company.findByIdAndUpdate(  id,
+    const updatedCompany = await Company.findByIdAndUpdate(
+      id,
       {
         $set: {
           name,
@@ -102,10 +105,11 @@ exports.updateCompany = async (req, res) => {
           ContactInfo,
           history,
           mission,
-          values
-        }
+          values,
+        },
       },
-      { new: true });
+      { new: true }
+    );
     if (!updatedCompany)
       return res.status(404).json({ message: "Company not found" });
     res.status(200).json(updatedCompany);

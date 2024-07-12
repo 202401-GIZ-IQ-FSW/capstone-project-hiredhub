@@ -13,8 +13,6 @@ const storage = multer.diskStorage({
     cb(null, `${uniqueSuffix}${extension}`);
   },
 });
-console.log("uploadDir", uploadDir);
-console.log("__dirname", __dirname);
 
 const fileFilter = (req, file, cb) => {
   if (
