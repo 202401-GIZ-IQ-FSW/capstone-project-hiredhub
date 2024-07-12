@@ -7,7 +7,7 @@ const upload = require("../config/multerConfig");
 
 
 router.get("/", JwtAuthorize, companyController.getAllCompanies);
-router.post("/", upload.single("logo"), companyController.createCompany);
+router.post("/", JwtAuthorize, upload.single("logo"), companyController.createCompany);
 router.get("/:id", JwtAuthorize, companyController.getCompanyById);
 router.put(
   "/:id",

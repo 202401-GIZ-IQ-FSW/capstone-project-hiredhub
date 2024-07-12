@@ -1,0 +1,10 @@
+{
+    "jobType": [
+        "Full-Time",
+        "Part-Time",
+        "Contract",
+        "Internship",
+        "Temporary",
+        "Freelance"
+    ]
+}

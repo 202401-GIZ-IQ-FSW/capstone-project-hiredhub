@@ -1,35 +1,22 @@
 import React from "react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const JobCard = () => {
   return (
-    <div>
-      <div className=" jobCarddiv flex gap-10 justify-center flex-wrap items-center py-10">
-        <div
-          key={id}
-          className=" w-[250px] p-[20px] bg-white rounded hover:bg-blue-500 shadow-BlueShadow hover:shadow-lg "
-        ></div>
-        <span className="flex justify-between items-center gap-4">
-          <h1 className="text-[16px] font-semibold text-black group-hover:text-white">
-            Job Title {title}
-          </h1>
-        </span>
-        <h6 className="text-[#ccc] ">City/Location {location}</h6>
-        <p className="text-[13px] text-[#959595] pt-[20px] border-t-[2px] mt-[20px] group-hover:text-white">
-          {description}
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum,
-          officia.
+    <div className="job-card xl:max-w-2xl md:max-w-2xl bg-[#243238] rounded-lg shadow-md min-w-[400px]  overflow-hidden m-4 flex flex-col md:flex-row">
+      <div className="p-4 flex-grow">
+        <h2 className="text-2xl font-semibold text-white">Job Title</h2>
+        <p className="text-white mt-2">Employer Company</p>
+        <p className="text-[#9ea5a8] text-sm mt-1">City/Location</p>
+        <p className="text-white my-4">
+          DESCRIPTION Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+          Tempora iste veniam nesciunt, cum doloribus laboriosam voluptates ipsa
+          sunt, expedita iure,.
         </p>
-
-        <div className="employerCompany flex items-center gap-2">
-          <img src={image} alt="Company Logo" className="w-[10%]" />
-          <span className="text-[14px] py-[1rem] block group-hover:text-LightBlue">
-            Company Name {company}
-          </span>
-        </div>
-        <button className="border-[2px] rounded-[1opx] block p-[10px] w-full text-[14px] font-semibold text-black hover:bg-white group-hover/item:text-BlueColor ">
-          {" "}
-          Apply Now!
-        </button>
+      </div>
+      <div className="px-6 my-4 flex md:items-end items-center justify-center">
+        <Button className="w-[100px]" variant="secondary">Apply</Button>
       </div>
     </div>
   );
