@@ -55,7 +55,7 @@ function JobPostingForm() {
           <Form>
             <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-6 space-y-3 space-x-3 my-5">
               <Label htmlFor="jobDetails" className="lg:col-span-2 ml-3">
-                <h3 className="text-lg font-semibold">Job Details</h3>
+                <h3 className="text-lg font-semibold font-poppins">Post your job</h3>
               </Label>
               <div className="flex flex-col space-y-2">
                 {/* Job title */}
