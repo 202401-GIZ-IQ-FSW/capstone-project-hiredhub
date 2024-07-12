@@ -3,10 +3,10 @@ import Map from "./Map";
 
 const ContactPage = () => {
   return (
-    <div className="flex justify-center items-center my-10 flex-col">
+    <div className="flex justify-center items-center my-10 flex-col font-lato">
       <div className="text-center mt-14">
-        <h1 className="text-2xl font-bold text-[#263238] mb-2 md:text-4xl">Contact Us</h1>
-        <p className="text-sm w-80 font-light md:w-96">
+        <h1 className="text-2xl font-bold text-[#263238] mb-2 md:text-5xl">Contact Us</h1>
+        <p className="w-80 font-light md:w-96 text-md text-muted-foreground">
           Get in touch with us. We're here to assist you in finding the perfect
           job opportunities.
         </p>
