@@ -3,6 +3,11 @@
 import { MapPin } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Dot } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+import { useParams } from "next/navigation";
+import { useRouter } from "next/navigation";
+
 
 export default function () {
   const params = useParams();
