@@ -1,0 +1,10 @@
+{
+    "minEducation": [
+        "High School", 
+        "Associate", 
+        "Bachelor", 
+        "Master", 
+        "Doctorate", 
+        "None"
+    ]
+}
