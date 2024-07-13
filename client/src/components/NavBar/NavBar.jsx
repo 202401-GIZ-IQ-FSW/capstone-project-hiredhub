@@ -76,6 +76,7 @@ function Navbar() {
               src={logo}
               width={150}
               height={150}
+              alt="logo"
             />
           </div>
         </Link>
@@ -97,12 +98,18 @@ function Navbar() {
         ))}
       </ul>
       <div className="hidden md:flex flex-row gap-4">
+        <Link href={'/login'}>
         <Button className="bg-[#40A578] font-lato hover:bg-[#5abb91] ">
           Log in
         </Button>
+        </Link>
+        
+        <Link href={"/signup"}>
         <Button className="font-lato bg-[#263238] hover:bg-[#3f4f56]">
           Sign up
         </Button>
+        </Link>
+        
       </div>
 
       <div

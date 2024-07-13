@@ -53,7 +53,7 @@ function JobPostingForm() {
       </div>
       <Formik
         initialValues={initialValues}
-        validationSchema={Yup.object(validationSchema)}
+        validationSchema={validationSchema}
         onSubmit={(values) => {
           console.log("Form data: ", values);
         }}

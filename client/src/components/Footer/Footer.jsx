@@ -13,6 +13,7 @@ const Footer = () => {
               src={logo}
               width={100}
               height={100}
+              alt="logo"
             />
           </Link>
           <div className="mt-6 lg:max-w-sm">
