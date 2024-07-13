@@ -92,7 +92,7 @@ export const FilterJobBrowse = () => {
           </div>
         </div>
       </div>
-      <div className="border-black border-[1px] w-full fill-[#000000]">
+      <div className="border-slate-300 border-b-2 w-full fill-[#000000]">
        
       </div>
     </>

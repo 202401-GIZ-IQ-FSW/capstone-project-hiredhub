@@ -66,7 +66,7 @@ const BrowseJob = () => {
 
   return (
     <div className="mt-12 flex items-center flex-col md:mt-16">
-      <h1 className="font-bold md:text-4xl">Browse Jobs</h1>
+      <h1 className="font-semibold md:text-4xl font-poppins">Browse Jobs</h1>
       <FilterJobBrowse />
       <div className="self-center grid grid-cols-1 mt-10 md:grid-cols-2 md:px-20 md:gap-x-7">
         {jobCards.map((job, i) => (

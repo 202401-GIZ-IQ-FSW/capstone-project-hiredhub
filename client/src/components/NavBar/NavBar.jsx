@@ -30,50 +30,33 @@ function Navbar() {
   const links = [
     {
       id: 1,
-      link: "Browse",
+      link: "/search",
+      name: "Browse jobs",
     },
-    {
-      id: 2,
-      link: "jobs",
-    },
+
     {
       id: 3,
-      link: "Post Jobs",
+      link: "/company/postjob",
+      name: "Post job",
     },
     {
       id: 4,
       link: "about us",
+      name: "About us",
     },
     {
       id: 5,
       link: "contact",
+      name: "Contact us",
     },
   ];
   const linksMobile = [
-    {
-      id: 1,
-      link: "Browse",
-    },
-    {
-      id: 2,
-      link: "jobs",
-    },
-    {
-      id: 3,
-      link: "Post Jobs",
-    },
-    {
-      id: 4,
-      link: "about us",
-    },
-    {
-      id: 5,
-      link: "contact",
-    },
-    { id: 6, link: "Log in" },
+    ...links,
+    { id: 6, link: "Log in", name: "Log in" },
     {
       id: 7,
       link: "Sign up",
+      name: "Sign up",
     },
   ];
 
@@ -99,7 +82,7 @@ function Navbar() {
       </div>
 
       <ul className="hidden md:flex">
-        {links.map(({ id, link }) => (
+        {links.map(({ id, link, name }) => (
           <li
             key={id}
             className="nav-links xl:px-6 md:px-4 sm:px-4 cursor-pointer capitalize font-lato font-medium text-gray-600 "
@@ -108,7 +91,7 @@ function Navbar() {
               className="border-transparent border-b-2 pb-1 hover:border-b-gray-300  duration-200"
               href={`/${link}`}
             >
-              {link}
+              {name}
             </Link>
           </li>
         ))}
@@ -130,14 +113,20 @@ function Navbar() {
       </div>
 
       {nav && (
-        <ul className="z-30 flex flex-col justify-center items-center  absolute top-0 left-0 w-full h-screen bg-white text-gray-500">
-          {linksMobile.map(({ id, link }) => (
+
+        <ul className="flex flex-col justify-center items-center  absolute top-0 left-0 w-full h-screen bg-white text-gray-500">
+          {linksMobile.map(({ id, link, name }) => (
+
             <li
               key={id}
               className="px-4 cursor-pointer font-lato capitalize py-6 text-4xl"
             >
-              <Link onClick={() => setNav(!nav)} href={`/${link}`}>
-                {link}
+
+              <Link onClick={() => setNav(!nav)} href={link}>
+                {name}
+
+             
+
               </Link>
             </li>
           ))}
