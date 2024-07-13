@@ -1,13 +1,13 @@
 "use client";
-import FilterJobBrowse from "./FilterJobBrowse/FilterJobBrowse";
-import JobCard from "./JobCard/JobCard";
-import jobsData from "./../../dummyJobData.json";
+import FilterJobBrowse from "./FilterJobBrowse/FilterJobBrowse.jsx";
+import JobCard from "../JobCard/JobCard.jsx";
+import jobsData from "../../dummyJobData.json";
 import { Button } from "@/components/ui/button";
 import { useSearchParams } from "next/navigation";
 
 import { useEffect, useState } from "react";
 
-const BrowseJob = () => {
+const BrowseJob = ({data}) => {
   const searchParams = useSearchParams();
   const category = searchParams.get("category");
   const jobType = searchParams.get("jobType");
@@ -19,7 +19,7 @@ const BrowseJob = () => {
   const [filteredJobs, setFilteredJobs] = useState([]);
 
   const applyFilters = () => {
-    let filtered = jobsData;
+    let filtered = data;
 
     if (category) {
       filtered = filtered.filter((job) => job.category === category);
