@@ -30,13 +30,13 @@ function Navbar() {
   const links = [
     {
       id: 1,
-      link: "/search",
+      link: "search",
       name: "Browse jobs",
     },
 
     {
       id: 3,
-      link: "/company/postjob",
+      link: "company/postjob",
       name: "Post job",
     },
     {
