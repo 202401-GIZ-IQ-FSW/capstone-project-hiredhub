@@ -5,10 +5,12 @@ import { Button } from "@/components/ui/button";
 
 const JobCard = ({ job }) => {
   return (
+
     <div className="relative bg-[#263238] text-white flex flex-col px-5 m-4 py-5 rounded-xl">
       <div className="mb-3">
         <h3 className="font-bold text-xl">{job.title}</h3>
         <span className="font-light text-sm">{job.location}</span>
+
       </div>
       {true ? (
         <Image

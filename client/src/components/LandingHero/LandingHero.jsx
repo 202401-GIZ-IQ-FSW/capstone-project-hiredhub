@@ -4,12 +4,12 @@ import { Button } from "@/components/ui/button";
 import hero from "../../assets/Hero-section.svg";
 import Image from "next/image";
 import { useState } from "react";
-import { useRouter } from 'next/navigation'
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 function LandingHero() {
   const [searchTerm, setSearchterm] = useState();
-  const router = useRouter()
+  const router = useRouter();
 
   function handleChange(e) {
     setSearchterm(e.target.value);
@@ -32,7 +32,7 @@ function LandingHero() {
               work for you.
             </h3>
           </div>
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-5 items-center xl:items-start">
             <h2 className="text-2xl text-center text-greenprime xl:text-4xl sm:text-3xl font-workSans font-semibold xl:text-left sm:text-center">
               Skip the paperwork
             </h2>

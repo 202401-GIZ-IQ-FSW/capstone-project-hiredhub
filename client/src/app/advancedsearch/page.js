@@ -98,8 +98,8 @@ export default function AdvancedSearch() {
   return (
     <form onSubmit={handleSubmit}>
       <div className="overflow-hidden bg-[#F5F7F8]">
-        <div className="mt-14 my-20 flex flex-col w-screen container h-screen items-center ">
-          <div className="input-fields grid grid-cols xl:grid-cols-2  md:grid-cols-2 gap-5 mb-8 justify-center">
+        <div className="mt-14 my-20 flex flex-col w-screen container h-screen items-center">
+          <div className="input-fields grid grid-cols xl:grid-cols-2  md:grid-cols-2 gap-5 mb-8 justify-center ">
             <div className="grid w-[300px] max-w-sm  gap-1.5">
               <Label htmlFor="Title">Title</Label>
               <Input
