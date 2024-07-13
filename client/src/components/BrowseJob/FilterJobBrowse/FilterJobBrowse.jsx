@@ -30,6 +30,35 @@ export const FilterJobBrowse = () => {
     router.push(`${pathname}?${params.toString()}`);
   }, [category, jobType, education, experience]);
 
+  const jobCategories = [
+    "Software Development",
+    "Web Development",
+    "Data Science",
+    "Accounting",
+    "Finance",
+    "Administrative",
+    "Architecture",
+    "Engineering",
+    "Art & Design",
+    "Customer Service",
+    "Education",
+    "Healthcare",
+    "Human Resources",
+    "Legal",
+    "Logistics",
+    "Marketing",
+    "Media",
+    "Non-Profit",
+    "Operations Management",
+    "Project Management",
+    "Research",
+    "Retail",
+    "Sales",
+    "Security",
+    "Social Services",
+    "Writing",
+  ];
+
   return (
     <>
       <div className="flex mt-10 flex-col text-center md:flex-row md:items-center text-[#6F7482] mb-14">
@@ -41,9 +70,14 @@ export const FilterJobBrowse = () => {
                 <SelectValue placeholder="Category" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="Category1">Category1</SelectItem>
-                <SelectItem value="Category2">Category2</SelectItem>
-                {/* Add more categories as needed */}
+                {jobCategories.map((category) => (
+                  <SelectItem
+                    key={category}
+                    value={category.toLowerCase().replace(" ", "-")}
+                  >
+                    {category}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
             {/*  */}
@@ -92,9 +126,7 @@ export const FilterJobBrowse = () => {
           </div>
         </div>
       </div>
-      <div className="border-slate-300 border-b-2 w-full fill-[#000000]">
-       
-      </div>
+      <div className="border-slate-300 border-b-2 w-full fill-[#000000]"></div>
     </>
   );
 };

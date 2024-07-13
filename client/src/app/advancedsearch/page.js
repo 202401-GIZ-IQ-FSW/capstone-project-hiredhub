@@ -22,7 +22,7 @@ export default function AdvancedSearch() {
     "Internship",
     "Temporary",
     "Freelance",
-    "On-site",
+    "On site",
     "Hybrid",
     "Remote",
   ];
@@ -92,7 +92,7 @@ export default function AdvancedSearch() {
 
     const queryString = new URLSearchParams(query).toString();
 
-    router.push(`/search?${queryString}`);
+    router.push(`browsejobs?${queryString}`);
   };
 
   return (
