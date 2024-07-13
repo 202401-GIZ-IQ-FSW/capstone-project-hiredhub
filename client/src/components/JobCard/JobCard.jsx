@@ -1,8 +1,7 @@
 import Image from "next/image";
 import emptyStar from "@/../public/white-star.png";
 import star from "@/../public/star.svg";
-import { Button } from "@/components/ui/button"
-
+import { Button } from "@/components/ui/button";
 
 const JobCard = ({ job }) => {
   return (
@@ -26,8 +25,15 @@ const JobCard = ({ job }) => {
           src={star}
         />
       )}
-      <p className="mb-5 pr-20">{job.description}</p>
-      <Button variant="outline" className="bg-[#FBFDFC] text-black font-semibold rounded-md p-3  w-fit absolute bottom-5 right-4">
+      <p className="mb-5 pr-20">
+        {job.description.length > 150
+          ? job.description?.slice(0, 150) + " ......"
+          : job.description}
+      </p>
+      <Button
+        variant="outline"
+        className="bg-[#FBFDFC] text-black font-semibold rounded-md p-3  w-fit absolute bottom-5 right-4"
+      >
         Apply
       </Button>
     </div>
