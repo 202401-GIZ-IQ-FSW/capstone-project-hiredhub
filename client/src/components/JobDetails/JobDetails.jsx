@@ -50,7 +50,7 @@ export default function ({ data }) {
           <div className="flex flex-row gap-1 font-lato">
             <Badge> {data.status} </Badge>
             <Badge>{data.category.name}</Badge>
-            {data.jobType ? "" : <Badge>{data.jobType}</Badge>}
+            {data.jobType ? <Badge>{data.jobType}</Badge> : <span></span>}
           </div>
         </div>
         <div>
@@ -58,9 +58,19 @@ export default function ({ data }) {
           {data.description}
         </div>
         <div>
-          <div>Details</div>
-          <div>Skills</div>
-          <div>Years of experience: {data.requirements.yearsOfExperience}</div>
+          <div>Details about this job</div>
+          <div>Skills: {data.requirements.skills}</div>
+          <div>Salary: {data.wage}$</div>
+          <div>
+            Job requirements
+            <div>
+              Years of experience: {data.requirements.yearsOfExperience}
+            </div>
+            <div>
+              Minimum education level: {data.requirements.educationalLevel}
+            </div>
+            <div>Certification: {data.requirements.certifications}</div>
+          </div>
         </div>
       </div>
 
