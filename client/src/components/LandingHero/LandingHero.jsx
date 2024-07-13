@@ -17,7 +17,7 @@ function LandingHero() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    router.push(`/search?${searchTerm}`);
+    router.push(`search?keyword=${searchTerm}`);
   };
   return (
     <div className="mb-14">

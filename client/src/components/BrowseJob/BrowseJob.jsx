@@ -7,13 +7,15 @@ import { useSearchParams } from "next/navigation";
 
 import { useEffect, useState } from "react";
 
-const BrowseJob = ({data}) => {
+const BrowseJob = ({ data }) => {
   const searchParams = useSearchParams();
   const category = searchParams.get("category");
   const jobType = searchParams.get("jobType");
   const education = searchParams.get("education");
   const experience = searchParams.get("experience");
   const location = searchParams.get("location");
+  const keyword = searchParams.get("keyword");
+  const educationLevel = searchParams.get("educationLevel");
 
   const [loadMore, setLoadMore] = useState(false);
   const [jobCards, setJobCards] = useState([]);
@@ -22,8 +24,17 @@ const BrowseJob = ({data}) => {
   const applyFilters = () => {
     let filtered = data;
 
+    if (educationLevel) {
+      filtered = filtered.filter(
+        (job) => job.educationLevel === educationLevel
+      );
+    }
     if (category) {
       filtered = filtered.filter((job) => job.category === category);
+    }
+
+    if (keyword) {
+      filtered = filtered.filter((job) => job.keyword === keyword);
     }
     if (location) {
       filtered = filtered.filter((job) => job.location === location);
@@ -52,7 +63,7 @@ const BrowseJob = ({data}) => {
     const filtered = applyFilters();
     setFilteredJobs(filtered);
     setJobCards(filtered.slice(0, 10));
-  }, [category, jobType, education, experience]);
+  }, [category, jobType, education, experience, location, keyword]);
 
   const clicked = () => {
     setLoadMore(true);
