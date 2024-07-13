@@ -37,9 +37,11 @@ exports.createCompany = async (req, res) => {
       mission,
       values,
     } = req.body;
+    let logo =
+      req?.file === undefined
+        ? ""
+        : `${process.env.BASE_URL}backend-app/server/files/${req.file.filename}`;
 
-    const logo = req.file.path;
-    console.log("logo", logo);
     const user = await User.findById(userId);
     if (!user) {
       return res.status(404).json({ error: "User not found" });
@@ -81,7 +83,6 @@ exports.updateCompany = async (req, res) => {
     name,
     website,
     description,
-    logo,
     location,
     CEO,
     ContactInfo,
@@ -89,6 +90,11 @@ exports.updateCompany = async (req, res) => {
     mission,
     values,
   } = req.body;
+  let logo =
+    req?.file === undefined
+      ? ""
+      : `${process.env.BASE_URL}backend-app/server/files/${req.file.filename}`;
+
   try {
     const updatedCompany = await Company.findByIdAndUpdate(
       id,

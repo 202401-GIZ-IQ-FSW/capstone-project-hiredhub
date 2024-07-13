@@ -89,7 +89,7 @@ function Navbar() {
           >
             <Link
               className="border-transparent border-b-2 pb-1 hover:border-b-gray-300  duration-200"
-              href={link}
+              href={`/${link}`}
             >
               {name}
             </Link>
@@ -107,20 +107,26 @@ function Navbar() {
 
       <div
         onClick={() => setNav(!nav)}
-        className="cursor-pointer pr-4 z-10 text-gray-500 md:hidden"
+        className="z-40 cursor-pointer pr-4 text-gray-500 md:hidden"
       >
         {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
       </div>
 
       {nav && (
+
         <ul className="flex flex-col justify-center items-center  absolute top-0 left-0 w-full h-screen bg-white text-gray-500">
           {linksMobile.map(({ id, link, name }) => (
+
             <li
               key={id}
               className="px-4 cursor-pointer font-lato capitalize py-6 text-4xl"
             >
+
               <Link onClick={() => setNav(!nav)} href={link}>
                 {name}
+
+             
+
               </Link>
             </li>
           ))}
