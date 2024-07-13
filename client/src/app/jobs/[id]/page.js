@@ -1,11 +1,16 @@
-import JobDetail from "@/components/JobDetail/JobDetail";
 
-export default async function () {
-  const res = await fetch(
-    "https://hiredhub-api.onrender.com/api/jobs/6691adea213ef1fdfb387e73"
-  );
+import JobDetails from "@/components/JobDetails/JobDetails";
+
+export default async function JobDetailsPage({ params }) {
+  const id = params.id;
+
+  const res = await fetch(`https://hiredhub-api.onrender.com/api/jobs/${id}`);
   const data = await res.json();
-  
-  
-  return <JobDetail data={data} />;
-}
+
+  return (
+    <div className="p-5 pb-20 overflow-hidden bg-[#F5F7F8]">
+      <JobDetails data={data} />
+    </div>
+
+  );
+
