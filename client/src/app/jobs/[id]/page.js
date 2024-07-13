@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import { useParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 
-
 export default function () {
   const params = useParams();
   const router = useRouter();
@@ -38,7 +37,7 @@ export default function () {
 
   return (
     <div className="flex flex-col w-screen h-screen mt-10 items-center">
-      <div className="xl:w-[700px] w-[300px] md:w-[600px] grid grid-col gap-5 items-center justify-center bg-slate-200 rounded-md p-8">
+      <div className="xl:w-[700px] w-[300px] md:w-[600px] grid grid-col gap-5 items-center justify-center p-8">
         <div className="flex flex-col gap-3">
           <div className="text-2xl font-poppins">Half Stack Developer</div>
 
@@ -50,8 +49,8 @@ export default function () {
             </div>
           </div>
           <div className="flex flex-row gap-1 font-lato">
-            <Badge >Open</Badge>
-            <Badge >Remote</Badge>
+            <Badge>Open</Badge>
+            <Badge>Remote</Badge>
           </div>
         </div>
         <div>
@@ -79,8 +78,6 @@ export default function () {
           Apply for this job
         </Button>
       </form>
-
-      
     </div>
   );
 }
