@@ -8,6 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./../../ui/select";
+import { Button } from "@/components/ui/button";
 
 export const FilterJobBrowse = () => {
   const [category, setCategory] = useState("");
@@ -24,11 +25,29 @@ export const FilterJobBrowse = () => {
 
     if (category) params.set("category", category);
     if (jobType) params.set("jobType", jobType);
-    if (education) params.set("education", education);
-    if (experience) params.set("experience", experience);
+    if (education) params.set("educationLevel", education);
+    if (experience) params.set("yearsOfExp", experience);
 
     router.push(`${pathname}?${params.toString()}`);
   }, [category, jobType, education, experience]);
+
+  const handleReset = () => {
+    setCategory("");
+    setJobType("");
+    setEducation("");
+    setExperience("");
+
+    const params = new URLSearchParams(searchParams);
+    params.delete("category");
+    params.delete("jobType");
+    params.delete("educationLevel");
+    params.delete("yearsOfExp");
+    params.delete("title");
+    params.delete("location");
+
+
+    router.push(`${pathname}?${params.toString()}`);
+  };
 
   const jobCategories = [
     "Software Development",
@@ -65,7 +84,7 @@ export const FilterJobBrowse = () => {
         <h5 className="pb-2 mr-10">Filter By: </h5>
         <div className="md:flex">
           <div className="flex justify-between mt-3 mb-4 space-x-4 md:mr-4">
-            <Select onValueChange={setCategory}>
+            <Select value={category} onValueChange={setCategory}>
               <SelectTrigger className="w-[140px]">
                 <SelectValue placeholder="Category" />
               </SelectTrigger>
@@ -81,7 +100,7 @@ export const FilterJobBrowse = () => {
               </SelectContent>
             </Select>
             {/*  */}
-            <Select onValueChange={setJobType}>
+            <Select value={jobType} onValueChange={setJobType}>
               <SelectTrigger className="w-[140px]">
                 <SelectValue placeholder="Job Type" />
               </SelectTrigger>
@@ -99,7 +118,7 @@ export const FilterJobBrowse = () => {
             </Select>
           </div>
           <div className="flex justify-between mt-3 mb-6 space-x-4">
-            <Select onValueChange={setEducation}>
+            <Select value={education} onValueChange={setEducation}>
               <SelectTrigger className="w-[140px]">
                 <SelectValue placeholder="Education" />
               </SelectTrigger>
@@ -112,7 +131,7 @@ export const FilterJobBrowse = () => {
               </SelectContent>
             </Select>
             {/*  */}
-            <Select onValueChange={setExperience}>
+            <Select value={experience} onValueChange={setExperience}>
               <SelectTrigger className="w-[140px]">
                 <SelectValue placeholder="Experience" />
               </SelectTrigger>
@@ -123,6 +142,8 @@ export const FilterJobBrowse = () => {
                 <SelectItem value="7+ years">7+ years</SelectItem>
               </SelectContent>
             </Select>
+            {/*  */}
+            <Button onClick={handleReset} variant="outline">Reset</Button>
           </div>
         </div>
       </div>

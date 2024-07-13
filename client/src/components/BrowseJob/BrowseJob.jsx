@@ -11,9 +11,11 @@ const BrowseJob = ({data}) => {
   const searchParams = useSearchParams();
   const category = searchParams.get("category");
   const jobType = searchParams.get("jobType");
-  const education = searchParams.get("education");
-  const experience = searchParams.get("experience");
+  const education = searchParams.get("educationLevel");
+  const experience = searchParams.get("yearsOfExp");
   const location = searchParams.get("location");
+  const title = searchParams.get("title");
+
 
   const [loadMore, setLoadMore] = useState(false);
   const [jobCards, setJobCards] = useState([]);
@@ -22,6 +24,9 @@ const BrowseJob = ({data}) => {
   const applyFilters = () => {
     let filtered = data;
 
+    if (title) {
+      filtered = filtered.filter((job) => job.title.toLowerCase().includes(title.toLocaleLowerCase()));
+    }
     if (category) {
       filtered = filtered.filter((job) => job.category === category);
     }

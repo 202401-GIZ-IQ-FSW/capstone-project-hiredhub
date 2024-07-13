@@ -133,7 +133,7 @@ export default function AdvancedSearch() {
                   {jobTypes.map((type) => (
                     <SelectItem
                       key={type}
-                      value={type.toLowerCase().replace(" ", "-")}
+                      value={type.replace(" ", "-")}
                     >
                       {type}
                     </SelectItem>
@@ -156,7 +156,7 @@ export default function AdvancedSearch() {
                   {educationLevels.map((level) => (
                     <SelectItem
                       key={level}
-                      value={level.toLowerCase().replace(" ", "-")}
+                      value={level.replace(" ", "-")}
                     >
                       {level}
                     </SelectItem>
@@ -178,7 +178,7 @@ export default function AdvancedSearch() {
                   {yearsOfExperience.map((years) => (
                     <SelectItem
                       key={years}
-                      value={years.toLowerCase().replace(" ", "-")}
+                      value={years.toLowerCase()}
                     >
                       {years}
                     </SelectItem>
@@ -200,7 +200,7 @@ export default function AdvancedSearch() {
                   {jobCategories.map((category) => (
                     <SelectItem
                       key={category}
-                      value={category.toLowerCase().replace(" ", "-")}
+                      value={category.replace(" ", "-")}
                     >
                       {category}
                     </SelectItem>
