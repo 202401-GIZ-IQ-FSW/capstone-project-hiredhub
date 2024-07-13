@@ -30,50 +30,33 @@ function Navbar() {
   const links = [
     {
       id: 1,
-      link: "Browse",
+      link: "search",
+      name: "Browse jobs",
     },
-    {
-      id: 2,
-      link: "jobs",
-    },
+
     {
       id: 3,
-      link: "Post Jobs",
+      link: "company/postjob",
+      name: "Post job",
     },
     {
       id: 4,
       link: "about us",
+      name: "About us",
     },
     {
       id: 5,
       link: "contact",
+      name: "Contact us",
     },
   ];
   const linksMobile = [
-    {
-      id: 1,
-      link: "Browse",
-    },
-    {
-      id: 2,
-      link: "jobs",
-    },
-    {
-      id: 3,
-      link: "Post Jobs",
-    },
-    {
-      id: 4,
-      link: "about us",
-    },
-    {
-      id: 5,
-      link: "contact",
-    },
-    { id: 6, link: "Log in" },
+    ...links,
+    { id: 6, link: "Log in", name: "Log in" },
     {
       id: 7,
       link: "Sign up",
+      name: "Sign up",
     },
   ];
 
@@ -93,51 +76,64 @@ function Navbar() {
               src={logo}
               width={150}
               height={150}
+              alt="logo"
             />
           </div>
         </Link>
       </div>
 
       <ul className="hidden md:flex">
-        {links.map(({ id, link }) => (
+        {links.map(({ id, link, name }) => (
           <li
             key={id}
             className="nav-links xl:px-6 md:px-4 sm:px-4 cursor-pointer capitalize font-lato font-medium text-gray-600 "
           >
             <Link
               className="border-transparent border-b-2 pb-1 hover:border-b-gray-300  duration-200"
-              href={link}
+              href={`/${link}`}
             >
-              {link}
+              {name}
             </Link>
           </li>
         ))}
       </ul>
       <div className="hidden md:flex flex-row gap-4">
+        <Link href={'/login'}>
         <Button className="bg-[#40A578] font-lato hover:bg-[#5abb91] ">
           Log in
         </Button>
+        </Link>
+        
+        <Link href={"/signup"}>
         <Button className="font-lato bg-[#263238] hover:bg-[#3f4f56]">
           Sign up
         </Button>
+        </Link>
+        
       </div>
 
       <div
         onClick={() => setNav(!nav)}
-        className="cursor-pointer pr-4 z-10 text-gray-500 md:hidden"
+        className="z-40 cursor-pointer pr-4 text-gray-500 md:hidden"
       >
         {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
       </div>
 
       {nav && (
+
         <ul className="flex flex-col justify-center items-center  absolute top-0 left-0 w-full h-screen bg-white text-gray-500">
-          {linksMobile.map(({ id, link }) => (
+          {linksMobile.map(({ id, link, name }) => (
+
             <li
               key={id}
               className="px-4 cursor-pointer font-lato capitalize py-6 text-4xl"
             >
+
               <Link onClick={() => setNav(!nav)} href={link}>
-                {link}
+                {name}
+
+             
+
               </Link>
             </li>
           ))}

@@ -13,6 +13,7 @@ const Footer = () => {
               src={logo}
               width={100}
               height={100}
+              alt="logo"
             />
           </Link>
           <div className="mt-6 lg:max-w-sm">
@@ -26,7 +27,7 @@ const Footer = () => {
           </div>
         </div>
         <div>
-          <Link className="font-poppins text-xl text-gray-600 " href={"/"}>
+          <Link className="font-poppins text-xl text-gray-600 " href={"/contact"}>
             Contact us
           </Link>
         </div>

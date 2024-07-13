@@ -131,7 +131,6 @@ exports.searchJobs = async (req, res) => {
     const skip = (page - 1) * limit;
     const jobs = await Job.find(filter)
       .populate("companyId", "name")
-      // .populate("Category", "name")
       .skip(skip)
       .limit(Number(limit))
       .exec();
