@@ -30,10 +30,9 @@ async function onSubmit(values, actions, router) {
       {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`
         },
-        body: JSON.stringify(formData),
+        body: formData,
       }
     );
 
