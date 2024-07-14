@@ -41,7 +41,7 @@ function Navbar() {
     },
     {
       id: 4,
-      link: "about us",
+      link: "about",
       name: "About us",
     },
     {
