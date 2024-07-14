@@ -15,6 +15,7 @@ import { Label } from "@/components/ui/label";
 import { Formik, Form, ErrorMessage, Field } from "formik";
 import { signUpSchema } from "@/validations/validationSchema";
 import { RiInformation2Line } from "react-icons/ri";
+import { Loader2 } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -58,7 +59,7 @@ const SignUpForm = ({ role, redirectURL }) => {
             validationSchema={signUpSchema}
             onSubmit={handleSubmit}
           >
-            {({ errors, touched }) => (
+            {({ errors, touched, isSubmitting }) => (
               <Form>
                 <div className="grid gap-4">
                   <div className="grid gap-2">
@@ -149,9 +150,17 @@ const SignUpForm = ({ role, redirectURL }) => {
                   </div>
                   <Button
                     type="submit"
-                    className="w-full font-lato bg-[#263238] hover:bg-[#3f4f56]"
+                    className="w-full text-md font-lato bg-[#263238] hover:bg-[#3f4f56]"
+                    disabled={isSubmitting}
                   >
-                    Create an account
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Please wait
+                      </>
+                    ) : (
+                      "Create an Account"
+                    )}
                   </Button>
                 </div>
               </Form>
