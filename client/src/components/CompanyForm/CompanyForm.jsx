@@ -1,5 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -10,10 +11,8 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useFormik } from "formik";
-import { companyFormSchema } from "@/validations/validationSchema";
 
-async function onSubmit(values, actions, router) {
+async function onSubmit(values, router) {
   const token = localStorage.getItem("access_token");
 
   const formData = new FormData();
@@ -49,28 +48,49 @@ async function onSubmit(values, actions, router) {
   } catch (error) {
     console.error("Error submitting the form:", error);
   }
-
-  actions.setSubmitting(false);
 }
 
 export default function Profile() {
   const router = useRouter();
-  const formik = useFormik({
-    initialValues: {
-      name: "",
-      website: "",
-      description: "",
-      location: "",
-      CEO: "",
-      mission: "",
-      values: "",
-    },
-    validationSchema: companyFormSchema,
-    onSubmit: (values, actions) => onSubmit(values, actions, router),
+  const [values, setValues] = useState({
+    name: "",
+    website: "",
+    description: "",
+    location: "",
+    CEO: "",
+    mission: "",
+    values: "",
   });
+  const [errors, setErrors] = useState({});
 
-  const { values, handleChange, handleBlur, handleSubmit, errors, touched } =
-    formik;
+  const handleChange = (e) => {
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const validate = () => {
+    const newErrors = {};
+    if (!values.name) newErrors.name = "Name is required";
+    if (!values.website) newErrors.website = "Website is required";
+    if (!values.description) newErrors.description = "Description is required";
+    if (!values.location) newErrors.location = "Location is required";
+    if (!values.CEO) newErrors.CEO = "CEO is required";
+    if (!values.mission) newErrors.mission = "Mission is required";
+    if (!values.values) newErrors.values = "Values are required";
+    return newErrors;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+    } else {
+      await onSubmit(values, router);
+    }
+  };
 
   return (
     <div>
@@ -88,7 +108,6 @@ export default function Profile() {
             <div className="grid w-full max-w-sm items-center gap-1.5">
               <Label htmlFor="name">Name</Label>
               <Input
-                onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.name}
                 type="text"
@@ -96,14 +115,12 @@ export default function Profile() {
                 name="name"
                 placeholder="name"
               />
+              {errors.name && <p className="text-red-600">{errors.name}</p>}
             </div>
-            {errors.name && touched.name && (
-              <p className="text-red-600">{errors.name}</p>
-            )}
+
             <div className="grid w-full max-w-sm items-center gap-1.5">
               <Label htmlFor="website">Website</Label>
               <Input
-                onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.website}
                 type="text"
@@ -111,14 +128,14 @@ export default function Profile() {
                 name="website"
                 placeholder="Website"
               />
+              {errors.website && (
+                <p className="text-red-600">{errors.website}</p>
+              )}
             </div>
-            {errors.website && touched.website && (
-              <p className="text-red-600">{errors.website}</p>
-            )}
+
             <div className="grid w-full max-w-sm items-center gap-1.5">
               <Label htmlFor="description">Description</Label>
               <Input
-                onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.description}
                 type="text"
@@ -126,15 +143,14 @@ export default function Profile() {
                 name="description"
                 placeholder="Description"
               />
+              {errors.description && (
+                <p className="text-red-600">{errors.description}</p>
+              )}
             </div>
-            {errors.description && touched.description && (
-              <p className="text-red-600">{errors.description}</p>
-            )}
 
             <div className="grid w-full max-w-sm items-center gap-1.5">
               <Label htmlFor="location">Location</Label>
               <Input
-                onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.location}
                 type="text"
@@ -142,15 +158,14 @@ export default function Profile() {
                 name="location"
                 placeholder="Location"
               />
+              {errors.location && (
+                <p className="text-red-600">{errors.location}</p>
+              )}
             </div>
-            {errors.location && touched.location && (
-              <p className="text-red-600">{errors.location}</p>
-            )}
 
             <div className="grid w-full max-w-sm items-center gap-1.5">
-              <Label htmlFor="ceo">CEO</Label>
+              <Label htmlFor="CEO">CEO</Label>
               <Input
-                onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.CEO}
                 type="text"
@@ -158,15 +173,12 @@ export default function Profile() {
                 name="CEO"
                 placeholder="CEO"
               />
+              {errors.CEO && <p className="text-red-600">{errors.CEO}</p>}
             </div>
-            {errors.ceo && touched.ceo && (
-              <p className="text-red-600">{errors.ceo}</p>
-            )}
 
             <div className="grid w-full max-w-sm items-center gap-1.5">
               <Label htmlFor="mission">Mission</Label>
               <Input
-                onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.mission}
                 type="text"
@@ -174,15 +186,14 @@ export default function Profile() {
                 name="mission"
                 placeholder="Mission"
               />
+              {errors.mission && (
+                <p className="text-red-600">{errors.mission}</p>
+              )}
             </div>
-            {errors.mission && touched.mission && (
-              <p className="text-red-600">{errors.mission}</p>
-            )}
 
             <div className="grid w-full max-w-sm items-center gap-1.5">
               <Label htmlFor="values">Values</Label>
               <Input
-                onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.values}
                 type="text"
@@ -190,10 +201,8 @@ export default function Profile() {
                 name="values"
                 placeholder="Values"
               />
+              {errors.values && <p className="text-red-600">{errors.values}</p>}
             </div>
-            {errors.values && touched.values && (
-              <p className="text-red-600">{errors.values}</p>
-            )}
 
             <Button
               type="submit"
