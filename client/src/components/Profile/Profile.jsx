@@ -117,9 +117,7 @@ export default function Profile() {
                 placeholder="Last name"
               />
             </div>
-            {errors.lasttName && touched.lastName && (
-              <p className="text-red-600">{errors.lastName}</p>
-            )}
+
             {errors.name && touched.email && (
               <p className="text-red-600">{errors.lastName}</p>
             )}
