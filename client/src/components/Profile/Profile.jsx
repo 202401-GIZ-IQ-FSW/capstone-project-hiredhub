@@ -121,7 +121,7 @@ export default function Profile() {
               <p className="text-red-600">{errors.lastName}</p>
             )}
             {errors.name && touched.email && (
-              <p className="text-red-600">{errors.LastName}</p>
+              <p className="text-red-600">{errors.lastName}</p>
             )}
 
             <div className="grid w-full max-w-sm items-center gap-1.5">
