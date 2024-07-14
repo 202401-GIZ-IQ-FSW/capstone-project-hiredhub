@@ -7,13 +7,15 @@ import { useSearchParams } from "next/navigation";
 
 import { useEffect, useState } from "react";
 
-const BrowseJob = ({data}) => {
+const BrowseJob = ({ data }) => {
   const searchParams = useSearchParams();
   const category = searchParams.get("category");
   const jobType = searchParams.get("jobType");
-  const education = searchParams.get("education");
-  const experience = searchParams.get("experience");
+  const education = searchParams.get("educationLevel");
+  const experience = searchParams.get("yearsOfExp");
   const location = searchParams.get("location");
+  const title = searchParams.get("title");
+  const keyword = searchParams.get("keyword");
 
   const [loadMore, setLoadMore] = useState(false);
   const [jobCards, setJobCards] = useState([]);
@@ -22,6 +24,16 @@ const BrowseJob = ({data}) => {
   const applyFilters = () => {
     let filtered = data;
 
+    if (title) {
+      filtered = filtered.filter((job) =>
+        job.title.toLowerCase().includes(title.toLowerCase())
+      );
+    }
+    if (keyword) {
+      filtered = filtered.filter((job) =>
+        job.title.toLowerCase().includes(keyword.toLowerCase()) || job.description.toLowerCase().includes(keyword.toLowerCase())
+      );
+    }
     if (category) {
       filtered = filtered.filter((job) => job.category === category);
     }
