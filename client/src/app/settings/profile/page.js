@@ -1,119 +1,78 @@
 "use client";
-import { useState } from "react";
-import Image from "next/image";
-import ApplicationHistory from "./ApplicationHistory";
-import SavedJobs from "./SavedJobs";
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet"
+import React, { useEffect, useState } from "react";
+import ProfilePage from "./ProfilePage";
+import { redirect } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
-const Modal = ({ user }) => {
-  return (
-    <div>
-      <Sheet>
-      <SheetTrigger asChild>
-        <Button className="rounded-md bg-[#263238] text-white px-4 py-1 absolute top-2 right-2 md:top-32 md:right-5" variant="outline">Edit profile</Button>
-      </SheetTrigger>
-      <SheetContent>
-        <SheetHeader>
-          <SheetTitle>Edit profile</SheetTitle>
-          <SheetDescription>
-            Make changes to your profile here. Click save when you're done.
-          </SheetDescription>
-        </SheetHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Name
-            </Label>
-            <Input id="name" value={user.personalInfo.fullName} className="col-span-3" />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              Username
-            </Label>
-            <Input id="username" value={`@${user.personalInfo.fullName}`} className="col-span-3" />
-          </div>
-        </div>
-        <SheetFooter>
-          <SheetClose asChild>
-            <Button type="submit">Save changes</Button>
-          </SheetClose>
-        </SheetFooter>
-      </SheetContent>
-    </Sheet>
 
-    </div>
-  );
-};
+const Page = () => {
+  const [accessToken, setAccessToken] = useState(null);
+  const [profileData, setProfileData] = useState(null);
+  const router = useRouter();
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const token = localStorage.getItem("access_token");
+      setAccessToken(token);
+      if (token) {
+        fetchProfileData(token);
+      } else {
+        redirect("/login")
+      }
+    }
+  }, []);
 
-const ProfilePage = () => {
-  const [userInfo, setUserInfo] = useState({
-    _id: "60d21b4667d0d8992e610c85",
-    userId: "60c72b2f9b1d8a001c8e4d52",
-    personalInfo: {
-      firstName: "John",
-      lastName: "Doe",
-      email: "john.doe@example.com",
-      phoneNumber: "0123456789",
-      location: "New York, NY",
-      resume: "https://example.com/resume/johndoe.pdf",
-      profilePicture:
-        "https://cdn.vectorstock.com/i/500p/17/61/male-avatar-profile-picture-vector-10211761.jpg",
-      fullName: "John Doe",
-    },
-    applications: ["60d21b4667d0d8992e610c86", "60d21b4667d0d8992e610c87"],
-    savedJobs: ["60d21b4667d0d8992e610c88", "60d21b4667d0d8992e610c89"],
-    createdAt: "2023-07-12T08:00:00.000Z",
-    updatedAt: "2023-07-12T08:00:00.000Z",
-  });
-  const [modal, setModal] = useState(false);
+  const fetchProfileData = async (token) => {
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/profile/details`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      if (res.ok) {
+        const data = await res.json();
+        setProfileData(data);
+      } else {
+        console.error("Error fetching profile data:", res.statusText);
+        localStorage.clear();
+        router.push("/login");
+           }
+    } catch (error) {
+      console.error("Error fetching profile data:", error);
+      localStorage.clear();
+      router.push("/login");
+       }
+  };
 
-  return (
-    <div className=" relative mb-10">
-      <div className="flex flex-col justify-center  items-center pt-14 border-b-[1px] border-black
-      md:flex-row md:items-start md:justify-start md:px-36 md:py-20">
-        <img
-        alt="profile image"
-          className="w-28 rounded-full"
-          src={userInfo.personalInfo.profilePicture}
-        />
-        <div className="my-4 flex flex-col items-center md:items-start ml-10">
-          <h4 className="text-2xl text-[#263238] ">
-            {userInfo.personalInfo.fullName}
-          </h4>
-          <span className="text-[#363333] font-extralight text-sm mt-1">
-            {userInfo.personalInfo.location}
-          </span>
-          <p className="text-sm self-start px-10 my-4 text-justify md:px-0 md:w-8/12">
-            Full Stack Developer skilled in designing and building complete web
-            applications, handling both front-end and back-end development.
-          </p>
-          <Modal user={userInfo}/>
+  if (!profileData) {
+    return (
+      <div className="flex justify-center items-start-center mx-auto h-screen">
+        <div role="status ">
+          <svg
+            aria-hidden="true"
+            class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-gray-500"
+            viewBox="0 0 100 101"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+              fill="currentColor"
+            />
+            <path
+              d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+              fill="currentFill"
+            />
+          </svg>
+          <span class="sr-only">Loading...</span>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 ">
-        <div className="border-b-[1px] border-black md:border-r-[1px] pr-5 md:border-b-0">
-            <h3 className="text-center mt-8 font-semibold">Application History</h3>
-            <ApplicationHistory/>
-        </div>
-        <div>
-        <h3 className="text-center mt-8 font-semibold">Saved Jobs</h3>
-        <SavedJobs/>
-        </div>
-      </div>
-    </div>
-  );
+    );
+  }
+
+  return <ProfilePage profileData={profileData} token={accessToken} />;
 };
 
-export default ProfilePage;
+export default Page;

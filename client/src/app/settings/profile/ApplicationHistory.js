@@ -10,7 +10,7 @@ import {
 import { defaults } from "autoprefixer"
 
   
-const ApplicationHistory = ()=>{
+const ApplicationHistory = ({applications})=>{
     return (
         <Table className="my-6">
   <TableHeader>
