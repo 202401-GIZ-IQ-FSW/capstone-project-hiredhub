@@ -16,7 +16,15 @@ router.post(
   profileController.createProfile
 );
 
-router.patch("/update-profile", JwtAuthorize, profileController.updateProfile);
+router.patch(
+  "/update-profile",
+  JwtAuthorize,
+  upload.fields([
+    { name: "profilePicture", maxCount: 1 },
+    { name: "resume", maxCount: 1 },
+  ]),
+  profileController.updateProfile
+);
 
 router.post("/add-saved-job/:id", JwtAuthorize, profileController.addSavedJobs);
 

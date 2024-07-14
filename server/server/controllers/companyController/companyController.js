@@ -40,7 +40,7 @@ exports.createCompany = async (req, res) => {
     let logo =
       req?.file === undefined
         ? ""
-        : `${process.env.BASE_URL}backend-app/server/files/${req.file.filename}`;
+        : `${process.env.BASE_URL}backend-app/server/files/${req?.file?.filename}`;
 
     const user = await User.findById(userId);
     if (!user) {
@@ -93,7 +93,7 @@ exports.updateCompany = async (req, res) => {
   let logo =
     req?.file === undefined
       ? ""
-      : `${process.env.BASE_URL}backend-app/server/files/${req.file.filename}`;
+      : `${process.env.BASE_URL}backend-app/server/files/${req?.file?.filename}`;
 
   try {
     const updatedCompany = await Company.findByIdAndUpdate(
