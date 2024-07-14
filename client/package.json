@@ -4,10 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "start": "docker-compose up",
-    "build": "docker-compose up --build",
-    "prune": "docker-compose down -v",
-    "stop": "docker-compose down",
+    "build": "next build",
+    "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
