@@ -1,37 +1,45 @@
-import React from "react";
+import Image from "next/image";
+import emptyStar from "@/../public/white-star.png";
+import star from "@/../public/star.svg";
+import { Button } from "@/components/ui/button";
 
-const JobCard = () => {
+const JobCard = ({ job }) => {
   return (
-    <div>
-      <div className=" jobCarddiv flex gap-10 justify-center flex-wrap items-center py-10">
-        <div
-          key={id}
-          className=" w-[250px] p-[20px] bg-white rounded hover:bg-blue-500 shadow-BlueShadow hover:shadow-lg "
-        ></div>
-        <span className="flex justify-between items-center gap-4">
-          <h1 className="text-[16px] font-semibold text-black group-hover:text-white">
-            Job Title {title}
-          </h1>
-        </span>
-        <h6 className="text-[#ccc] ">City/Location {location}</h6>
-        <p className="text-[13px] text-[#959595] pt-[20px] border-t-[2px] mt-[20px] group-hover:text-white">
-          {description}
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum,
-          officia.
-        </p>
 
-        <div className="employerCompany flex items-center gap-2">
-          <img src={image} alt="Company Logo" className="w-[10%]" />
-          <span className="text-[14px] py-[1rem] block group-hover:text-LightBlue">
-            Company Name {company}
-          </span>
-        </div>
-        <button className="border-[2px] rounded-[1opx] block p-[10px] w-full text-[14px] font-semibold text-black hover:bg-white group-hover/item:text-BlueColor ">
-          {" "}
-          Apply Now!
-        </button>
+    <div className="relative bg-[#263238] text-white flex flex-col px-5 m-4 py-5 rounded-xl">
+      <div className="mb-3">
+        <h3 className="font-bold text-xl">{job.title}</h3>
+        <span className="font-light text-sm">{job.location}</span>
+
       </div>
+      {true ? (
+        <Image
+          className="absolute right-5 top-5 cursor-pointer"
+          width={20}
+          height={20}
+          src={emptyStar}
+        />
+      ) : (
+        <Image
+          className="absolute right-5 top-5 cursor-pointer"
+          width={20}
+          height={20}
+          src={star}
+        />
+      )}
+      <p className="mb-5 pr-20">
+        {job.description.length > 150
+          ? job.description?.slice(0, 150) + " ......"
+          : job.description}
+      </p>
+      <Button
+        variant="outline"
+        className="bg-[#FBFDFC] text-black font-semibold rounded-md p-3  w-fit absolute bottom-5 right-4"
+      >
+        Apply
+      </Button>
     </div>
   );
 };
+
 export default JobCard;

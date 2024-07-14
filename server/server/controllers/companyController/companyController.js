@@ -1,4 +1,5 @@
 const Company = require("../../models/Company");
+const User = require("../../models/User");
 
 exports.getAllCompanies = async (req, res) => {
   const { search } = req.query;
@@ -23,25 +24,29 @@ exports.getAllCompanies = async (req, res) => {
 };
 
 exports.createCompany = async (req, res) => {
-  
-  const userId = req.user.id
-
-  const {
-    name,
-    website,
-    description,
-    location,
-    CEO,
-    ContactInfo,
-    history,
-    mission,
-    values,
-  } = req.body;
-
-  const logo = req.file.path;
-  console.log("logo:  " , req.file)
-
   try {
+    const userId = req.user.id;
+    const {
+      name,
+      website,
+      description,
+      location,
+      CEO,
+      ContactInfo,
+      history,
+      mission,
+      values,
+    } = req.body;
+    let logo =
+      req?.file === undefined
+        ? ""
+        : `${process.env.BASE_URL}backend-app/server/files/${req?.file?.filename}`;
+
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
     const newCompany = await Company.create({
       name,
       website,
@@ -74,18 +79,25 @@ exports.getCompanyById = async (req, res) => {
 
 exports.updateCompany = async (req, res) => {
   const { id } = req.params;
-  const {  name,
+  const {
+    name,
     website,
     description,
-    logo,
     location,
     CEO,
     ContactInfo,
     history,
     mission,
-    values, } = req.body;
+    values,
+  } = req.body;
+  let logo =
+    req?.file === undefined
+      ? ""
+      : `${process.env.BASE_URL}backend-app/server/files/${req?.file?.filename}`;
+
   try {
-    const updatedCompany = await Company.findByIdAndUpdate(  id,
+    const updatedCompany = await Company.findByIdAndUpdate(
+      id,
       {
         $set: {
           name,
@@ -93,16 +105,15 @@ exports.updateCompany = async (req, res) => {
           description,
           location,
           logo,
-          linkedinProfile,
-          twitterProfile,
           CEO,
           ContactInfo,
           history,
           mission,
-          values
-        }
+          values,
+        },
       },
-      { new: true });
+      { new: true }
+    );
     if (!updatedCompany)
       return res.status(404).json({ message: "Company not found" });
     res.status(200).json(updatedCompany);

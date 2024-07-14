@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="360" viewBox="0 0 1000 360">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 206px;
+        font-family: Tangerine;
+      }
+    </style>
+  </defs>
+  <text id="HiredHub" class="cls-1" x="48" y="245.5">HiredHub</text>
+</svg>

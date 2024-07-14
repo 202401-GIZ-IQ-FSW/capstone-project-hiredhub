@@ -1,15 +1,18 @@
 const express = require("express");
 const router = express.Router();
-const JwtAuthorize = require("../middlewares/authMiddleware")
+const JwtAuthorize = require("../middlewares/authMiddleware");
 const companyController = require("../controllers/companyController/companyController");
 const upload = require("../config/multerConfig");
 
-
-
 router.get("/", JwtAuthorize, companyController.getAllCompanies);
-router.post("/", upload.single("logo"), companyController.createCompany);
+router.post(
+  "/",
+  JwtAuthorize,
+  upload.single("logo"),
+  companyController.createCompany
+);
 router.get("/:id", JwtAuthorize, companyController.getCompanyById);
-router.put(
+router.patch(
   "/:id",
   JwtAuthorize,
   upload.single("logo"),

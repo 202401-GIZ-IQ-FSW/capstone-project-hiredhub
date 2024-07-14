@@ -81,7 +81,7 @@ exports.updateJobById = async (req, res) => {
 
 
 exports.searchJobs = async (req, res) => {
-  const { keyword, location, title, category, jobType, wage, status, educationalLevel, yearsOfExperience, page = 1, limit = 10 } = req.query;
+  const { keyword, location, title, category, jobType, workSetting, wage, status, educationalLevel, yearsOfExperience, page = 1, limit = 10 } = req.query;
   const filter = {};
 
   if (keyword) {
@@ -107,6 +107,10 @@ exports.searchJobs = async (req, res) => {
     filter.jobType = { $in: jobType.split(',') };
   }
 
+  if (workSetting) {
+    filter.workSetting = { $in: workSetting.split(',') };
+  }
+
   if (wage) {
     filter.wage = { $gte: Number(wage) };
   }
@@ -127,7 +131,6 @@ exports.searchJobs = async (req, res) => {
     const skip = (page - 1) * limit;
     const jobs = await Job.find(filter)
       .populate("companyId", "name")
-      // .populate("Category", "name")
       .skip(skip)
       .limit(Number(limit))
       .exec();
