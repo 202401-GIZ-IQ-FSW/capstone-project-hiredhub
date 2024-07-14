@@ -20,6 +20,7 @@ function logging(logDirectory = path.join(__dirname, "../logs")) {
 
   function writeLog(level, message, context) {
     const logMessage = formatLog(level, message, context);
+
     const logFilePath = getLogFilePath(level);
     fs.appendFile(logFilePath, logMessage + "\n", (err) => {
       if (err) {
@@ -29,6 +30,7 @@ function logging(logDirectory = path.join(__dirname, "../logs")) {
   }
 
   function log(level, message, context) {
+    console.log("Logging:", level, message, context);
     writeLog(level, message, context);
     if (["error", "warn"].includes(level)) {
       console[level](message, context);
