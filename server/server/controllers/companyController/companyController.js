@@ -105,8 +105,6 @@ exports.updateCompany = async (req, res) => {
           description,
           location,
           logo,
-          linkedinProfile,
-          twitterProfile,
           CEO,
           ContactInfo,
           history,

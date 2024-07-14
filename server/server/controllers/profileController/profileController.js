@@ -20,16 +20,16 @@ exports.getProfile = async (req, res) => {
 exports.createProfile = async (req, res) => {
   const { firstName, lastName, phoneNumber, location } = req.body;
   const userId = req.user.id;
+
   const profilePicture =
-    req?.files["profilePicture"]?.filename === undefined
+    req?.files["profilePicture"]?.[0]?.filename === undefined
       ? ""
-      : `${process.env.BASE_URL}backend-app/server/files/${req?.files["profilePicture"][0]?.filename}`;
-  console.log(profilePicture);
+      : `${process.env.BASE_URL}backend-app/server/files/${req?.files["profilePicture"]?.[0]?.filename}`;
 
   const resume =
-    req?.files["resume"]?.filename === undefined
+    req?.files["resume"]?.[0]?.filename === undefined
       ? ""
-      : `${process.env.BASE_URL}backend-app/server/files/${req?.files["resume"][0]?.filename}`;
+      : `${process.env.BASE_URL}backend-app/server/files/${req?.files["resume"]?.[0]?.filename}`;
   try {
     const existingProfile = await Profile.findOne({ userId: userId });
     if (existingProfile) {
@@ -61,15 +61,16 @@ exports.createProfile = async (req, res) => {
 
 exports.updateProfile = async (req, res) => {
   const { firstName, lastName, phoneNumber, location } = req.body;
+  console.log("---------------------", req?.files);
   const profilePicture =
-    req?.files["profilePicture"]?.filename === undefined
+    req?.files["profilePicture"]?.[0]?.filename === undefined
       ? ""
-      : `${process.env.BASE_URL}backend-app/server/files/${req?.files["profilePicture"][0]?.filename}`;
+      : `${process.env.BASE_URL}backend-app/server/files/${req?.files["profilePicture"]?.[0]?.filename}`;
 
   const resume =
-    req?.files["resume"]?.filename === undefined
+    req?.files["resume"]?.[0]?.filename === undefined
       ? ""
-      : `${process.env.BASE_URL}backend-app/server/files/${req?.files["resume"][0]?.filename}`;
+      : `${process.env.BASE_URL}backend-app/server/files/${req?.files["resume"]?.[0]?.filename}`;
   const userId = req.user.id;
 
   try {
