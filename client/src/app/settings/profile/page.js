@@ -1,9 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import ProfilePage from "./ProfilePage";
-import { redirect } from 'next/navigation'
-import { useRouter } from 'next/navigation'
-
+import ProfilePage from "@/components/ProfileComponents/ProfilePage";
+import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const Page = () => {
   const [accessToken, setAccessToken] = useState(null);
@@ -16,7 +15,7 @@ const Page = () => {
       if (token) {
         fetchProfileData(token);
       } else {
-        redirect("/login")
+        redirect("/login");
       }
     }
   }, []);
@@ -38,12 +37,12 @@ const Page = () => {
         console.error("Error fetching profile data:", res.statusText);
         localStorage.clear();
         router.push("/login");
-           }
+      }
     } catch (error) {
       console.error("Error fetching profile data:", error);
       localStorage.clear();
       router.push("/login");
-       }
+    }
   };
 
   if (!profileData) {
