@@ -118,7 +118,7 @@ export default function Profile() {
               />
             </div>
 
-            {errors.name && touched.email && (
+            {errors.lastName && touched.email && (
               <p className="text-red-600">{errors.lastName}</p>
             )}
 
