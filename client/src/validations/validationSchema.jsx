@@ -32,9 +32,19 @@ export const signUpSchema = Yup.object().shape({
   password2: Yup.string()
     .oneOf([Yup.ref("password")], "Passwords must match")
     .required("Confirmed Password is required"),
-})
+});
 
 export const loginSchema = Yup.object().shape({
   email: Yup.string().email("Invalid Email").required("Email is required"),
-  password: Yup.string().required("Email is required")
-})
+  password: Yup.string().required("Email is required"),
+});
+
+export const profileSchema = Yup.object().shape({
+  email: Yup.string().email("Invalid Email").required("Email is required"),
+  password: Yup.string().required("Email is required"),
+  age: Yup.number().positive().integer().required(),
+  firstName: Yup.string().required("Fist name is required"),
+  lasttName: Yup.string().required("last name is required"),
+  resume: Yup.string(),
+  profilePicture: Yup.string(),
+});
