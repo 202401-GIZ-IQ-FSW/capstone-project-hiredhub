@@ -16,7 +16,7 @@ router.post(
   profileController.createProfile
 );
 
-router.put(
+router.patch(
   "/update-profile",
   JwtAuthorize,
   upload.fields([
