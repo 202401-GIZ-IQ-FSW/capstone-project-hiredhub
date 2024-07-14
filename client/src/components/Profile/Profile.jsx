@@ -19,7 +19,6 @@ async function onSubmit(values, actions, router) {
   const formData = new FormData();
   formData.append("firstName", values.firstName);
   formData.append("lastName", values.lastName);
-  formData.append("email", values.email);
   formData.append("phoneNumber", values.phoneNumber);
   formData.append("location", values.location);
   formData.append("resume", values.resume);
@@ -59,7 +58,6 @@ export default function Profile() {
     initialValues: {
       firstName: "",
       lastName: "",
-      email: "",
       phoneNumber: "",
       location: "",
       resume: "",
@@ -75,6 +73,7 @@ export default function Profile() {
     handleBlur,
     handleSubmit,
     errors,
+    touched,
     setFieldValue,
   } = formik;
 
@@ -104,7 +103,7 @@ export default function Profile() {
               />
             </div>
             {errors.firstName && touched.firstName && (
-              <p className="text-red-600">{ErrorMessage.firstName}</p>
+              <p className="text-red-600">{errors.firstName}</p>
             )}
             <div className="grid w-full max-w-sm items-center gap-1.5">
               <Label htmlFor="lastName">Last name</Label>
@@ -119,26 +118,12 @@ export default function Profile() {
               />
             </div>
             {errors.lasttName && touched.lastName && (
-              <p className="text-red-600">{ErrorMessage.lasttName}</p>
+              <p className="text-red-600">{errors.lastName}</p>
             )}
             {errors.name && touched.email && (
-              <p className="text-red-600">{ErrorMessage.name}</p>
+              <p className="text-red-600">{errors.name}</p>
             )}
-            <div className="grid w-full max-w-sm items-center gap-1.5">
-              <Label htmlFor="email">Email</Label>
-              <Input
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.email}
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Email"
-              />
-            </div>
-            {errors.email && touched.email && (
-              <p className="text-red-600">{ErrorMessage.email}</p>
-            )}
+
             <div className="grid w-full max-w-sm items-center gap-1.5">
               <Label htmlFor="phoneNumber">Phone number</Label>
               <Input
@@ -164,7 +149,7 @@ export default function Profile() {
               />
             </div>
             {errors.location && touched.location && (
-              <p className="text-red-600">{ErrorMessage.location}</p>
+              <p className="text-red-600">{errors.location}</p>
             )}
             <div className="grid w-full max-w-sm items-center gap-1.5">
               <Label htmlFor="profilePicture">Profile picture</Label>
