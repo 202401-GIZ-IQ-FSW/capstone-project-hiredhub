@@ -41,7 +41,7 @@ export const loginSchema = Yup.object().shape({
 
 export const profileSchema = Yup.object().shape({
   firstName: Yup.string().required("Fist name is required"),
-  lasttName: Yup.string().required("last name is required"),
+  lastName: Yup.string().required("last name is required"),
   location: Yup.string().required("location is required"),
   resume: Yup.string(),
   profilePicture: Yup.string(),
