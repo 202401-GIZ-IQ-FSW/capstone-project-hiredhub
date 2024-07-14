@@ -69,8 +69,14 @@ export default function Profile() {
     onSubmit: (values, actions) => onSubmit(values, actions, router),
   });
 
-  const { values, handleChange, handleBlur, handleSubmit, setFieldValue } =
-    formik;
+  const {
+    values,
+    handleChange,
+    handleBlur,
+    handleSubmit,
+    errors,
+    setFieldValue,
+  } = formik;
 
   return (
     <div>
@@ -97,6 +103,9 @@ export default function Profile() {
                 placeholder="First name"
               />
             </div>
+            {errors.firstName && touched.firstName && (
+              <p className="text-red-600">{ErrorMessage.firstName}</p>
+            )}
             <div className="grid w-full max-w-sm items-center gap-1.5">
               <Label htmlFor="lastName">Last name</Label>
               <Input
@@ -109,6 +118,12 @@ export default function Profile() {
                 placeholder="Last name"
               />
             </div>
+            {errors.lasttName && touched.lastName && (
+              <p className="text-red-600">{ErrorMessage.lasttName}</p>
+            )}
+            {errors.name && touched.email && (
+              <p className="text-red-600">{ErrorMessage.name}</p>
+            )}
             <div className="grid w-full max-w-sm items-center gap-1.5">
               <Label htmlFor="email">Email</Label>
               <Input
@@ -121,6 +136,9 @@ export default function Profile() {
                 placeholder="Email"
               />
             </div>
+            {errors.email && touched.email && (
+              <p className="text-red-600">{ErrorMessage.email}</p>
+            )}
             <div className="grid w-full max-w-sm items-center gap-1.5">
               <Label htmlFor="phoneNumber">Phone number</Label>
               <Input
@@ -145,6 +163,9 @@ export default function Profile() {
                 placeholder="Location"
               />
             </div>
+            {errors.location && touched.location && (
+              <p className="text-red-600">{ErrorMessage.location}</p>
+            )}
             <div className="grid w-full max-w-sm items-center gap-1.5">
               <Label htmlFor="profilePicture">Profile picture</Label>
               <Input
