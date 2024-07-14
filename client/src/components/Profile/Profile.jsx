@@ -33,7 +33,7 @@ async function onSubmit(values, actions, router) {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
-        body: formData,
+        body: JSON.stringify(formData),
       }
     );
 
