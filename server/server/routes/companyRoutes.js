@@ -11,7 +11,7 @@ router.post(
   upload.single("logo"),
   companyController.createCompany
 );
-router.get("/:id", JwtAuthorize, companyController.getCompanyById);
+router.get("/:id", companyController.getCompanyById);
 router.patch(
   "/:id",
   JwtAuthorize,
