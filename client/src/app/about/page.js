@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import logo from "../../assets/HiredhubLogo.svg";
 import Image from "next/image";
-import TeamMemberCard from "./TeamMemberCard"; // Adjust the import path as necessary
+import TeamMemberCard from "@/components/aboutUsComponent/TeamMemberCard"; // Adjust the import path as necessary
 
 const AboutPage = () => {
   const githubUsers = [
