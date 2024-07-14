@@ -4,14 +4,14 @@ const JwtAuthorize = require("../middlewares/authMiddleware");
 const companyController = require("../controllers/companyController/companyController");
 const upload = require("../config/multerConfig");
 
-router.get("/", JwtAuthorize, companyController.getAllCompanies);
+router.get("/", companyController.getAllCompanies);
 router.post(
   "/",
   JwtAuthorize,
   upload.single("logo"),
   companyController.createCompany
 );
-router.get("/:id", JwtAuthorize, companyController.getCompanyById);
+router.get("/:id", companyController.getCompanyById);
 router.patch(
   "/:id",
   JwtAuthorize,

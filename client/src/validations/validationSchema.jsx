@@ -46,3 +46,14 @@ export const profileSchema = Yup.object().shape({
   resume: Yup.string(),
   profilePicture: Yup.string(),
 });
+
+export const companyFormSchema = Yup.object().shape({
+  name: Yup.string().required("name of company is required"),
+  webiste: Yup.string().required("website is required"),
+  description: Yup.string().required("description is required"),
+  location: Yup.string().required("location is required"),
+  CEO: Yup.string().required("CEO name is required"),
+  history: Yup.string(),
+  mission: Yup.string(),
+  values: Yup.string(),
+});

@@ -2,7 +2,7 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import logo from "../../assets/HiredhubLogo.svg";
+import logo from "../../assets/HiredhubLogo.png";
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -30,7 +30,7 @@ function Navbar() {
   const links = [
     {
       id: 1,
-      link: "search",
+      link: "browsejobs",
       name: "Browse jobs",
     },
 
