@@ -126,7 +126,10 @@ export const FilterJobBrowse = () => {
               </SelectContent>
             </Select>
             {/*  */}
-            <Button onClick={()=> router.push("/browsejobs")} variant="outline">Reset</Button>
+            
+          </div>
+          <div className="md:mt-3 md:ml-3">
+          <Button onClick={()=> router.push("/browsejobs")} variant="outline">Reset</Button>
           </div>
         </div>
       </div>
