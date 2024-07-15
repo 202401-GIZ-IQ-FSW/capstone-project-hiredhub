@@ -36,7 +36,7 @@ const page = async ({ params }) => {
               <CardHeader className='flex flex-row items-center py-20 justify-between space-y-0 pb-2 bg-gradient-to-r from-[#40A578]  to-[#006769]'>
                 <CardTitle className='flex text-sm font-medium  -mb-10 w-20 h-20'>
                   <div className='flex justify-center items-center w-full'>
-                    {company?.logo !== undefined ? (
+                    {/* {company?.logo !== undefined ? (
                       <img
                         src={company?.logo}
                         alt={company?.name}
@@ -45,7 +45,9 @@ const page = async ({ params }) => {
                       />
                     ) : (
                       <img src={"/logo-tech.png"} className='' alt='logo' />
-                    )}
+                    )} */}
+                                          <img src={"/logo-tech.png"} className='' alt='logo' />
+
                   </div>
                 </CardTitle>
               </CardHeader>
