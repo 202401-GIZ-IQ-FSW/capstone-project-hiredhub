@@ -23,7 +23,7 @@ const swaggerOptions = {
       },
     ],
   },
-  apis: ["./server/docs/*.js"],
+  apis: ["./../docs/*.js"],
 };
 
 module.exports = swaggerOptions;
