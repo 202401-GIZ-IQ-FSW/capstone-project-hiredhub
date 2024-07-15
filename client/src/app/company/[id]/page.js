@@ -1,42 +1,32 @@
-"use client";
-
 import React from "react";
 import Link from "next/link";
-
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
-  FaHouse,
-  FaLinkedin,
-  FaFacebook,
-  FaInstagram,
-  FaXTwitter,
-  FaPhoneAlt,
-} from "react-icons/fa";
-
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import Image from "next/image";
+import { FaHouse } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa6";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaPhoneAlt } from "react-icons/fa";
 import { MdOutlineMailOutline } from "react-icons/md";
-import { useState, useEffect } from "react";
 
 const backendURL = process.env.NEXT_PUBLIC_BACKEND_URL;
+const getCompanyById = async (companyId) => {
+  const response = await fetch(`${backendURL}/companies/${companyId}`, {
+    method: "GET",
+  });
 
-const page = ({ params }) => {
-  const [company, setCompany] = useState("");
+  return response.json();
+};
 
-  const getCompanyById = async (companyId) => {
-    const response = await fetch(`${backendURL}/companies/${companyId}`, {
-      method: "GET",
-    });
-
-    const data = await response.json();
-    console.log(data);
-    return setCompany(data);
-  };
-
-  useEffect(() => {
-    if (params.id) {
-      getCompanyById(params.id);
-    }
-  }, []);
-
+const page = async ({ params }) => {
+  const company = await getCompanyById(params.id);
   return (
     <div>
       <div className="flex min-h-screen w-full flex-col">
