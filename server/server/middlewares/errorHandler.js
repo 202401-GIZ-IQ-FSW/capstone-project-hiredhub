@@ -1,6 +1,6 @@
 const { validationResult } = require("express-validator");
 
-function errorHanlder(req, res, next) {
+function errorHandler(req, res, next) {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.json({ errors: errors.array() });
@@ -8,4 +8,4 @@ function errorHanlder(req, res, next) {
   next();
 }
 
-module.exports = { errorHanlder };
+module.exports = { errorHandler };

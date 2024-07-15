@@ -28,9 +28,9 @@ const Selection = ({ name, placeholder, options, label }) => (
           <SelectContent>
             <SelectGroup>
               <SelectLabel>{label}</SelectLabel>
-              {options.map((option, index) => (
-                <SelectItem key={index} value={option}>
-                  {option}
+              {options.map((option) => (
+                <SelectItem key={option.value} value={option.value} label={option.label}>
+                  {option.label}
                 </SelectItem>
               ))}
             </SelectGroup>

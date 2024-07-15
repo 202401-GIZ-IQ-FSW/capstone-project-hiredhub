@@ -2,14 +2,14 @@
 const express = require("express");
 const router = express.Router();
 const CategoryController = require("../controllers/categoryController/categoryController");
-const { errorHanlder } = require("../middlewares/errorHandler");
+const { errorHandler } = require("../middlewares/errorHandler");
 const { categorySchema } = require("../schema/category");
 
 // Create a new category
 router.post(
   "/category",
   categorySchema,
-  errorHanlder,
+  errorHandler,
   CategoryController.createCategory
 );
 
