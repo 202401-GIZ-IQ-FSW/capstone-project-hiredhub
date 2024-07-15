@@ -1,10 +1,26 @@
-{
-    "minEducation": [
-        "High School", 
-        "Associate", 
-        "Bachelor", 
-        "Master", 
-        "Doctorate", 
-        "None"
-    ]
-}
+[
+    {
+        "id": 1,
+        "name": "High School"
+    },
+    {
+        "id": 2,
+        "name": "Associate"
+    },
+    {
+        "id": 3,
+        "name": "Bachelor"
+    },
+    {
+        "id": 4,
+        "name": "Master"
+    },
+    {
+        "id": 5,
+        "name": "Doctorate"
+    },
+    {
+        "id": 6,
+        "name": "None"
+    }        
+]
