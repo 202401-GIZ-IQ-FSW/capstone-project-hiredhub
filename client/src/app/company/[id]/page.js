@@ -84,38 +84,38 @@ const page = async ({params}) => {
                     <h1 className="text-lg font-semibold mb-4">Contact Information</h1>
                     <p className="text-muted-foreground flex items-start text-sm mb-1">
                       <FaHouse size={20} className="mr-2" />
-                      {company.ContactInfo.address}
+                      {company.ContactInfo?.address ? company.ContactInfo.address : ""}
                     </p>
                     <p className="text-muted-foreground flex items-start text-sm mb-1">
                       <FaPhoneAlt size={20} className="mr-2" />
-                      {company.ContactInfo.phone}
+                      {company.ContactInfo?.phone}
                     </p>
 
                     <p className="text-muted-foreground flex items-start text-sm mb-1">
                       <MdOutlineMailOutline size={20} className="mr-2" />
-                      {company.ContactInfo.email}
+                      {company.ContactInfo?.email}
                     </p>
                     
                     <p className="text-muted-foreground flex items-start text-sm mb-1">
-                      <Link href={company.ContactInfo.facebook} className="flex">
+                      <Link href={company.ContactInfo?.facebook ? company.ContactInfo?.facebook : "#"} className="flex">
                         <FaFacebook size={20} className="mr-2" />
                         Facebook
                       </Link>
                     </p>
                     <p className="text-muted-foreground flex items-start text-sm mb-1">
-                      <Link href={company.ContactInfo.instagram} className="flex">
+                      <Link href={company.ContactInfo?.instagram ? company.ContactInfo?.instagram : "#"} className="flex">
                         <FaInstagram size={20} className="mr-2" />
                         Instagram
                       </Link>
                     </p>
                     <p className="text-muted-foreground flex items-start text-sm mb-1">
-                      <Link href={company.ContactInfo.linkedin} className="flex">
+                      <Link href={company.ContactInfo?.linkedin ? company.ContactInfo?.linkedin : "#"} className="flex">
                         <FaLinkedin size={20} className="mr-2" />
                         Linkedin
                       </Link>
                     </p>
                     <p className="text-muted-foreground flex items-start text-sm mb-1">
-                      <Link href={company.ContactInfo.twitter} className="flex">
+                      <Link href={company.ContactInfo?.twitter ? company.ContactInfo?.twitter : "#"} className="flex">
                         <FaXTwitter size={20} className="mr-2" />
                         Twitter
                       </Link>
@@ -154,7 +154,7 @@ const page = async ({params}) => {
                       LinkedIn
                     </p>
                     <p className="text-sm text-muted-foreground underline">
-                      <Link href={company.CEO.linkedin}>{company.CEO.linkedin}</Link>
+                      <Link href={company.CEO.linkedin ? company.CEO.linkedin :"#"}>{company.CEO.linkedin}</Link>
                     </p>
                   </div>
                 </div>
@@ -164,7 +164,7 @@ const page = async ({params}) => {
                       Twitter
                     </p>
                     <p className="text-sm text-muted-foreground underline">
-                      <Link href={company.CEO.twitter}>{company.CEO.twitter}</Link>
+                      <Link href={company.CEO.twitter ? company.CEO.twitter : "#"}>{company.CEO.twitter}</Link>
                     </p>
                   </div>
                 </div>

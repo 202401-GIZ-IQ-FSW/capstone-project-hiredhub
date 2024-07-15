@@ -9,8 +9,10 @@ import useAuth from "@/services/useAuth";
 
 function Navbar() {
   const [header, setHeader] = useState(false);
-  const { profileData, logout } = useAuth();
+  const { profileData, logout, role } = useAuth();
   const [nav, setNav] = useState(false);
+
+  const profileLink = profileData?.CEO ? `/company/${profileData._id}` : "/settings/profile";
 
   const scrollHeader = () => {
     if (window.scrollY >= 0) {
@@ -34,11 +36,6 @@ function Navbar() {
       name: "Browse jobs",
     },
     {
-      id: 3,
-      link: "company/postjob",
-      name: "Post job",
-    },
-    {
       id: 4,
       link: "about",
       name: "About us",
@@ -52,12 +49,11 @@ function Navbar() {
 
   const linksMobile = [
     ...links,
-    { id: 6, link: "login", name: "Log in" },
-    {
-      id: 7,
-      link: "signup",
-      name: "Sign up",
-    },
+    ...(role === "employer" || role === "" ? [{
+      id: 3,
+      link: "company/postjob",
+      name: "Post job",
+    }] : []),
   ];
 
   return (
@@ -81,6 +77,19 @@ function Navbar() {
       </div>
 
       <ul className="hidden md:flex">
+      {(role === "employer" || !role) && (
+          <li
+            key="3"
+            className="nav-links xl:px-6 md:px-4 sm:px-4 cursor-pointer capitalize font-lato font-medium text-gray-600 "
+          >
+            <Link
+              className="border-transparent border-b-2 pb-1 hover:border-b-gray-300  duration-200"
+              href="/company/postjob"
+            >
+              Post job
+            </Link>
+          </li>
+        )}
         {links.map(({ id, link, name }) => (
           <li
             key={id}
@@ -94,12 +103,13 @@ function Navbar() {
             </Link>
           </li>
         ))}
+        
       </ul>
 
       <div className="hidden md:flex flex-row gap-4">
         {profileData ? (
           <>
-            <Link href={"/settings/profile"}>
+            <Link href={profileLink}>
               <button
                 className="
               underline font-lato mt-2"
@@ -144,11 +154,38 @@ function Navbar() {
               key={id}
               className="px-4 cursor-pointer font-lato capitalize py-6 text-4xl"
             >
-              <Link onClick={() => setNav(!nav)} href={link}>
+              <Link onClick={() => setNav(!nav)} href={`/${link}`}>
                 {name}
               </Link>
             </li>
           ))}
+          {profileData ? (
+            <>
+              <li className="px-4 cursor-pointer font-lato capitalize py-6 text-4xl underline">
+                <Link onClick={() => setNav(!nav)} href={profileLink}>
+                  Profile
+                </Link>
+              </li>
+              <li className="px-4 cursor-pointer font-lato capitalize py-6 text-4xl">
+                <button onClick={() => { setNav(!nav); logout(); }}>
+                  Logout
+                </button>
+              </li>
+            </>
+          ) : (
+            <>
+              <li className="px-4 cursor-pointer font-lato capitalize py-6 text-4xl">
+                <Link onClick={() => setNav(!nav)} href={"/login"}>
+                  Login
+                </Link>
+              </li>
+              <li className="px-4 cursor-pointer font-lato capitalize py-6 text-4xl">
+                <Link onClick={() => setNav(!nav)} href={"/signup"}>
+                  Signup
+                </Link>
+              </li>
+            </>
+          )}
         </ul>
       )}
     </nav>
