@@ -1,10 +1,12 @@
 "use client";
 import { Formik, Form, ErrorMessage, FieldArray } from "formik";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { CiCalendar } from "react-icons/ci";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
+import { Loader2 } from "lucide-react";
 import {
   Popover,
   PopoverContent,
@@ -12,16 +14,17 @@ import {
 } from "@/components/ui/popover";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
-import categories from "@/data/categories.json";
 import jobTypes from "@/data/jobTypes.json";
 import minEducation from "@/data/minEducation.json";
 import yearsOfExperience from "@/data/yearsOfExperience.json";
-import { validationSchema } from "@/validations/validationSchema";
+import workSettings from "@/data/workSettings.json"
+import { postJobSchema } from "@/validations/validationSchema";
 import InputField from "@/components/InputField/InputField";
 import Selection from "@/components/Selection/Selection";
 import * as Yup from "yup";
 import { AiOutlinePlus } from "react-icons/ai";
 import { AiOutlineMinus } from "react-icons/ai";
+import { postJob } from "@/services/jobServices";
 
 const initialValues = {
   title: "",
@@ -44,8 +47,44 @@ const initialValues = {
   method: "",
 };
 
-function JobPostingForm() {
+function JobPostingForm({categories}) {
   const [date, setDate] = useState();
+  const [accessToken, setAccessToken] = useState("");
+  const router = useRouter()
+
+  useEffect(() => {
+    const token = localStorage.getItem("access_token");
+    if (token) {
+      setAccessToken(token);
+      console.log(token)
+    }
+  }, []);
+
+  const handleSubmit = async (values) => {
+    console.log("Form values:", values);
+    const jobData = {
+      ...values,
+      requirements: {
+        educationalLevel: values.educationalLevel,
+        yearsOfExperience: values.yearsOfExperience,
+        certifications: values.certifications,
+        skills: values.skills
+      },
+      applicationDetails: {
+        deadline: values.deadline,
+        method: values.method
+      }
+    }
+
+    try{
+      const response = await postJob(jobData, accessToken)
+      const jobId = response._id
+      router.push(`/jobs/${jobId}`)
+    }catch(err){
+      console.error("Error:", err.message);
+    }
+  }
+
   return (
     <div className="container py-10">
       <div className="text-4xl font-poppins font-semibold mb-10  place-content-center">
@@ -53,14 +92,12 @@ function JobPostingForm() {
       </div>
       <Formik
         initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={(values) => {
-          console.log("Form data: ", values);
-        }}
+        validationSchema={postJobSchema}
+        onSubmit={handleSubmit}
       >
-        {({ setFieldValue, errors, touched }) => (
+        {({ setFieldValue, errors, touched, isSubmitting }) => (
           <Form>
-            <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-6 space-x-3 pb-12 ">
+            <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-6 space-x-3 ">
               <Label
                 htmlFor="jobDetails"
                 className="lg:col-span-2 ml-3 text-xl  font-semibold mb-2"
@@ -80,7 +117,10 @@ function JobPostingForm() {
                   id="jobType"
                   name="jobType"
                   placeholder="Job Type*"
-                  options={jobTypes.jobType}
+                  options={jobTypes.map((jobType) => ({
+                    value: jobType.name,
+                    label: jobType.name,
+                  }))}
                   label="Select a Job Type"
                 />
                 {/* Work Setting */}
@@ -88,7 +128,10 @@ function JobPostingForm() {
                   id="workSetting"
                   name="workSetting"
                   placeholder="On-site/Remote*"
-                  options={["On-site", "Hybrid", "Remote"]}
+                  options={workSettings.map((workSetting) => ({
+                    value: workSetting.name,
+                    label: workSetting.name
+                  }))}
                   label="Select a Work Setting"
                 />
                 {/* Job Category */}
@@ -96,7 +139,10 @@ function JobPostingForm() {
                   id="category"
                   name="category"
                   placeholder="Job Category*"
-                  options={categories.categories}
+                  options={categories.map((category) => ({
+                    value: category._id,
+                    label: category.name,
+                  }))}
                   label="Select a Job Category"
                 />
               </div>
@@ -119,50 +165,6 @@ function JobPostingForm() {
               </div>
             </div>
             <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-6 space-y-3 space-x-3 my-5">
-              <Label htmlFor="companyInfo" className="lg:col-span-2 ml-3">
-                <h3 className="text-lg font-semibold">Company Information</h3>
-              </Label>
-              <div className="flex flex-col space-y-2">
-                {/* Company Name */}
-                <InputField
-                  id="companyName"
-                  name="name"
-                  placeholder="Company Name*"
-                  style="bg-[#F8FAFC]"
-                />
-                {/* Linkedin and Twitter */}
-                <InputField
-                  id="linkedin"
-                  name="linkedin"
-                  placeholder="Linkedin Profile"
-                  style="bg-[#F8FAFC]"
-                />
-                <InputField
-                  id="twitter"
-                  name="twitter"
-                  placeholder="Twitter Profile"
-                  style="bg-[#F8FAFC]"
-                />
-              </div>
-              <div className="flex flex-col space-y-2">
-                {/* Company Website */}
-                <InputField
-                  id="website"
-                  name="website"
-                  placeholder="Company Website"
-                  style="bg-[#F8FAFC]"
-                />
-                {/* Company Description */}
-                <InputField
-                  id="companyDescription"
-                  name="companyDescription"
-                  placeholder="Company Description"
-                  as="textarea"
-                  style="resize-none pb-[82px] bg-[#F8FAFC]"
-                />
-              </div>
-            </div>
-            <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-6 space-y-3 space-x-3 my-5">
               <Label htmlFor="jobRequirements" className="lg:col-span-2 ml-3">
                 <h3 className="text-lg font-semibold">Job Requirements</h3>
               </Label>
@@ -172,7 +174,10 @@ function JobPostingForm() {
                   id="educationalLevel"
                   name="educationalLevel"
                   placeholder="Minimum Educational Requirement"
-                  options={minEducation.minEducation}
+                  options={minEducation.map((education) => ({
+                    value: education.name,
+                    label: education.name
+                  }))}
                   label="Select a Minimum Educational Requirement"
                 />
                 {/* Years of Experience */}
@@ -180,7 +185,10 @@ function JobPostingForm() {
                   id="yearsOfExperience"
                   name="yearsOfExperience"
                   placeholder="Years of Experience"
-                  options={yearsOfExperience.yearsOfExperience}
+                  options={yearsOfExperience.map((years) => ({
+                    value: years.years,
+                    label: years.years
+                  }))}
                   label="Select required Years of Experience"
                 />
               </div>
@@ -337,8 +345,14 @@ function JobPostingForm() {
             <Button
               className="ml-3 bg-[#263238] hover:bg-[#3f4f56] px-8 mb-10 w-[150px] font-lato font-semibold "
               type="submit"
-            >
-              Post Job
+            >{isSubmitting ? (
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                Please wait
+              </>
+            ) : (
+              "Post Job"
+            )}
             </Button>
           </Form>
         )}
