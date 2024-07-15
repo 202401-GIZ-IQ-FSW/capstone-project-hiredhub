@@ -21,7 +21,7 @@ const jobSchema = new Schema(
       required: true,
     },
     jobType: {
-      type: [String],
+      type: String,
       enum: [
         "Full-Time",
         "Part-Time",
@@ -33,7 +33,7 @@ const jobSchema = new Schema(
       required: true,
     },
     workSetting: {
-      type: [String],
+      type: String,
       enum: [
         "On-site",
         "Hybrid",
