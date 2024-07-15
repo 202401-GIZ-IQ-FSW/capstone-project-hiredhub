@@ -1,60 +1,44 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Link from "next/link";
 import {
   Card,
   CardContent,
+  CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  FaHouse,
-  FaLinkedin,
-  FaFacebook,
-  FaInstagram,
-  FaXTwitter,
-  FaPhoneAlt,
-} from "react-icons/fa";
+import Image from "next/image";
+import { FaHouse } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa6";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaPhoneAlt } from "react-icons/fa";
 import { MdOutlineMailOutline } from "react-icons/md";
+import { useState, useEffect } from "react";
 
 const backendURL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
-const Page = ({ params }) => {
-  const [company, setCompany] = useState(null);
-  const [error, setError] = useState(null);
+const page = ({ params }) => {
+  const [company, setCompany] = useState("");
 
   const getCompanyById = async (companyId) => {
-    try {
-      const response = await fetch(`${backendURL}/companies/${companyId}`, {
-        method: "GET",
-      });
+    const response = await fetch(`${backendURL}/companies/${companyId}`, {
+      method: "GET",
+    });
 
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-
-      const data = await response.json();
-      setCompany(data);
-    } catch (error) {
-      console.error("Error fetching company data:", error);
-      setError(error);
-    }
+    const data = await response.json();
+    console.log(data);
+    return setCompany(data);
   };
 
   useEffect(() => {
     if (params.id) {
       getCompanyById(params.id);
     }
-  }, [params.id]);
-
-  if (error) {
-    return <div>Error loading company information.</div>;
-  }
-
-  if (!company) {
-    return <div>Loading...</div>;
-  }
+  }, []);
 
   return (
     <div>
@@ -62,9 +46,19 @@ const Page = ({ params }) => {
         <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
           <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
             <Card x-chunk="dashboard-01-chunk-0" className="col-span-4">
-              <CardHeader className="flex flex-row items-center py-20 justify-between space-y-0 pb-2 bg-gradient-to-r from-[#40A578] to-[#006769]">
-                <CardTitle className="flex text-sm font-medium -mb-10 w-20 h-20">
+              <CardHeader className="flex flex-row items-center py-20 justify-between space-y-0 pb-2 bg-gradient-to-r from-[#40A578]  to-[#006769]">
+                <CardTitle className="flex text-sm font-medium  -mb-10 w-20 h-20">
                   <div className="flex justify-center items-center w-full">
+                    {/* {company?.logo !== undefined ? (
+                      <img
+                        src={company?.logo}
+                        alt={company?.name}
+                        width={80}
+                        height={80}
+                      />
+                    ) : (
+                      <img src={"/logo-tech.png"} className='' alt='logo' />
+                    )} */}
                     <img src={"/logo-tech.png"} className="" alt="logo" />
                   </div>
                 </CardTitle>
@@ -78,6 +72,7 @@ const Page = ({ params }) => {
                     {company?.location} |{" "}
                     {company?.website && (
                       <Link href={company?.website} className="underline">
+                        {" "}
                         {company?.website}
                       </Link>
                     )}
@@ -134,8 +129,8 @@ const Page = ({ params }) => {
                     {company?.ContactInfo?.email}
                   </p>
 
-                  {company?.ContactInfo?.facebook && (
-                    <p className="text-muted-foreground flex items-start text-sm mb-1">
+                  <p className="text-muted-foreground flex items-start text-sm mb-1">
+                    {company?.ContactInfo?.facebook && (
                       <Link
                         href={company?.ContactInfo?.facebook}
                         className="flex"
@@ -143,11 +138,10 @@ const Page = ({ params }) => {
                         <FaFacebook size={20} className="mr-2" />
                         Facebook
                       </Link>
-                    </p>
-                  )}
-
-                  {company?.ContactInfo?.instagram && (
-                    <p className="text-muted-foreground flex items-start text-sm mb-1">
+                    )}
+                  </p>
+                  <p className="text-muted-foreground flex items-start text-sm mb-1">
+                    {company?.ContactInfo?.instagram && (
                       <Link
                         href={company?.ContactInfo?.instagram}
                         className="flex"
@@ -155,23 +149,21 @@ const Page = ({ params }) => {
                         <FaInstagram size={20} className="mr-2" />
                         Instagram
                       </Link>
-                    </p>
-                  )}
-
-                  {company?.ContactInfo?.linkedin && (
-                    <p className="text-muted-foreground flex items-start text-sm mb-1">
+                    )}
+                  </p>
+                  <p className="text-muted-foreground flex items-start text-sm mb-1">
+                    {company?.ContactInfo?.linkedin && (
                       <Link
                         href={company?.ContactInfo?.linkedin}
                         className="flex"
                       >
                         <FaLinkedin size={20} className="mr-2" />
-                        LinkedIn
+                        Linkedin
                       </Link>
-                    </p>
-                  )}
-
-                  {company?.ContactInfo?.twitter && (
-                    <p className="text-muted-foreground flex items-start text-sm mb-1">
+                    )}
+                  </p>
+                  <p className="text-muted-foreground flex items-start text-sm mb-1">
+                    {company?.ContactInfo?.twitter && (
                       <Link
                         href={company?.ContactInfo?.twitter}
                         className="flex"
@@ -179,8 +171,8 @@ const Page = ({ params }) => {
                         <FaXTwitter size={20} className="mr-2" />
                         Twitter
                       </Link>
-                    </p>
-                  )}
+                    )}
+                  </p>
                 </div>
               </CardContent>
             </Card>
@@ -238,4 +230,4 @@ const Page = ({ params }) => {
   );
 };
 
-export default Page;
+export default page;
