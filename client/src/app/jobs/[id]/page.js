@@ -1,4 +1,5 @@
 
+import Details from "@/components/Details/Details";
 import JobDetails from "@/components/JobDetails/JobDetails";
 
 export default async function JobDetailsPage({ params }) {
@@ -9,9 +10,8 @@ export default async function JobDetailsPage({ params }) {
 
   return (
     <div className="p-5 pb-20 overflow-hidden bg-[#F5F7F8]">
-      <JobDetails data={data} />
+      <Details data={data} />
     </div>
-
   );
 
 }
