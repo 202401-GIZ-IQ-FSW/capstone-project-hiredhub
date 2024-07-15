@@ -161,9 +161,50 @@
  *     requestBody:
  *       required: true
  *       content:
- *         application/json:
+ *         multipart/form-data:
  *           schema:
- *             $ref: '#/components/schemas/Company'
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 description: The name of the company
+ *               website:
+ *                 type: string
+ *                 description: The company's website URL
+ *               description:
+ *                 type: string
+ *                 description: A brief description of the company
+ *               logo:
+ *                 type: string
+ *                 format: binary
+ *                 description: The company's logo
+ *               location:
+ *                 type: string
+ *                 description: The location of the company
+ *               history:
+ *                 type: string
+ *                 description: A brief history of the company
+ *               mission:
+ *                 type: string
+ *                 description: The company's mission statement
+ *               values:
+ *                 type: string
+ *                 description: Comma separated core values of the company
+ *               userId:
+ *                 type: string
+ *                 description: ID of the user who created the company entry
+ *               ceoName:
+ *                 type: string
+ *                 description: Name of the CEO
+ *               ceoBio:
+ *                 type: string
+ *                 description: A brief biography of the CEO
+ *               ceoLinkedin:
+ *                 type: string
+ *                 description: LinkedIn profile URL of the CEO
+ *               ceoTwitter:
+ *                 type: string
+ *                 description: Twitter handle of the CEO
  *     responses:
  *       201:
  *         description: The company was successfully created
@@ -210,9 +251,50 @@
  *     requestBody:
  *       required: true
  *       content:
- *         application/json:
+ *         multipart/form-data:
  *           schema:
- *             $ref: '#/components/schemas/Company'
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 description: The name of the company
+ *               website:
+ *                 type: string
+ *                 description: The company's website URL
+ *               description:
+ *                 type: string
+ *                 description: A brief description of the company
+ *               logo:
+ *                 type: string
+ *                 format: binary
+ *                 description: The company's logo
+ *               location:
+ *                 type: string
+ *                 description: The location of the company
+ *               history:
+ *                 type: string
+ *                 description: A brief history of the company
+ *               mission:
+ *                 type: string
+ *                 description: The company's mission statement
+ *               values:
+ *                 type: string
+ *                 description: Comma separated core values of the company
+ *               userId:
+ *                 type: string
+ *                 description: ID of the user who created the company entry
+ *               ceoName:
+ *                 type: string
+ *                 description: Name of the CEO
+ *               ceoBio:
+ *                 type: string
+ *                 description: A brief biography of the CEO
+ *               ceoLinkedin:
+ *                 type: string
+ *                 description: LinkedIn profile URL of the CEO
+ *               ceoTwitter:
+ *                 type: string
+ *                 description: Twitter handle of the CEO
  *     responses:
  *       200:
  *         description: The company was successfully updated
@@ -251,4 +333,48 @@
  *         description: Company not found
  *       500:
  *         description: Some server error
+ */
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Company:
+ *       type: object
+ *       properties:
+ *         CEO:
+ *           type: object
+ *           properties:
+ *             name:
+ *               type: string
+ *             bio:
+ *               type: string
+ *             linkedin:
+ *               type: string
+ *             twitter:
+ *               type: string
+ *         _id:
+ *           type: string
+ *         name:
+ *           type: string
+ *         website:
+ *           type: string
+ *         description:
+ *           type: string
+ *         logo:
+ *           type: string
+ *         location:
+ *           type: string
+ *         history:
+ *           type: string
+ *         mission:
+ *           type: string
+ *         values:
+ *           type: array
+ *           items:
+ *             type: string
+ *         userId:
+ *           type: string
+ *         __v:
+ *           type: integer
  */

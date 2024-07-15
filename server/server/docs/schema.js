@@ -1,3 +1,47 @@
+const { body } = require('express-validator');
+
+const companySchema = [
+  body('name')
+    .notEmpty()
+    .withMessage('Name cannot be empty')
+    .isLength({ min: 3 })
+    .withMessage('Minimum length is 3 characters'),
+  body('website')
+    .notEmpty()
+    .withMessage('Website cannot be empty')
+    .isURL()
+    .withMessage('Website must be a valid URL'),
+  body('description')
+    .notEmpty()
+    .withMessage('Description cannot be empty')
+    .isLength({ min: 10 })
+    .withMessage('Minimum length is 10 characters'),
+  body('location')
+    .optional(),
+  body('history')
+    .optional(),
+  body('mission')
+    .optional(),
+  body('values')
+    .optional()
+    .isArray()
+    .withMessage('Values must be an array of strings'),
+  body('CEO.name')
+    .optional(),
+  body('CEO.bio')
+    .optional(),
+  body('CEO.linkedin')
+    .optional()
+    .isURL()
+    .withMessage('LinkedIn must be a valid URL'),
+  body('CEO.twitter')
+    .optional()
+    .isURL()
+    .withMessage('Twitter must be a valid URL'),
+];
+
+module.exports = { companySchema };
+
 /**
  * @swagger
  * components:
