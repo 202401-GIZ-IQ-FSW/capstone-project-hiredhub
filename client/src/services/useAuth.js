@@ -25,7 +25,7 @@ const useAuth = () => {
       if (res.ok) {
         const data = await res.json();
         setProfileData(data);
-        router.push("/");
+        if( pathname == "/login") {router.push("/")};
       } else if (!res.ok) {
         console.error("Error fetching profile data:", res.statusText);
         localStorage.clear();
