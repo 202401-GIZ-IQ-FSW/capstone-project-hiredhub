@@ -11,7 +11,6 @@ function Navbar() {
   const [header, setHeader] = useState(false);
   const { profileData, logout } = useAuth();
   const [nav, setNav] = useState(false);
-  console.log(profileData);
 
   const scrollHeader = () => {
     if (window.scrollY >= 0) {
