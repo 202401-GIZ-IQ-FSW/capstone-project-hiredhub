@@ -1,12 +1,15 @@
 "use client"
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation'
 
 const useAuth = () => {
   const [profileData, setProfileData] = useState(null);
   const [accessToken, setAccessToken] = useState("");
   const [role , setRole] = useState("");
   const router = useRouter();
+  const pathname = usePathname()
+
 
   const fetchProfileData = async (token) => {
     try {
@@ -49,7 +52,6 @@ const useAuth = () => {
       if (res.ok) {
         const data = await res.json();
         const myCompany = data.filter((company)=> company.userId == userid);
-        console.log(myCompany)
         fetchCompanyDetails(token,myCompany[0]._id)
       } else if (!res.ok) {
         console.error("Error fetching profile data:", res.statusText);
@@ -80,7 +82,7 @@ const useAuth = () => {
         const data = await res.json();
         localStorage.setItem("company_id", data._id)
         setProfileData(data);
-        router.push("/");
+      if( pathname == "/login") {router.push("/")};
       } else if (!res.ok) {
         console.error("Error fetching profile data:", res.statusText);
         localStorage.clear();
