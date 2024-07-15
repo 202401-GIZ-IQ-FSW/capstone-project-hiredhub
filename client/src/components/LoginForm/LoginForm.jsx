@@ -23,6 +23,9 @@ const initialValues = {
   email: "",
   password: "",
 };
+const handleReload = () => {
+  window.location.reload();
+};
 
 const LoginForm = () => {
   const { toast } = useToast();
@@ -31,8 +34,10 @@ const LoginForm = () => {
     try {
       const response = await login({ ...values });
       localStorage.setItem("access_token", response.access_token);
-      router.push('/')
-      resetForm();
+      localStorage.setItem("role", response.user.role);
+      localStorage.setItem("id", response.user.id);
+      router.push('/', undefined, { reload: true });
+      handleReload();
     } catch (err) {
       console.error("Error signing up:", err.message);
       toast({

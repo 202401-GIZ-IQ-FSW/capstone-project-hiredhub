@@ -35,10 +35,10 @@ const BrowseJob = ({ data }) => {
       );
     }
     if (category) {
-      filtered = filtered.filter((job) => job.category === category);
+      filtered = filtered.filter((job) => job.category.toLowerCase() === category.toLocaleLowerCase());
     }
     if (location) {
-      filtered = filtered.filter((job) => job.location === location);
+      filtered = filtered.filter((job) => job.location.toLowerCase() === location.toLocaleLowerCase());
     }
 
     if (jobType) {
