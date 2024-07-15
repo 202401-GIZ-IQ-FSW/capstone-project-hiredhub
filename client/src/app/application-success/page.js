@@ -17,7 +17,7 @@ export default function ApplicationSuccess() {
         </svg>
         <div className="text-center">
           <h3 className="md:text-3xl text-base text-gray-900 font-semibold text-center font-poppins">
-            Application successfull
+            Application successfull!
           </h3>
           <p className="text-gray-600 my-2 text-xl font-poppins">
             Thank you for applying.
