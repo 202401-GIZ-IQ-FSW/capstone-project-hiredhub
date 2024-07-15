@@ -2,20 +2,17 @@
 
 import React from "react";
 import Link from "next/link";
+
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import Image from "next/image";
-import { FaHouse } from "react-icons/fa6";
-import { FaLinkedin } from "react-icons/fa";
-import { FaFacebook } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa6";
-import { FaXTwitter } from "react-icons/fa6";
-import { FaPhoneAlt } from "react-icons/fa";
+  FaHouse,
+  FaLinkedin,
+  FaFacebook,
+  FaInstagram,
+  FaXTwitter,
+  FaPhoneAlt,
+} from "react-icons/fa";
+
 import { MdOutlineMailOutline } from "react-icons/md";
 import { useState, useEffect } from "react";
 
