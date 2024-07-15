@@ -14,7 +14,7 @@ const SavedJobs = ({ jobs, token }) => {
   const fetchJobDetails = async () => {
     try {
       const jobData = await Promise.all(
-        [jobs].map(async (id) => {
+        jobs.map(async (id) => {
           const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/jobs/${id}`, {
             headers: {
               'Authorization': `Bearer ${token}`,
