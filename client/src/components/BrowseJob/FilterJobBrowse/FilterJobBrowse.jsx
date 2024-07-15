@@ -31,24 +31,7 @@ export const FilterJobBrowse = () => {
     router.push(`${pathname}?${params.toString()}`);
   }, [category, jobType, education, experience]);
 
-  const handleReset = () => {
-    setCategory("");
-    setJobType("");
-    setEducation("");
-    setExperience("");
-
-    const params = new URLSearchParams(searchParams);
-    params.delete("category");
-    params.delete("jobType");
-    params.delete("educationLevel");
-    params.delete("yearsOfExp");
-    params.delete("title");
-    params.delete("location");
-
-
-    router.push(`${pathname}?${params.toString()}`);
-  };
-
+  
   const jobCategories = [
     "Software Development",
     "Web Development",
@@ -143,7 +126,7 @@ export const FilterJobBrowse = () => {
               </SelectContent>
             </Select>
             {/*  */}
-            <Button onClick={handleReset} variant="outline">Reset</Button>
+            <Button onClick={()=> router.push("/browsejobs")} variant="outline">Reset</Button>
           </div>
         </div>
       </div>
