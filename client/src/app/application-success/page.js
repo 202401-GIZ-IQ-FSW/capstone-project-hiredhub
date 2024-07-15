@@ -24,7 +24,7 @@ export default function ApplicationSuccess() {
           </p>
 
           <div className="py-10 text-center">
-            <Link href={"/search"}>
+            <Link href={"/"}>
               <Button className="bg-[#263238] hover:bg-[#3f4f56] font-lato w-[200px]">
                 Go back
               </Button>
