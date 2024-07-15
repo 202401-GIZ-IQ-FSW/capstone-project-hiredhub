@@ -9,7 +9,7 @@ Welcome to the Capstone Full-Stack Template! This repository is a starting point
 - **Development Environment**: Fully dockerized environment for both frontend and backend, ensuring consistency across different setups.
 
 ## Prerequisites
-
+ 
 Before you begin, ensure you have the following installed on your system:
 - Docker and Docker Compose
 - Node.js (recommended: the latest LTS version)
