@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 
 import { useParams } from "next/navigation";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function ({ data }) {
   const params = useParams();
@@ -15,37 +16,26 @@ export default function ({ data }) {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    const application = {
-      jobId: params.id,
-    };
-
-    const res = await fetch("/api/applications", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(application),
-    });
-
-    if (res.ok) {
-      router.push("/application-success");
-    } else {
-      alert("Failed to submit application.");
-    }
+    router.push("/application-success");
   }
 
   let margin = "";
   if (data.description.length < 200) margin = "mb-24";
 
   return (
-    <div className={`flex flex-row min-h-0.5 w-screen  relative  px-20 ${margin}`}>
+    <div
+      className={`flex flex-row min-h-0.5 w-screen  relative  px-20 ${margin}`}
+    >
       <div className="xl:w-[700px] w-[300px] md:w-[600px] min-w-0.5 grid grid-col gap-5 items-center justify-center p-8">
         <div className="flex flex-row justify-between gap-10">
           <div className="flex flex-col gap-3">
             <div className="text-2xl font-poppins">{data.title}</div>
 
-            <div className="text-xl flex gap-2 font-lato">
-              <div>{data.companyId.name}</div> <Dot />
+            <div className="text-xl flex gap-2 font-lato text-gray-700">
+              <a href={`/company/${data.companyId._id}`}>
+                <div>{data.companyId.name} </div>
+              </a>
+              <Dot />
               <div className="flex flex-row text-gray-600">
                 <MapPin size={20} />
                 {data.location}
