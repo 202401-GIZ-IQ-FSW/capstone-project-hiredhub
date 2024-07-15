@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const categoryEnum = [
   "Software Development",
+  "Software Engineering",
   "Web Development",
   "Data Science",
   "Accounting",
