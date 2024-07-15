@@ -9,7 +9,7 @@ const JobCard = ({ job }) => {
 
     <div className="relative bg-[#263238] text-white flex flex-col px-5 m-4 py-5 rounded-xl">
       <div className="mb-3">
-        <h3 className="font-bold text-xl">{job.title}</h3>
+        <h3 className="font-bold text-xl"><Link className="hover:underline" href={`/jobs/${job._id}`}>{job.title}</Link></h3>
         <span className="font-light text-sm">{job.location}</span>
 
       </div>
