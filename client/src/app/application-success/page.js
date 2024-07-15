@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function ApplicationSuccess() {
   return (
-    <div className="bg-gray-100 h-screen flex items-center justify-center">
-      <div className="bg-white p-6 md:mx-auto">
+    <div className=" h-screen flex items-center justify-center">
+      <div className=" p-6 md:mx-auto">
         <svg
           viewBox="0 0 24 24"
           className="text-green-600 w-16 h-16 mx-auto my-6"
@@ -15,13 +16,15 @@ export default function ApplicationSuccess() {
           ></path>
         </svg>
         <div className="text-center">
-          <h3 className="md:text-2xl text-base text-gray-900 font-semibold text-center">
-            Application successfull
+          <h3 className="md:text-3xl text-base text-gray-900 font-semibold text-center font-poppins">
+            Application successfull!
           </h3>
-          <p className="text-gray-600 my-2">Thank you for applying.</p>
-          <p> Have a great day! </p>
+          <p className="text-gray-600 my-2 text-xl font-poppins">
+            Thank you for applying.
+          </p>
+
           <div className="py-10 text-center">
-            <Link href={"/search"}>
+            <Link href={"/"}>
               <Button className="bg-[#263238] hover:bg-[#3f4f56] font-lato w-[200px]">
                 Go back
               </Button>
