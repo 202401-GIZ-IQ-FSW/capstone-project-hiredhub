@@ -19,11 +19,11 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: `${baseURL}/api`,
+        url: `${baseURL}api`,
       },
     ],
   },
-  apis: ["./../docs/*.js"],
+  apis: ["./server/docs/*.js"],
 };
 
 module.exports = swaggerOptions;
