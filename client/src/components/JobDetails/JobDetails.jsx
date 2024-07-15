@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 
 import { useParams } from "next/navigation";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function ({ data }) {
   const params = useParams();
@@ -30,8 +31,11 @@ export default function ({ data }) {
           <div className="flex flex-col gap-3">
             <div className="text-2xl font-poppins">{data.title}</div>
 
-            <div className="text-xl flex gap-2 font-lato">
-              <div>{data.companyId.name}</div> <Dot />
+            <div className="text-xl flex gap-2 font-lato text-gray-700">
+              <a href={`/company/${data.companyId._id}`}>
+                <div>{data.companyId.name} </div>
+              </a>
+              <Dot />
               <div className="flex flex-row text-gray-600">
                 <MapPin size={20} />
                 {data.location}
